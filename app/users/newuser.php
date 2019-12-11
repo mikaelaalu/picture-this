@@ -11,6 +11,32 @@ if (isset($_POST['name'], $_POST['email'], $_POST['password'])) {
     $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
     $hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
+
+    // Checks if email exists in database
+
+    $emailStatement = $pdo->prepare('SELECT * FROM users WHERE email = :email');
+
+    $emailStatement->execute([
+        ':email' => $email,
+    ]);
+
+    $emailExist = $emailStatement->fetch(PDO::FETCH_ASSOC);
+
+    if (!$emailStatement) {
+        die(var_dump($pdo->errorInfo()));
+    }
+
+    //If email exist
+    if ($emailExist) {
+        $errors = [];
+
+        array_push($errors, "Email is already taken");
+        redirect('/');
+    }
+
+
+    // Insert into database
+
     $query = 'INSERT INTO users (name, email, password) VALUES (:name, :email, :password)';
 
     $statement = $pdo->prepare($query);
@@ -25,9 +51,5 @@ if (isset($_POST['name'], $_POST['email'], $_POST['password'])) {
         die(var_dump($pdo->errorInfo()));
     }
 }
-
-
-
-
 //Redirect to index 
 redirect('/');
