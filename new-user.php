@@ -1,16 +1,20 @@
-<?php require __DIR__ . '/views/header.php'; ?>
+<?php require __DIR__ . '/views/header.php';
+//Check for error  
 
-<?php if (isset($_SESSION['errors'])) : ?>
-    <?php foreach ($_SESSION['errors'] as $error) : ?>
-        <?php echo $error;
-                session_destroy(); ?>
-    <?php endforeach; ?>
-<?php endif; ?>
+
+if (isset($_SESSION['errors'])) {
+
+    foreach ($_SESSION['errors'] as $error) {
+        echo $error;
+        unset($_SESSION['errors']);
+    }
+}
+?>
 
 <article>
     <h1>Create new account</h1>
 
-    <form action="/../app/users/newuser.php" method="post">
+    <form action="app/users/new-user.php" method="post">
         <div>
             <label for="name">Name</label>
             <input type="name" name="name" placeholder="Enter you name" required>

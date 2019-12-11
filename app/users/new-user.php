@@ -31,24 +31,18 @@ if (isset($_POST['name'], $_POST['email'], $_POST['password'])) {
 
         $_SESSION['errors'] = ["Email is already taken"];
 
-
-
-
-        redirect('/newuser.php');
+        redirect('/new-user.php');
     }
 
 
     // Insert into database
+    $statement = $pdo->prepare('INSERT INTO users (name, email, password) VALUES (:name, :email, :password)');
 
-    $query = 'INSERT INTO users (name, email, password) VALUES (:name, :email, :password)';
-
-    $statement = $pdo->prepare($query);
-
-    $statement->bindParam(':name', $name, PDO::PARAM_STR);
-    $statement->bindParam(':email', $email);
-    $statement->bindParam(':password', $hashedPassword);
-
-    $statement->execute();
+    $statement->execute([
+        ':name' => $name,
+        ':email' => $email,
+        ':password' => $hashedPassword,
+    ]);
 
     if (!$statement) {
         die(var_dump($pdo->errorInfo()));

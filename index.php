@@ -9,7 +9,6 @@
             echo "Welcome " . $user['name']; ?>
     <?php endif; ?>
 
-    <!-- Check for error  -->
 
 
 
