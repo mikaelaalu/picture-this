@@ -6,16 +6,14 @@
 
     <?php if (isset($_SESSION['user'])) : ?>
         <?php $user = $_SESSION['user'];
-            echo "Welcome " . $user['name'];
-
-            ?>
-
-        <!-- Check for error  -->
-        <?php foreach ($errors as $error) : ?>
-            <?php echo $error; ?>
-        <?php endforeach; ?>
-
+            echo "Welcome " . $user['name']; ?>
     <?php endif; ?>
+
+    <!-- Check for error  -->
+
+
+
+
 </article>
 
 <?php require __DIR__ . '/views/footer.php'; ?>

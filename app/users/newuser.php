@@ -28,10 +28,13 @@ if (isset($_POST['name'], $_POST['email'], $_POST['password'])) {
 
     //If email exist
     if ($emailExist) {
-        $errors = [];
 
-        array_push($errors, "Email is already taken");
-        redirect('/');
+        $_SESSION['errors'] = ["Email is already taken"];
+
+
+
+
+        redirect('/newuser.php');
     }
 
 

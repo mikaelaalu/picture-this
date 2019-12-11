@@ -1,5 +1,12 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 
+<?php if (isset($_SESSION['errors'])) : ?>
+    <?php foreach ($_SESSION['errors'] as $error) : ?>
+        <?php echo $error;
+                session_destroy(); ?>
+    <?php endforeach; ?>
+<?php endif; ?>
+
 <article>
     <h1>Create new account</h1>
 
