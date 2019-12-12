@@ -5,12 +5,13 @@ declare(strict_types=1);
 require __DIR__ . '/../autoload.php';
 
 
-if (isset($_POST['email'])) {
+if (isset($_POST['email'], $_POST['biography'])) {
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
+    $biography = filter_var($_POST['biography'], FILTER_SANITIZE_STRING);
     $id = $_SESSION['user']['id'];
 
     $query = 'UPDATE users
-    SET email = :email WHERE id = :id';
+    SET email = :email, biography = :biography WHERE id = :id';
 
     $statement = $pdo->prepare($query);
 
@@ -20,7 +21,8 @@ if (isset($_POST['email'])) {
 
     $statement->execute([
         ':email' => $email,
-        ':id' => $id
+        ':id' => $id,
+        ':biography' => $biography
 
     ]);
 }
