@@ -2,11 +2,11 @@
 //Check for error  
 
 
-if (isset($_SESSION['errors'])) {
+if (isset($_SESSION['error'])) {
 
-    foreach ($_SESSION['errors'] as $error) {
+    foreach ($_SESSION['error'] as $error) {
         echo $error;
-        unset($_SESSION['errors']);
+        unset($_SESSION['error']);
     }
 }
 ?>

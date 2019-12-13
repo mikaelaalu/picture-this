@@ -10,6 +10,8 @@ if (!isset($_SESSION['user'])) {
 
 <?php echo $_SESSION['user']['name']; ?>
 
+
+
 <a href="edit-profile.php"> <button>Edit Profile</button> </a>
 
 <?php require __DIR__ . '/views/footer.php'; ?>

@@ -23,8 +23,18 @@ if (!isset($_SESSION['user'])) {
 <?php $getUser = getUser($_SESSION['user']['id']); ?>
 
 <article>
+    <h2>Edit your profile</h2>
+
+    <form action="app/users/upload-avatar.php" method="post" enctype="multipart/form-data">
+        <div>
+            <label for="avatar">Choose avatar images to upload</label>
+            <input type="file" name="avatar" id="avatar" accept=".jpg, .jpeg, .png" required>
+        </div>
+
+        <button type="submit">Upload image</button>
+    </form>
+
     <form action="app/users/edit-profile.php" method="post">
-        <h2>Edit your profile</h2>
         <div>
             <label for="biography">Biography</label>
             <textarea type="text" name="biography" required><?php echo $getUser['biography']; ?></textarea>
