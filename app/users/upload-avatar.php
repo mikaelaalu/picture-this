@@ -24,10 +24,21 @@ if (isset($_FILES['avatar'])) {
                 $newFileName = uniqid('', true) . '.' . $fileActualExt;
                 $fileDestination = '../../uploads/' . $newFileName;
                 move_uploaded_file($tmpName, $fileDestination);
+                $id = $_SESSION['user']['id'];
 
 
                 $_SESSION['message'] = ['The image was uploaded!'];
-                header("Location: /edit-profile.php");
+                // Insert into database
+                $statement = $pdo->prepare('UPDATE users set avatar_name = :avatar_name WHERE id = :id');
+
+                $statement->execute([
+                    ':avatar_name' => $newFileName,
+                    ':id' =>  $id
+                ]);
+
+                if (!$statement) {
+                    die(var_dump($pdo->errorInfo()));
+                }
             } else {
                 $_SESSION['error'] = ['The image is too big!'];
             }
