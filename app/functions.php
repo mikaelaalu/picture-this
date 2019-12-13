@@ -16,3 +16,32 @@ if (!function_exists('redirect')) {
         exit;
     }
 }
+
+
+/**
+ * Get a user from database to frontend
+ *
+ * @param string $bdPath
+ * @param integer $userId
+ * @return array
+ */
+function getUser(int $userId, string $dbPath = 'sqlite:app/database/database.db'): array
+{
+    $pdo = new PDO($dbPath);
+    $query = 'SELECT *
+    FROM users WHERE id = :id';
+
+    $statement = $pdo->prepare($query);
+
+    if (!$statement) {
+        die(var_dump($pdo->errorInfo()));
+    }
+
+    $statement->execute([
+        ':id' => $userId
+    ]);
+
+    $user = $statement->fetch(PDO::FETCH_ASSOC);
+
+    return $user;
+}

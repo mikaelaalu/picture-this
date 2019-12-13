@@ -19,19 +19,20 @@ if (!isset($_SESSION['user'])) {
     <?php endforeach; ?>
 <?php endif; ?>
 
-
+<!-- Get the user from the database to frontend -->
+<?php $getUser = getUser($_SESSION['user']['id']); ?>
 
 <article>
     <form action="app/users/edit-profile.php" method="post">
         <h2>Edit your profile</h2>
         <div>
             <label for="biography">Biography</label>
-            <textarea type="text" name="biography" required><?php echo $_SESSION['user']['biography']; ?></textarea>
+            <textarea type="text" name="biography" required><?php echo $getUser['biography']; ?></textarea>
             <small>Please provide the your biography.</small>
         </div>
         <div>
             <label for="email">Email</label>
-            <input type="email" name="email" value="<?php echo $_SESSION['user']['email']; ?>" required>
+            <input type="email" name="email" value="<?php echo $getUser['email'] ?>" required>
             <small>Please provide the your email.</small>
         </div>
         <button type="submit"> Change</button>
