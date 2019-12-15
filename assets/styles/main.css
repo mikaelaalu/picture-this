@@ -1,7 +1,10 @@
 /* In this file you can add your custom styles. */
+* {
+  font-family: "Poppins", sans-serif;
+}
 .avatar {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
 }
 
 button {
