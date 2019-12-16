@@ -3,25 +3,35 @@
 if (!isset($_SESSION['user'])) {
     redirect('/');
 }
+
+if (isset($_SESSION['message'])) {
+    foreach ($_SESSION['message'] as $message) {
+        echo $message;
+    }
+    unset($_SESSION['message']);
+}
+
+if (isset($_SESSION['error'])) {
+    foreach ($_SESSION['error'] as $message) {
+        echo $message;
+    }
+    unset($_SESSION['error']);
+}
+
+$getUser = getUser($_SESSION['user']['id']);
+$avatar = $getUser['avatar_name'];
 ?>
 
-<?php if (isset($_SESSION['message'])) : ?>
-    <?php foreach ($_SESSION['message'] as $message) : ?>
-        <h4> <?php echo $message; ?></h4>
-        <?php unset($_SESSION['message']) ?>
-    <?php endforeach; ?>
-<?php endif; ?>
 
-<?php if (isset($_SESSION['error'])) : ?>
-    <?php foreach ($_SESSION['error'] as $message) : ?>
-        <h4> <?php echo $message; ?></h4>
-        <?php unset($_SESSION['error']) ?>
-    <?php endforeach; ?>
-<?php endif; ?>
+
+
 
 <!-- Get the user from the database to frontend -->
 <?php $getUser = getUser($_SESSION['user']['id']); ?>
 
+<?php echo $_SESSION['user']['name']; ?>
+
+<img class="avatar" src="<?php echo "uploads/" . $avatar  ?>" alt="avatar">
 <article>
     <h2>Edit your profile</h2>
 

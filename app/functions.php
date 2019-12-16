@@ -48,7 +48,7 @@ function getUser(int $userId, string $dbPath = 'sqlite:app/database/database.db'
 
 
 /**
- * Get a post from database to frontend
+ * Gets all posts from database to frontend by session id
  *
  * @param string $bdPath
  * @param integer $userId
@@ -68,6 +68,34 @@ function getPost(int $userId, string $dbPath = 'sqlite:app/database/database.db'
 
     $statement->execute([
         ':id' => $userId
+    ]);
+
+    $post = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $post;
+}
+
+/**
+ * Gets one post from database to frontend, with id from database
+ *
+ * @param string $bdPath
+ * @param integer $postId
+ * @return array
+ */
+function editPost(int $postId, string $dbPath = 'sqlite:app/database/database.db'): array
+{
+    $pdo = new PDO($dbPath);
+    $query = 'SELECT *
+    FROM posts WHERE id = :id';
+
+    $statement = $pdo->prepare($query);
+
+    if (!$statement) {
+        die(var_dump($pdo->errorInfo()));
+    }
+
+    $statement->execute([
+        ':id' => $postId
     ]);
 
     $post = $statement->fetchAll(PDO::FETCH_ASSOC);

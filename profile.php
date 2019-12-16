@@ -8,9 +8,7 @@ $getUser = getUser($_SESSION['user']['id']);
 $avatar = $getUser['avatar_name'];
 $biography = $getUser['biography'];
 
-
 $getPost = getPost($_SESSION['user']['id']);
-
 ?>
 
 <a href="new-post.php"> <button>New post</button></a>
@@ -19,17 +17,17 @@ $getPost = getPost($_SESSION['user']['id']);
 
 <?php echo $_SESSION['user']['name']; ?>
 
-<img class="avatar" src="<?php echo "uploads/" . $avatar  ?>" alt="hello">
+<img class="avatar" src="<?php echo "uploads/" . $avatar ?>" alt="hello">
 
 <p> <?php echo $biography  ?> </p>
 
 
 <?php foreach ($getPost as $post) : ?>
     <div class="post-container">
-        <img class="post" src=" <?php echo "uploads/" . $post['image_name'] ?>  " alt="">
+        <img class="post" src=" <?php echo "uploads/" . $post['image_name'] ?> " loading="lazy" alt="">
         <h3> <?php echo $post['title']; ?> </h3>
-        <p> <?php echo $post['content'] ?></p>
-
+        <p> <?php echo $post['content']; ?> </p>
+        <a href=" <?php echo "edit-post.php? id=" . $post['id'] ?> "> <button class="edit-post"> Edit post </button> </a>
     </div>
 <?php endforeach; ?>
 
