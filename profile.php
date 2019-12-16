@@ -4,10 +4,10 @@ if (!isset($_SESSION['user'])) {
     redirect('/');
 }
 
+
 $getUser = getUser($_SESSION['user']['id']);
 $avatar = $getUser['avatar_name'];
 $biography = $getUser['biography'];
-
 $getPost = getPost($_SESSION['user']['id']);
 ?>
 
@@ -27,7 +27,7 @@ $getPost = getPost($_SESSION['user']['id']);
         <img class="post" src=" <?php echo "uploads/" . $post['image_name'] ?> " loading="lazy" alt="">
         <h3> <?php echo $post['title']; ?> </h3>
         <p> <?php echo $post['content']; ?> </p>
-        <a href=" <?php echo "edit-post.php? id=" . $post['id'] ?> "> <button class="edit-post"> Edit post </button> </a>
+        <a href=" <?php echo "edit-post.php?id=" . $post['id'] ?> "> <button class="edit-post"> Edit post </button> </a>
     </div>
 <?php endforeach; ?>
 

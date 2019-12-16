@@ -6,6 +6,19 @@ if (!isset($_SESSION['user'])) {
 
 $posts = editPost($_GET['id']);
 
+if (isset($_SESSION['error'])) {
+    foreach ($_SESSION['error'] as $error) {
+        echo $error;
+    }
+    unset($_SESSION['error']);
+}
+
+if (isset($_SESSION['message'])) {
+    foreach ($_SESSION['message'] as $message) {
+        echo $message;
+    }
+    unset($_SESSION['message']);
+}
 
 ?>
 
@@ -20,22 +33,26 @@ $posts = editPost($_GET['id']);
     <?php endforeach; ?>
 
 
+
     <h2>Edit your post</h2>
-    <form action="app/users/edit-post.php" method="post" enctype="multipart/form-data">
+    <form action="<?php echo 'app/users/edit-post.php?id=' . $post['id'] ?> " method="post" enctype="multipart/form-data">
         <div>
             <label for="image">Change image</label>
             <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" required>
         </div>
+        <button type="submit">Edit picture</button>
+    </form>
 
+    <form action="app/users/edit-post.php" method="post">
         <div>
             <label for="title">Title</label>
-            <input type="text" name="title" required>
+            <input type="text" name="title" value="<?php echo $post['title']; ?> " required>
             <small>Edit your title</small>
         </div>
 
         <div>
             <label for="content">Content</label>
-            <textarea type="text" name="content" required></textarea>
+            <textarea type="text" name="content" required> <?php echo $post['content'] ?> </textarea>
             <small>Edit your content</small>
         </div>
 

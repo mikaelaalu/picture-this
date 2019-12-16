@@ -1,4 +1,12 @@
-<?php require __DIR__ . '/views/header.php'; ?>
+<?php require __DIR__ . '/views/header.php';
+
+if (isset($_SESSION['error'])) {
+    foreach ($_SESSION['error'] as $error) {
+        echo $error;
+        unset($_SESSION['error']);
+    }
+}
+?>
 
 <article>
     <h1>Login</h1>

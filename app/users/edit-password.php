@@ -29,8 +29,7 @@ if (isset($_POST['old-password'], $_POST['new-password'], $_POST['confirm-passwo
         $newPassword = password_hash($_POST['new-password'], PASSWORD_DEFAULT);
 
 
-        $query = 'UPDATE users
-    SET password = :password WHERE id = :id';
+        $query = 'UPDATE users SET password = :password WHERE id = :id';
 
         $statement = $pdo->prepare($query);
 

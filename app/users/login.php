@@ -31,6 +31,9 @@ if (isset($_POST['email'], $_POST['password'])) {
         unset($user['password']);
 
         $_SESSION['user'] = $user;
+    } else {
+        $_SESSION['error'] = ['Wrong password!'];
+        redirect('/login.php');
     }
 }
 
