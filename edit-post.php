@@ -43,7 +43,7 @@ if (isset($_SESSION['message'])) {
         <button type="submit">Edit picture</button>
     </form>
 
-    <form action="app/users/edit-post.php" method="post">
+    <form action="<?php echo 'app/users/edit-post.php?id=' . $post['id'] ?>" method="post">
         <div>
             <label for="title">Title</label>
             <input type="text" name="title" value="<?php echo $post['title']; ?> " required>

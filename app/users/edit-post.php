@@ -52,20 +52,39 @@ if (isset($_FILES['image'])) {
                 $_SESSION['message'] = ['The image was updated!'];
             } else {
                 $_SESSION['error'] = ['The image is too big!'];
-                redirect('/edit-post.php');
+                redirect('/profile.php');
             }
         } else {
             $_SESSION['error'] = ['There was an error uploading this file. Try again!'];
-            redirect('/edit-post.php');
+            redirect('/profile.php');
         }
     } else {
         $_SESSION['error'] = ['Filetype is not allowed'];
-        redirect('/edit-post.php');
+        redirect('/profile.php');
     }
 }
 
 
+if (isset($_POST['title'], $_POST['content'])) {
+    $title = filter_var($_POST['title'], FILTER_SANITIZE_STRING);
+    $content = filter_var($_POST['content'], FILTER_SANITIZE_STRING);
+    $id = $_GET['id'];
 
+    // Insert into database!!!!
+
+    $statement = $pdo->prepare('UPDATE posts SET title = :title, content = :content WHERE id = :id');
+
+    if (!$statement) {
+        die(var_dump($pdo->errorInfo()));
+    }
+
+    $statement->execute([
+        ':id' => $id,
+        ':title' => $title,
+        ':content' => $content,
+
+    ]);
+}
 
 
 
