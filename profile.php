@@ -27,6 +27,7 @@ $getPost = getPost($_SESSION['user']['id']);
         <img class="post" src=" <?php echo "uploads/" . $post['image_name'] ?> " loading="lazy" alt="">
         <h3> <?php echo $post['title']; ?> </h3>
         <p> <?php echo $post['content']; ?> </p>
+        <small><?php echo $post['date']; ?></small>
         <a href=" <?php echo "edit-post.php?id=" . $post['id'] ?> "> <button class="edit-post"> Edit post </button> </a>
     </div>
 <?php endforeach; ?>

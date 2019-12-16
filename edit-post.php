@@ -6,6 +6,8 @@ if (!isset($_SESSION['user'])) {
 
 $posts = editPost($_GET['id']);
 
+
+
 if (isset($_SESSION['error'])) {
     foreach ($_SESSION['error'] as $error) {
         echo $error;
@@ -19,6 +21,8 @@ if (isset($_SESSION['message'])) {
     }
     unset($_SESSION['message']);
 }
+
+
 
 ?>
 
@@ -59,7 +63,7 @@ if (isset($_SESSION['message'])) {
         <button type="submit">Edit post</button>
     </form>
 
-
+    <a href="<?php echo 'app/users/delete-post.php?id=' . $post['author_id'] ?>"><button>Delete post</button> </a>
 </article>
 
 
