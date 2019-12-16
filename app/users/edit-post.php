@@ -76,4 +76,4 @@ if (isset($_FILES['image'])) {
 
 
 
-// redirect('/profile.php');
+redirect('/profile.php');
