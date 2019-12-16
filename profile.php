@@ -7,6 +7,10 @@ if (!isset($_SESSION['user'])) {
 $getUser = getUser($_SESSION['user']['id']);
 $avatar = $getUser['avatar_name'];
 $biography = $getUser['biography'];
+
+
+$getPost = getPost($_SESSION['user']['id']);
+
 ?>
 
 <a href="new-post.php"> <button>New post</button></a>
@@ -18,5 +22,16 @@ $biography = $getUser['biography'];
 <img class="avatar" src="<?php echo "uploads/" . $avatar  ?>" alt="hello">
 
 <p> <?php echo $biography  ?> </p>
+
+
+<?php foreach ($getPost as $post) : ?>
+    <div class="post-container">
+        <img class="post" src=" <?php echo "uploads/" . $post['image_name'] ?>  " alt="">
+        <h3> <?php echo $post['title']; ?> </h3>
+        <p> <?php echo $post['content'] ?></p>
+
+    </div>
+<?php endforeach; ?>
+
 
 <?php require __DIR__ . '/views/footer.php'; ?>

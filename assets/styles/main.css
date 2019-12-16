@@ -6,6 +6,15 @@
   width: 100px;
   height: 100px;
 }
+.post {
+  width: 100px;
+  height: 100px;
+}
+
+.post-container {
+  border: 1px solid black;
+  width: 50%;
+}
 
 button {
   border: 1px solid red;

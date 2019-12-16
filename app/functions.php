@@ -58,7 +58,7 @@ function getPost(int $userId, string $dbPath = 'sqlite:app/database/database.db'
 {
     $pdo = new PDO($dbPath);
     $query = 'SELECT *
-    FROM post WHERE author_id = :id';
+    FROM posts WHERE author_id = :id ORDER BY date DESC';
 
     $statement = $pdo->prepare($query);
 
@@ -70,7 +70,7 @@ function getPost(int $userId, string $dbPath = 'sqlite:app/database/database.db'
         ':id' => $userId
     ]);
 
-    $post = $statement->fetch(PDO::FETCH_ASSOC);
+    $post = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     return $post;
 }
