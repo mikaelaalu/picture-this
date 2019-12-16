@@ -10,10 +10,9 @@ if (isset($_POST['email'], $_POST['biography'])) {
     $biography = filter_var($_POST['biography'], FILTER_SANITIZE_STRING);
     $id = $_SESSION['user']['id'];
 
-    $query = 'UPDATE users
-    SET email = :email, biography = :biography WHERE id = :id';
 
-    $statement = $pdo->prepare($query);
+    $statement = $pdo->prepare('UPDATE users
+    SET email = :email, biography = :biography WHERE id = :id');
 
     if (!$statement) {
         die(var_dump($pdo->errorInfo()));

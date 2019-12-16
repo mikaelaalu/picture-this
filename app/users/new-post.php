@@ -28,7 +28,7 @@ if (isset($_FILES['image'], $_POST['title'], $_POST['content'])) {
 
             if ($size <= 2097152) {
 
-                $newFileName = uniqid('', true) . '.' . $fileActualExt;
+                $newFileName = date('Y-m-d H:i:s') . '.' . $fileActualExt;
                 $fileDestination = '../../uploads/' . $newFileName;
 
                 move_uploaded_file($tmpName, $fileDestination);
@@ -36,22 +36,25 @@ if (isset($_FILES['image'], $_POST['title'], $_POST['content'])) {
                 $title = filter_var($_POST['title'], FILTER_SANITIZE_STRING);
                 $content = filter_var($_POST['content'], FILTER_SANITIZE_STRING);
                 $authorId = $_SESSION['user']['id'];
-
+                $date = date("Y-m-d H:i:s");
 
                 // Insert into database!!!!
-                $statement = $pdo->prepare('INSERT INTO posts (title, content, author_id, image_name)
-                 VALUES (:title, :content, :author_id, :image_name');
+
+                $statement = $pdo->prepare('INSERT INTO posts (title, content, author_id, image_name, date)
+                 VALUES (:title, :content, :author_id, :image_name, :date)');
+
+                if (!$statement) {
+                    die(var_dump($pdo->errorInfo()));
+                }
 
                 $statement->execute([
                     ':title' => $title,
                     ':content' => $content,
                     ':author_id' =>  $authorId,
-                    ':image_name' => $newFileName
+                    ':image_name' => $newFileName,
+                    ':date' => $date,
                 ]);
 
-                if (!$statement) {
-                    die(var_dump($pdo->errorInfo()));
-                }
 
                 $_SESSION['message'] = ['The post was uploaded!'];
             } else {
@@ -68,5 +71,5 @@ if (isset($_FILES['image'], $_POST['title'], $_POST['content'])) {
     }
 }
 
-//Redirect to index 
-// redirect('/');
+
+redirect('/');

@@ -45,3 +45,32 @@ function getUser(int $userId, string $dbPath = 'sqlite:app/database/database.db'
 
     return $user;
 }
+
+
+/**
+ * Get a post from database to frontend
+ *
+ * @param string $bdPath
+ * @param integer $userId
+ * @return array
+ */
+function getPost(int $userId, string $dbPath = 'sqlite:app/database/database.db'): array
+{
+    $pdo = new PDO($dbPath);
+    $query = 'SELECT *
+    FROM post WHERE author_id = :id';
+
+    $statement = $pdo->prepare($query);
+
+    if (!$statement) {
+        die(var_dump($pdo->errorInfo()));
+    }
+
+    $statement->execute([
+        ':id' => $userId
+    ]);
+
+    $post = $statement->fetch(PDO::FETCH_ASSOC);
+
+    return $post;
+}

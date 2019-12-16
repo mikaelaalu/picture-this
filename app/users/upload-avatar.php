@@ -21,7 +21,7 @@ if (isset($_FILES['avatar'])) {
     if (in_array($fileActualExt, $allowed)) {
         if ($error === 0) {
             if ($size <= 2097152) {
-                $newFileName = uniqid('', true) . '.' . $fileActualExt;
+                $newFileName = date('Y-m-d H:i:s') . '.' . $fileActualExt;
                 $fileDestination = '../../uploads/' . $newFileName;
                 move_uploaded_file($tmpName, $fileDestination);
                 $id = $_SESSION['user']['id'];
