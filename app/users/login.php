@@ -7,7 +7,6 @@ require __DIR__ . '/../autoload.php';
 // In this file we login users.
 
 
-
 if (isset($_POST['email'], $_POST['password'])) {
 
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
@@ -37,6 +36,5 @@ if (isset($_POST['email'], $_POST['password'])) {
     }
 }
 
-// We should put this redirect in the end of this file since we always want to
-// redirect the user back from this file. We don't know
+
 redirect('/');

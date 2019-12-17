@@ -1,33 +1,12 @@
 <?php require __DIR__ . '/views/header.php';
 
-if (!isset($_SESSION['user'])) {
-    redirect('/');
-}
+isLoggedIn();
 
 $posts = editPost($_GET['id']);
-
-
-
-if (isset($_SESSION['error'])) {
-    foreach ($_SESSION['error'] as $error) {
-        echo $error;
-    }
-    unset($_SESSION['error']);
-}
-
-if (isset($_SESSION['message'])) {
-    foreach ($_SESSION['message'] as $message) {
-        echo $message;
-    }
-    unset($_SESSION['message']);
-}
-
-
 
 ?>
 
 <article>
-
     <?php foreach ($posts as $post) : ?>
         <div class="post-container">
             <img class="post" src=" <?php echo 'uploads/' . $post['image_name'] ?> " alt="">
@@ -37,8 +16,9 @@ if (isset($_SESSION['message'])) {
     <?php endforeach; ?>
 
 
-
     <h2>Edit your post</h2>
+
+
     <form action="<?php echo 'app/users/edit-post.php?id=' . $post['id'] ?> " method="post" enctype="multipart/form-data">
         <div>
             <label for="image">Change image</label>
@@ -63,7 +43,9 @@ if (isset($_SESSION['message'])) {
         <button type="submit">Edit post</button>
     </form>
 
-    <a href="<?php echo 'app/users/delete-post.php?id=' . $post['author_id'] ?>"><button>Delete post</button> </a>
+    <form action="<?php echo 'app/users/delete-post.php?author_id=' . $post['author_id'] . '&id=' . $post['id'] . '&image=' . $post['image_name'] ?>" method="post">
+        <button type="submit">Delete post</button>
+    </form>
 </article>
 
 

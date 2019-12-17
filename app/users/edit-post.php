@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
+
 if (isset($_FILES['image'])) {
 
     $image = $_FILES['image'];
@@ -84,15 +85,8 @@ if (isset($_POST['title'], $_POST['content'])) {
         ':content' => $content,
 
     ]);
+
+    $_SESSION['message'] = ['Your post was updated!'];
 }
-
-
-
-
-
-
-
-
-
 
 redirect('/profile.php');

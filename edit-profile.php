@@ -1,29 +1,14 @@
 <?php require __DIR__ . '/views/header.php';
 
-if (!isset($_SESSION['user'])) {
-    redirect('/');
-}
-
-if (isset($_SESSION['message'])) {
-    foreach ($_SESSION['message'] as $message) {
-        echo $message;
-    }
-    unset($_SESSION['message']);
-}
-
-if (isset($_SESSION['error'])) {
-    foreach ($_SESSION['error'] as $message) {
-        echo $message;
-    }
-    unset($_SESSION['error']);
-}
+isLoggedIn();
 
 $getUser = getUser($_SESSION['user']['id']);
 $avatar = $getUser['avatar_name'];
 ?>
 
 
-
+<p><?php echo checkForError(); ?></p>
+<p><?php echo checkForConfirm(); ?></p>
 
 
 <!-- Get the user from the database to frontend -->

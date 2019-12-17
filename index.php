@@ -1,11 +1,9 @@
 <?php require __DIR__ . '/views/header.php';
 
-if (isset($_SESSION['error'])) {
-    foreach ($_SESSION['error'] as $error) {
-        echo $error;
-        unset($_SESSION['error']);
-    }
-} ?>
+?>
+
+<p><?php checkForError(); ?></p>
+<p><?php checkForConfirm(); ?></p>
 
 <article>
 

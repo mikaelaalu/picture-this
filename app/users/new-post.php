@@ -28,7 +28,7 @@ if (isset($_FILES['image'], $_POST['title'], $_POST['content'])) {
 
             if ($size <= 2097152) {
 
-                $newFileName = date('Y-m-d H:i:s') . '.' . $fileActualExt;
+                $newFileName = date('Y-m-dH:i:s') . '.' . $fileActualExt;
                 $fileDestination = '../../uploads/' . $newFileName;
 
                 move_uploaded_file($tmpName, $fileDestination);
@@ -72,4 +72,4 @@ if (isset($_FILES['image'], $_POST['title'], $_POST['content'])) {
 }
 
 
-redirect('/');
+redirect('/profile.php');

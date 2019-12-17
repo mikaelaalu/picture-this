@@ -1,15 +1,16 @@
 <?php require __DIR__ . '/views/header.php';
 
-if (!isset($_SESSION['user'])) {
-    redirect('/');
-}
-
+isLoggedIn();
 
 $getUser = getUser($_SESSION['user']['id']);
 $avatar = $getUser['avatar_name'];
 $biography = $getUser['biography'];
 $getPost = getPost($_SESSION['user']['id']);
+
 ?>
+
+<p><?php checkForError(); ?></p>
+<p><?php checkForConfirm(); ?></p>
 
 <a href="new-post.php"> <button>New post</button></a>
 <a href="edit-profile.php"> <button>Edit Profile</button> </a>

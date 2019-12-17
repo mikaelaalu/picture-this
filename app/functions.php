@@ -46,7 +46,6 @@ function getUser(int $userId, string $dbPath = 'sqlite:app/database/database.db'
     return $user;
 }
 
-
 /**
  * Gets all posts from database to frontend by session id
  *
@@ -57,8 +56,7 @@ function getUser(int $userId, string $dbPath = 'sqlite:app/database/database.db'
 function getPost(int $userId, string $dbPath = 'sqlite:app/database/database.db'): array
 {
     $pdo = new PDO($dbPath);
-    $query = 'SELECT *
-    FROM posts WHERE author_id = :id ORDER BY date DESC';
+    $query = 'SELECT * FROM posts WHERE author_id = :id ORDER BY date DESC';
 
     $statement = $pdo->prepare($query);
 
@@ -85,8 +83,7 @@ function getPost(int $userId, string $dbPath = 'sqlite:app/database/database.db'
 function editPost(int $postId, string $dbPath = 'sqlite:app/database/database.db'): array
 {
     $pdo = new PDO($dbPath);
-    $query = 'SELECT *
-    FROM posts WHERE id = :id';
+    $query = 'SELECT * FROM posts WHERE id = :id';
 
     $statement = $pdo->prepare($query);
 
@@ -101,4 +98,47 @@ function editPost(int $postId, string $dbPath = 'sqlite:app/database/database.db
     $post = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     return $post;
+}
+
+/**
+ * Check if there is any error in $_SESSION. 
+ * If there is any, print them and then unset $_SESSION['error']
+ *
+ * @return array
+ */
+function checkForError()
+{
+    if (isset($_SESSION['error'])) {
+        foreach ($_SESSION['error'] as $error) {
+            echo $error;
+        }
+        unset($_SESSION['error']);
+    }
+}
+
+/**
+ * Check if there is any message in $_SESSION.
+ * If there is any, print them and unset $_SESSION['message']
+ * 
+ */
+function checkForConfirm()
+{
+    if (isset($_SESSION['message'])) {
+        foreach ($_SESSION['message'] as $message) {
+            echo $message;
+        }
+        unset($_SESSION['message']);
+    }
+}
+
+/**
+ * Check if user is logged in, if not, redirect to home page.
+ *
+ * @return boolean
+ */
+function isLoggedIn()
+{
+    if (!isset($_SESSION['user'])) {
+        redirect('/');
+    }
 }
