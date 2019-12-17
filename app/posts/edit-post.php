@@ -89,4 +89,4 @@ if (isset($_POST['title'], $_POST['content'])) {
     $_SESSION['message'] = ['Your post was updated!'];
 }
 
-redirect('/profile.php');
+redirect('/profile.php?id=' . $_SESSION['user']['id']);

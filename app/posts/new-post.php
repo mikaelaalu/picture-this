@@ -72,4 +72,4 @@ if (isset($_FILES['image'], $_POST['title'], $_POST['content'])) {
 }
 
 
-redirect('/profile.php');
+redirect('/profile.php?id=' . $_SESSION['user']['id']);

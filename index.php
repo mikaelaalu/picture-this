@@ -25,7 +25,8 @@
                 <img class="post" src=" <?php echo "uploads/" . $post['image_name'] ?> " loading="lazy">
                 <p> <?php echo $post['content']; ?> </p>
                 <small><?php echo $post['date']; ?></small>
-                <p>Author: <a href=" <?php echo 'profile.php' ?> ">
+
+                <p>Author: <a href=" <?php echo 'profile.php?id=' . $post['id'] ?> ">
                         <?php echo $post['name'] ?>
                     </a></p>
 

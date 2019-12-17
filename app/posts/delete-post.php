@@ -33,4 +33,4 @@ if (isset($_SESSION['user']['id'], $_GET['author_id'], $_GET['id'], $_GET['image
 
 $_SESSION['message'] = ['The post was deleted!'];
 
-redirect('/profile.php');
+redirect('/profile.php?id=' . $_SESSION['user']['id']);

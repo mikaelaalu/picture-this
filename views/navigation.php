@@ -12,7 +12,7 @@
 
 
         <?php if (isset($_SESSION['user'])) : ?>
-            <li> <a href="/profile.php">Profile</a> </li>
+            <li> <a href=" <?php echo "/profile.php?id=" . $_SESSION['user']['id'] ?> ">Profile</a> </li>
         <?php endif; ?>
 
         <li>

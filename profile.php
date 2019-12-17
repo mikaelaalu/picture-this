@@ -2,21 +2,30 @@
 
 isLoggedIn();
 
-$getUser = getUser($_SESSION['user']['id'], $pdo);
+$getUser = getUser($_GET['id'], $pdo);
+$name = $getUser['name'];
 $avatar = $getUser['avatar_name'];
 $biography = $getUser['biography'];
-$getPost = getPost($_SESSION['user']['id'], $pdo);
+$getPost = getPost($_GET['id'], $pdo);
+
+
+$profileId = $_GET['id'];
+$visitId = $_SESSION['user']['id'];
 
 ?>
 
 <p><?php checkForError(); ?></p>
 <p><?php checkForConfirm(); ?></p>
 
-<a href="new-post.php"> <button>New post</button></a>
-<a href="edit-profile.php"> <button>Edit Profile</button> </a>
+<?php if ($profileId === $visitId) : ?>
+
+    <a href="new-post.php"> <button>New post</button></a>
+    <a href="edit-profile.php"> <button>Edit Profile</button> </a>
+<?php endif; ?>
+
 <h1>Hej du är inloggad och på profilsidan</h1>
 
-<?php echo $_SESSION['user']['name']; ?>
+<?php echo $name; ?>
 
 <img class="avatar" src="<?php echo "uploads/" . $avatar ?>" alt="hello">
 
@@ -29,7 +38,10 @@ $getPost = getPost($_SESSION['user']['id'], $pdo);
         <h3> <?php echo $post['title']; ?> </h3>
         <p> <?php echo $post['content']; ?> </p>
         <small><?php echo $post['date']; ?></small>
-        <a href=" <?php echo "edit-post.php?id=" . $post['id'] ?> "> <button class="edit-post"> Edit post </button> </a>
+
+        <?php if ($profileId === $visitId) : ?>
+            <a href=" <?php echo "edit-post.php?id=" . $post['id'] ?> "> <button class="edit-post"> Edit post </button> </a>
+        <?php endif; ?>
     </div>
 <?php endforeach; ?>
 
