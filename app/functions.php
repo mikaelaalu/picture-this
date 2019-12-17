@@ -21,13 +21,13 @@ if (!function_exists('redirect')) {
 /**
  * Get a user from database to frontend
  *
- * @param string $bdPath
  * @param integer $userId
+ * @param PDO $pdo
  * @return array
  */
-function getUser(int $userId, string $dbPath = 'sqlite:app/database/database.db'): array
+function getUser(int $userId, PDO $pdo): array
 {
-    $pdo = new PDO($dbPath);
+
     $query = 'SELECT *
     FROM users WHERE id = :id';
 
@@ -46,16 +46,17 @@ function getUser(int $userId, string $dbPath = 'sqlite:app/database/database.db'
     return $user;
 }
 
+
 /**
- * Gets all posts from database to frontend by session id
+ * Gets all posts by one author from database to frontend by session id
  *
- * @param string $bdPath
  * @param integer $userId
+ * @param PDO $pdo
  * @return array
  */
-function getPost(int $userId, string $dbPath = 'sqlite:app/database/database.db'): array
+function getPost(int $userId, PDO $pdo): array
 {
-    $pdo = new PDO($dbPath);
+
     $query = 'SELECT * FROM posts WHERE author_id = :id ORDER BY date DESC';
 
     $statement = $pdo->prepare($query);
@@ -73,16 +74,17 @@ function getPost(int $userId, string $dbPath = 'sqlite:app/database/database.db'
     return $post;
 }
 
+
 /**
  * Gets one post from database to frontend, with id from database
- *
- * @param string $bdPath
+ * 
  * @param integer $postId
+ * @param PDO $pdo
  * @return array
  */
-function editPost(int $postId, string $dbPath = 'sqlite:app/database/database.db'): array
+function editPost(int $postId, PDO $pdo): array
 {
-    $pdo = new PDO($dbPath);
+
     $query = 'SELECT * FROM posts WHERE id = :id';
 
     $statement = $pdo->prepare($query);
@@ -100,6 +102,32 @@ function editPost(int $postId, string $dbPath = 'sqlite:app/database/database.db
     return $post;
 }
 
+
+/**
+ * Get all posts from database
+ *
+ * @param PDO $pdo
+ * @return array
+ */
+function getAllPosts(PDO $pdo): array
+{
+
+    $query = 'SELECT * FROM posts INNER JOIN users WHERE author_id = users.id ORDER BY date ASC;';
+
+    $statement = $pdo->prepare($query);
+
+    if (!$statement) {
+        die(var_dump($pdo->errorInfo()));
+    }
+
+    $statement->execute();
+
+    $posts = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $posts;
+}
+
+
 /**
  * Check if there is any error in $_SESSION. 
  * If there is any, print them and then unset $_SESSION['error']
@@ -116,10 +144,12 @@ function checkForError()
     }
 }
 
+
 /**
  * Check if there is any message in $_SESSION.
  * If there is any, print them and unset $_SESSION['message']
  * 
+ * @return array
  */
 function checkForConfirm()
 {

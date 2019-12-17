@@ -2,7 +2,7 @@
 
 isLoggedIn();
 
-$getUser = getUser($_SESSION['user']['id']);
+$getUser = getUser($_SESSION['user']['id'], $pdo);
 $avatar = $getUser['avatar_name'];
 ?>
 
@@ -12,7 +12,7 @@ $avatar = $getUser['avatar_name'];
 
 
 <!-- Get the user from the database to frontend -->
-<?php $getUser = getUser($_SESSION['user']['id']); ?>
+<?php $getUser = getUser($_SESSION['user']['id'], $pdo); ?>
 
 <?php echo $_SESSION['user']['name']; ?>
 

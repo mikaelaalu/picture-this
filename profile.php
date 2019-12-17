@@ -2,10 +2,10 @@
 
 isLoggedIn();
 
-$getUser = getUser($_SESSION['user']['id']);
+$getUser = getUser($_SESSION['user']['id'], $pdo);
 $avatar = $getUser['avatar_name'];
 $biography = $getUser['biography'];
-$getPost = getPost($_SESSION['user']['id']);
+$getPost = getPost($_SESSION['user']['id'], $pdo);
 
 ?>
 

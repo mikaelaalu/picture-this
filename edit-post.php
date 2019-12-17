@@ -2,7 +2,7 @@
 
 isLoggedIn();
 
-$posts = editPost($_GET['id']);
+$posts = editPost($_GET['id'], $pdo);
 
 ?>
 
