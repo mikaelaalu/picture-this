@@ -9,7 +9,7 @@ isLoggedIn();
 <article>
 
     <h2>Upload a new post</h2>
-    <form action="app/users/new-post.php" method="post" enctype="multipart/form-data">
+    <form action="app/posts/new-post.php" method="post" enctype="multipart/form-data">
         <div>
             <label for="image">Choose images to upload</label>
             <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" required>

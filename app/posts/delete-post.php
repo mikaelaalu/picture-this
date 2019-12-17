@@ -12,6 +12,7 @@ $image = $_GET['image'];
 $path = __DIR__ . '/../../uploads/' . $image;
 
 
+
 if ($creatorId === $loggedIn) {
 
     $statement = $pdo->prepare('DELETE FROM posts WHERE id = :id');
