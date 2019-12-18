@@ -112,7 +112,7 @@ function editPost(int $postId, PDO $pdo): array
 function getAllPosts(PDO $pdo): array
 {
 
-    $query = 'SELECT * FROM posts INNER JOIN users WHERE author_id = users.id ORDER BY date DESC;';
+    $query = 'SELECT posts.*, users.name  FROM posts INNER JOIN users WHERE author_id = users.id ORDER BY date DESC;';
 
     $statement = $pdo->prepare($query);
 

@@ -17,11 +17,6 @@ $visitId = $_SESSION['user']['id'];
 <p><?php checkForError(); ?></p>
 <p><?php checkForConfirm(); ?></p>
 
-<?php if ($profileId === $visitId) : ?>
-
-    <a href="new-post.php"> <button>New post</button></a>
-    <a href="edit-profile.php"> <button>Edit Profile</button> </a>
-<?php endif; ?>
 
 <h1>Hej du är inloggad och på profilsidan</h1>
 
@@ -30,6 +25,11 @@ $visitId = $_SESSION['user']['id'];
 <img class="avatar" src="<?php echo "uploads/" . $avatar ?>" alt="hello">
 
 <p> <?php echo $biography  ?> </p>
+<?php if ($profileId === $visitId) : ?>
+
+    <a href="new-post.php"> <button>New post</button></a>
+    <a href="edit-profile.php"> <button>Edit Profile</button> </a>
+<?php endif; ?>
 
 
 <?php foreach ($getPost as $post) : ?>

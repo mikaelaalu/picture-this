@@ -1,3 +1,8 @@
-'use strict';
+"use strict";
 
-console.log('Hello World');
+const likeBtn = document.querySelectorAll(".like-btn");
+const likeForm = document.querySelectorAll(".like-form");
+
+console.log(likeForm);
+
+console.log(likeBtn);
