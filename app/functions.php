@@ -127,6 +127,39 @@ function getAllPosts(PDO $pdo): array
     return $posts;
 }
 
+/**
+ * Checks if a specific user has liked a specific post 
+ *
+ * @param integer $postId
+ * @param integer $userId
+ * @param PDO $pdo
+ * @return boolean
+ */
+function isPostLiked(int $postId, int $userId,  PDO $pdo): bool
+{
+
+    $query = 'SELECT * FROM likes WHERE post_id = :post_id AND user_id = :user_id';
+
+    $statement = $pdo->prepare($query);
+
+    if (!$statement) {
+        die(var_dump($pdo->errorInfo()));
+    }
+
+    $statement->execute([
+        ':post_id' => $postId,
+        ':user_id' => $userId
+    ]);
+
+    $like = $statement->fetch(PDO::FETCH_ASSOC);
+
+    if ($like) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 
 /**
  * Check if there is any error in $_SESSION. 
