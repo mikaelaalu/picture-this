@@ -28,8 +28,7 @@ if (!function_exists('redirect')) {
 function getUser(int $userId, PDO $pdo): array
 {
 
-    $query = 'SELECT *
-    FROM users WHERE id = :id';
+    $query = 'SELECT * FROM users WHERE id = :id';
 
     $statement = $pdo->prepare($query);
 
@@ -127,6 +126,7 @@ function getAllPosts(PDO $pdo): array
     return $posts;
 }
 
+
 /**
  * Checks if a specific user has liked a specific post 
  *
@@ -157,6 +157,30 @@ function isPostLiked(int $postId, int $userId,  PDO $pdo): bool
         return true;
     } else {
         return false;
+    }
+}
+
+/**
+ * Display all likes on specific post, get all likes from database
+ *
+ * @param integer $postId
+ * @param PDO $pdo
+ * @return array
+ */
+function displayLikes(int $postId, PDO $pdo): array
+{
+    $query = 'SELECT COUNT(*) FROM likes WHERE post_id = :post_id';
+
+    $statement = $pdo->prepare($query);
+
+    $statement->execute([
+        ':post_id' => $postId
+    ]);
+
+    $likes = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    foreach ($likes as $like) {
+        return $like;
     }
 }
 
@@ -193,6 +217,7 @@ function checkForConfirm()
         unset($_SESSION['message']);
     }
 }
+
 
 /**
  * Check if user is logged in, if not, redirect to home page.

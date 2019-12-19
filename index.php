@@ -1,4 +1,6 @@
-<?php require __DIR__ . '/views/header.php';
+<?php
+
+require __DIR__ . '/views/header.php';
 
 ?>
 
@@ -12,39 +14,43 @@
 
     <?php if (isset($_SESSION['user'])) : ?>
         <?php $user = $_SESSION['user'];
-            echo "Welcome " . $user['name']; ?>
+        echo "Welcome " . $user['name']; ?>
 
         <a href="new-post.php"> <button>New post</button> </a>
 
         <?php $allPosts = getAllPosts($pdo); ?>
 
-
         <?php foreach ($allPosts as $post) : ?>
             <div class="post-container">
+                <?php $likes = displayLikes((int) $post['id'], $pdo); ?>
+                <?php foreach ($likes as $like) : ?>
 
 
-                <h3> <?php echo $post['title']; ?> </h3>
-                <img class="post" src=" <?php echo "uploads/" . $post['image_name'] ?> " loading="lazy">
-                <p> <?php echo $post['content']; ?> </p>
+
+                    <h3> <?php echo $post['title']; ?> </h3>
+                    <img class="post" src=" <?php echo "uploads/" . $post['image_name'] ?> " loading="lazy">
+                    <p> <?php echo $post['content']; ?> </p>
 
 
-                <form class="like-form" action="<?php echo 'app/posts/likes.php?id=' . $post['id'] ?>" method="post">
-                    <input type="hidden" name="like">
-                    <button data-set="<?php echo $post['id'] ?> " class="like-btn"> Like me</button>
-                </form>
+                    <form class="like-form" action="<?php echo 'app/posts/likes.php?id=' . $post['id'] ?>" method="post">
+                        <input type="hidden" name="like">
+                        <button data-set="<?php echo $post['id'] ?> " class="like-btn"> Like me</button>
+                        <p> <?php echo $like ?> </p>
+                    </form>
 
 
-                <small><?php echo $post['date']; ?></small>
 
-                <p>Author: <a href=" <?php echo 'profile.php?id=' . $post['author_id'] ?> ">
-                        <?php echo $post['name'] ?>
-                    </a></p>
+                    <small><?php echo $post['date']; ?></small>
+
+                    <p>Author: <a href=" <?php echo 'profile.php?id=' . $post['author_id'] ?> ">
+                            <?php echo $post['name'] ?>
+                        </a></p>
 
             </div>
-
         <?php endforeach; ?>
+    <?php endforeach; ?>
 
-    <?php endif; ?>
+<?php endif; ?>
 
 </article>
 
