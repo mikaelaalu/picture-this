@@ -4,15 +4,18 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-if (isset($_POST['like'])) {
 
-    $postId = (int) $_GET['id'];
+header('Content-Type: application/json');
+
+
+if (isset($_POST['id'])) {
+
+    $postId = (int) $_POST['id'];
     $userId = (int) $_SESSION['user']['id'];
 
 
-
     if (isPostLiked($postId, $userId, $pdo)) {
-        //Delete from database
+        // If post is liked delete from database
 
         $statement = $pdo->prepare('DELETE FROM likes WHERE post_id = :post_id AND user_id = :user_id');
 
@@ -39,6 +42,9 @@ if (isset($_POST['like'])) {
             ':user_id' => $userId,
         ]);
     }
+
+    $hej = ['hej' => 'd'];
+    echo json_encode($hej);
 }
 
-redirect('/');
+// redirect('/');

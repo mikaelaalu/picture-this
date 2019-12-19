@@ -32,8 +32,8 @@ require __DIR__ . '/views/header.php';
                     <p> <?php echo $post['content']; ?> </p>
 
 
-                    <form class="like-form" action="<?php echo 'app/posts/likes.php?id=' . $post['id'] ?>" method="post">
-                        <input type="hidden" name="like">
+                    <form class="like-form" action="app/posts/likes.php" method="post">
+                        <input type="hidden" name="id" value=" <?php echo $post['id'] ?> ">
                         <button data-set="<?php echo $post['id'] ?> " class="like-btn"> Like me</button>
                         <p> <?php echo $like ?> </p>
                     </form>
