@@ -28,7 +28,8 @@
                 <p> <?php echo $post['content']; ?> </p>
 
 
-                <form class="like-form" action="" method="post">
+                <form class="like-form" action="<?php echo 'app/posts/likes.php?id=' . $post['id'] ?>" method="post">
+                    <input type="hidden" name="like">
                     <button data-set="<?php echo $post['id'] ?> " class="like-btn"> Like me</button>
                 </form>
 
