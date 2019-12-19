@@ -6,10 +6,21 @@ function sayhey() {
   console.log("hej");
 }
 
+<<<<<<< Updated upstream
 likeBtn.forEach(btn => {
   btn.addEventListener("click", sayhey);
   console.log(btn.dataset);
 });
+=======
+addEventListener(
+  "click",
+  likeBtn.forEach(btn => {
+    console.log("hej");
+  })
+);
+
+console.log(likeForm);
+>>>>>>> Stashed changes
 
 const formData = new formData();
 
