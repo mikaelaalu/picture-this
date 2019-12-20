@@ -165,9 +165,9 @@ function isPostLiked(int $postId, int $userId,  PDO $pdo): bool
  *
  * @param integer $postId
  * @param PDO $pdo
- * @return array
+ * @return string
  */
-function displayLikes(int $postId, PDO $pdo)
+function displayLikes(int $postId, PDO $pdo): string
 {
     $query = 'SELECT COUNT(*) FROM likes WHERE post_id = :post_id';
 

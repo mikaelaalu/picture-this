@@ -36,9 +36,14 @@ require __DIR__ . '/views/header.php';
 
                     <input type="hidden" name="id" value=" <?php echo $post['id'] ?> ">
 
-                    <button data-set="<?php echo $post['id'] ?> " class="like-btn"> Like me</button>
+                    <button data-set="<?php echo $post['id'] ?> " class="like-btn">
+                        <?php if (isPostLiked($post['id'], $_SESSION['user']['id'], $pdo)) : ?>
 
-                    <p class="like-counter"> <?php echo $displayLikes . ' likes' ?> </p>
+                            <?php echo 'unlike'; ?>
+                        <?php else : echo 'like'; ?>
+                        <?php endif; ?></button>
+
+                    <p class="like-counter"> <?php echo $displayLikes ?> </p>
                 </form>
 
 

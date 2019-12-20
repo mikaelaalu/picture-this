@@ -34,15 +34,14 @@ forms.forEach(form => {
         return response.json(); //  från json
       })
       .then(json => {
-        console.log(json);
+        console.log(json.text);
 
-        // buttons.forEach(button => {
-        //   button.innerHTML = "unlike";
-        // });
+        const btn = event.target.querySelector(".like-btn");
+        const number = event.target.querySelector(".like-counter");
 
-        // likeCounters.forEach(likes => {
-        //   likes.innerHTML = json[0];
-        // });
+        btn.textContent = json.text;
+
+        number.textContent = json.number;
       });
   });
 });
