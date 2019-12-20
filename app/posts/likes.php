@@ -27,11 +27,20 @@ if (isset($_POST['id'])) {
             ':post_id' => $postId,
             ':user_id' => $userId
         ]);
+
+        //json request
+        $number = displayLikes($postId, $pdo);
+        $display = ([
+            'number' => $number,
+            'text' => 'like',
+        ]);
+
+        echo json_encode($display);
     } else {
+
         // If not liked, insert into database
 
-        $statement = $pdo->prepare('INSERT INTO likes (post_id, user_id)
-    VALUES (:post_id, :user_id)');
+        $statement = $pdo->prepare('INSERT INTO likes (post_id, user_id) VALUES (:post_id, :user_id)');
 
         if (!$statement) {
             die(var_dump($pdo->errorInfo()));
@@ -41,10 +50,38 @@ if (isset($_POST['id'])) {
             ':post_id' => $postId,
             ':user_id' => $userId,
         ]);
+
+
+        //json request
+        $number = displayLikes($postId, $pdo);
+        $display = ([
+            'number' => $number,
+            'text' => 'unlike',
+        ]);
+
+        echo json_encode($display);
     }
 
-    $hej = ['hej' => 'd'];
-    echo json_encode($hej);
+    //count all likes for one post
+    // $query = 'SELECT COUNT(*) FROM likes WHERE post_id = :post_id';
+
+    // $statement = $pdo->prepare($query);
+
+    // $statement->execute([
+    //     ':post_id' => $postId
+    // ]);
+
+    // $likes = $statement->fetchAll();
+
+    // foreach ($likes as $like) {
+    //     $like;
+    // }
+
+
+
+
+    //     $hej = ['hej' => 'd'];
+    //     echo json_encode($likes);
 }
 
 // redirect('/');
