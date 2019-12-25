@@ -25,6 +25,11 @@
   border: 1px solid black;
 }
 
+.about-post {
+  display: flex;
+  justify-content: space-between;
+}
+
 .post-img {
   width: 100%;
   height: 400px;

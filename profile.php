@@ -42,10 +42,32 @@ $visitId = $_SESSION['user']['id'];
             <img class="avatar-small" src="<?php echo "uploads/" . $avatar ?>" alt="avatar">
         </div>
         <img class="post-img" src=" <?php echo "uploads/" . $post['image_name'] ?> " loading="lazy" alt="">
-        <h3> <?php echo $post['title']; ?> </h3>
-        <p> <?php echo $post['content']; ?> </p>
-        <small><?php echo $post['date']; ?></small>
 
+        <div class="about-post">
+            <div class="title-content-box">
+                <h3> <?php echo $post['title']; ?> </h3>
+                <p> <?php echo $post['content']; ?> </p>
+            </div>
+
+            <?php $displayLikes = displayLikes((int) $post['id'], $pdo); ?>
+            <form class="like-form" action="app/posts/likes.php" method="post">
+
+                <input type="hidden" name="id" value=" <?php echo $post['id'] ?> ">
+
+                <button data-set="<?php echo $post['id'] ?> " class="like-btn">
+                    <?php if (isPostLiked($post['id'], $_SESSION['user']['id'], $pdo)) : ?>
+
+                        <?php echo 'unlike'; ?>
+                    <?php else : echo 'like'; ?>
+                    <?php endif; ?></button>
+
+                <p class="like-counter"> <?php echo $displayLikes ?> </p>
+            </form>
+
+
+        </div>
+
+        <small><?php echo $post['date']; ?></small>
         <?php if ($profileId === $visitId) : ?>
             <a href=" <?php echo "edit-post.php?id=" . $post['id'] ?> "> <button class="edit-post"> Edit post </button> </a>
         <?php endif; ?>
