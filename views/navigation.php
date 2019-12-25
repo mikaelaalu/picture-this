@@ -1,14 +1,15 @@
 <nav>
-    <a href="#"><?php echo $config['title']; ?></a>
 
     <ul>
-        <li>
-            <a href="/index.php">Home</a>
-        </li><!-- /nav-item -->
+        <?php if (isset($_SESSION['user']['id'])) : ?>
+            <li>
+                <a href="/index.php">Home</a>
+            </li><!-- /nav-item -->
+        <?php endif; ?>
 
-        <li>
+        <!-- <li>
             <a href="/about.php">About</a>
-        </li><!-- /nav-item -->
+        </li>/nav-item -->
 
 
         <?php if (isset($_SESSION['user'])) : ?>

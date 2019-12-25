@@ -26,8 +26,8 @@ isLoggedIn();
             <textarea type="text" name="content" required></textarea>
             <small>Please provide the your content.</small>
         </div>
-
-        <button type="submit">Upload post</button>
+        <div clsss="btn--box">
+            <button type="submit">Upload post</button></div>
     </form>
 
 </article>

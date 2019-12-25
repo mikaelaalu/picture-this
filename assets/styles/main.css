@@ -1,12 +1,21 @@
 /* In this file you can add your custom styles. */
 * {
   font-family: "Poppins", sans-serif;
+  background: url("http://api.thumbr.it/whitenoise-361x370.png?background=ffffffff&noise=525052&density=15&opacity=23");
 }
+
 .avatar {
   width: 100px;
   height: 100px;
   border-radius: 50%;
 }
+
+.avatar-small {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
 .post {
   width: 100px;
   height: 100px;
@@ -16,7 +25,100 @@
   border: 1px solid black;
 }
 
+.post-img {
+  width: 100%;
+  height: 400px;
+}
+
 button {
   border: 1px solid red;
   border-radius: 4px;
+  background-color: hotpink;
+}
+
+.btn--box {
+  display: flex;
+  align-items: center;
+}
+
+/* Navigation */
+nav ul {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+
+nav ul li a {
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+}
+
+.title a {
+  font-family: "Courier Prime", monospace;
+  text-decoration: none;
+  cursor: pointer;
+  color: inherit;
+  font-size: 30px;
+}
+
+.title img {
+  margin-left: 5px;
+  width: 40px;
+  height: 40px;
+}
+
+/* Forms  */
+
+article {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+form div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+form input {
+  width: 80%;
+}
+
+form label {
+  width: 80%;
+  text-align: left;
+}
+form textarea {
+  width: 80%;
+}
+h2,
+h1 {
+  text-align: center;
+}
+
+/* Profile  */
+.profile-info {
+  display: flex;
+
+  justify-content: space-between;
+}
+
+.author {
+  display: flex;
+  justify-content: space-between;
+}
+
+.author a {
+  text-decoration: none;
+
+  cursor: pointer;
+  color: inherit;
 }

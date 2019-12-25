@@ -225,6 +225,6 @@ function checkForConfirm()
 function isLoggedIn()
 {
     if (!isset($_SESSION['user'])) {
-        redirect('/');
+        redirect('/login.php');
     }
 }

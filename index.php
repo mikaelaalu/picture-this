@@ -2,15 +2,15 @@
 
 require __DIR__ . '/views/header.php';
 
+
 ?>
 
 <p><?php checkForError(); ?></p>
 <p><?php checkForConfirm(); ?></p>
 
 <article>
-
-    <h1><?php echo $config['title']; ?></h1>
-    <p>This is the home page.</p>
+    <!-- 
+    <h1><?php echo $config['title']; ?></h1> -->
 
     <?php if (isset($_SESSION['user'])) : ?>
         <?php $user = $_SESSION['user'];
@@ -26,9 +26,14 @@ require __DIR__ . '/views/header.php';
 
                 <?php $displayLikes = displayLikes($post['id'], $pdo); ?>
 
-
+                <div class="author">
+                    <a href=" <?php echo 'profile.php?id=' . $post['author_id'] ?> ">
+                        <?php echo $post['name'] ?>
+                    </a>
+                    <img class="avatar-small" src="<?php echo "uploads/" . $avatar ?>" alt="avatar">
+                </div>
+                <img class="post-img" src=" <?php echo "uploads/" . $post['image_name'] ?> " loading="lazy">
                 <h3> <?php echo $post['title']; ?> </h3>
-                <img class="post" src=" <?php echo "uploads/" . $post['image_name'] ?> " loading="lazy">
                 <p> <?php echo $post['content']; ?> </p>
 
 
@@ -47,12 +52,9 @@ require __DIR__ . '/views/header.php';
                 </form>
 
 
-
                 <small><?php echo $post['date']; ?></small>
 
-                <p>Author: <a href=" <?php echo 'profile.php?id=' . $post['author_id'] ?> ">
-                        <?php echo $post['name'] ?>
-                    </a></p>
+
 
             </div>
 

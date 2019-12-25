@@ -18,10 +18,13 @@
             <small>Please provide the your password (passphrase).</small>
         </div><!-- /form-group -->
 
-        <button type="submit">Login</button>
-
+        <div clsss="btn--box">
+            <button type="submit">Login</button>
+        </div>
     </form>
-    <a href='new-user.php'> <button> Create account</button> </a>
+
+    <div clsss="btn--box">
+        <a href='new-user.php'> <button> Create account</button> </a></div>
 </article>
 
 <?php require __DIR__ . '/views/footer.php'; ?>

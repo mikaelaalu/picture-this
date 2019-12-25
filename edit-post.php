@@ -9,7 +9,7 @@ $posts = editPost($_GET['id'], $pdo);
 <article>
     <?php foreach ($posts as $post) : ?>
         <div class="post-container">
-            <img class="post" src=" <?php echo 'uploads/' . $post['image_name'] ?> " alt="">
+            <img class="post-img" src=" <?php echo 'uploads/' . $post['image_name'] ?> " alt="">
             <h3> <?php echo $post['title']; ?> </h3>
             <p> <?php echo $post['content']; ?> </p>
         </div>
@@ -24,7 +24,8 @@ $posts = editPost($_GET['id'], $pdo);
             <label for="image">Change image</label>
             <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" required>
         </div>
-        <button type="submit">Edit picture</button>
+        <div clsss="btn--box">
+            <button type="submit">Edit picture</button></div>
     </form>
 
     <form action="<?php echo 'app/posts/edit-post.php?id=' . $post['id'] ?>" method="post">
@@ -39,12 +40,13 @@ $posts = editPost($_GET['id'], $pdo);
             <textarea type="text" name="content" required> <?php echo $post['content'] ?> </textarea>
             <small>Edit your content</small>
         </div>
-
-        <button type="submit">Edit post</button>
+        <div clsss="btn--box">
+            <button type="submit">Edit post</button></div>
     </form>
 
     <form action="<?php echo 'app/posts/delete-post.php?author_id=' . $post['author_id'] . '&id=' . $post['id'] . '&image=' . $post['image_name'] ?>" method="post">
-        <button type="submit">Delete post</button>
+        <div clsss="btn--box">
+            <button type="submit">Delete post</button></div>
     </form>
 </article>
 

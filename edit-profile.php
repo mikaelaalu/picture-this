@@ -25,8 +25,8 @@ $avatar = $getUser['avatar_name'];
             <label for="avatar">Choose avatar images to upload</label>
             <input type="file" name="avatar" id="avatar" accept=".jpg, .jpeg, .png" required>
         </div>
-
-        <button type="submit">Upload image</button>
+        <div clsss="btn--box">
+            <button type="submit">Upload image</button></div>
     </form>
 
     <form action="app/users/edit-profile.php" method="post">
@@ -40,7 +40,8 @@ $avatar = $getUser['avatar_name'];
             <input type="email" name="email" value="<?php echo $getUser['email'] ?>" required>
             <small>Please provide the your email.</small>
         </div>
-        <button type="submit"> Change</button>
+        <div clsss="btn--box">
+            <button type="submit"> Change</button></div>
     </form>
 
     <form action="app/users/edit-password.php" method="post">
@@ -59,7 +60,8 @@ $avatar = $getUser['avatar_name'];
             <input type="password" name="confirm-password" required>
             <small>Please provide the your pass.</small>
         </div>
-        <button type="submit">Change password</button>
+        <div clsss="btn--box">
+            <button type="submit">Change password</button></div>
     </form>
 
 </article>
