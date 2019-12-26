@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
+header('Content-Type: application/json');
+
 if (isset($_POST['comment'], $_POST['post-id'])) {
     $comment = filter_var($_POST['comment'], FILTER_SANITIZE_STRING);
     $postId = filter_var($_POST['post-id'], FILTER_SANITIZE_STRING);
@@ -24,6 +26,19 @@ if (isset($_POST['comment'], $_POST['post-id'])) {
         ':comment' => $comment,
         ':date' => $date,
     ]);
+
+    //json request
+    $comments = getAllComments((int) $postId, $pdo);
+
+    die(var_dump($comments));
+
+
+    $comments = ([
+        'comment' => $comment['comment'],
+        'commeny_by' => $comment['name'],
+    ]);
+
+    echo json_encode($comments);
 }
 
-redirect('/');
+//redirect('/');

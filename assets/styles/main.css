@@ -12,7 +12,8 @@
 
 .title-content-box {
   color: hotpink;
-  width: 90%;
+  width: 100%;
+  padding-left: 10px;
 }
 
 .avatar {
@@ -56,10 +57,23 @@
   align-items: center;
 }
 
-.edit-post-container h3,
-p {
-  width: 70%;
+.edit-post-title {
   text-align: left;
+  width: 70%;
+  margin: 0;
+  font-size: 16px;
+}
+
+.edit-post-para {
+  font-size: 14px;
+  margin: 0;
+  text-align: left;
+  width: 70%;
+}
+
+.date {
+  color: grey;
+  font-size: 11px;
 }
 
 /* buttons */
@@ -195,6 +209,7 @@ h1 {
 }
 
 .author {
+  padding: 5px;
   display: flex;
   justify-content: space-between;
 }
@@ -203,6 +218,8 @@ h1 {
   text-decoration: none;
   cursor: pointer;
   color: inherit;
+  margin-left: 10px;
+  margin-top: 10px;
 }
 
 /* Comments */

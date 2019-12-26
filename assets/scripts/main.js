@@ -36,4 +36,32 @@ forms.forEach(form => {
 //   const img = document.querySelector("like-icon");
 //   img.setAttribute("src", json.icon);
 // };
+
 // Update comments live
+
+const commentsForms = document.querySelectorAll(".comments-form");
+
+commentsForms.forEach(form => {
+  form.addEventListener("submit", event => {
+    event.preventDefault(); // Prevent page from reloading
+
+    const formData = new FormData(form);
+
+    fetch(`http://localhost:8000/app/posts/comment-post.php`, {
+      method: "POST",
+      body: formData
+    })
+      .then(response => {
+        return response.json(); //  från json
+      })
+      .then(json => {
+        console.log(json.text);
+
+        // const btn = event.target.querySelector(".like-btn");
+        // const number = event.target.querySelector(".like-counter");
+
+        // btn.textContent = json.text;
+        // number.textContent = json.number;
+      });
+  });
+});

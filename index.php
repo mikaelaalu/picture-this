@@ -77,7 +77,7 @@ require __DIR__ . '/views/header.php';
                         <p class="like-counter"> <?php echo $displayLikes ?> </p>
                     </form>
                 </div>
-                <small><?php echo $post['date']; ?></small>
+                <small class="date"><?php echo $post['date']; ?></small>
 
                 <!-- Comments -->
                 <?php $comments = getAllComments((int) $post['id'], $pdo); ?>

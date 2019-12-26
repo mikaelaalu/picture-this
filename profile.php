@@ -51,8 +51,6 @@ $visitId = $_SESSION['user']['id'];
 
 
 
-
-
         <div class="author">
             <a href=" <?php echo 'profile.php?id=' . $post['author_id'] ?> ">
                 <?php echo $name ?>
@@ -85,7 +83,7 @@ $visitId = $_SESSION['user']['id'];
 
         </div>
 
-        <small><?php echo $post['date']; ?></small>
+        <small class="date"><?php echo $post['date']; ?></small>
         <?php if ($profileId === $visitId) : ?>
             <a href=" <?php echo "edit-post.php?id=" . $post['id'] ?> "> <button class="edit-post"> Edit post </button> </a>
         <?php endif; ?>

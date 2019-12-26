@@ -10,8 +10,8 @@ $posts = editPost($_GET['id'], $pdo);
     <?php foreach ($posts as $post) : ?>
         <div class="edit-post-container">
             <img class="edit-img" src=" <?php echo 'uploads/' . $post['image_name'] ?> " alt="">
-            <h3> <?php echo $post['title']; ?> </h3>
-            <p> <?php echo $post['content']; ?> </p>
+            <h3 class="edit-post-title"> <?php echo $post['title']; ?> </h3>
+            <p class="edit-post-para"> <?php echo $post['content']; ?> </p>
         </div>
     <?php endforeach; ?>
 
