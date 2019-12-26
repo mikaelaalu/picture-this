@@ -25,6 +25,7 @@ if (isset($_SESSION['user']['id'], $_GET['author_id'], $_GET['id'], $_GET['image
             ':id' => $postId,
         ]);
 
+        //unlink delete image from file
         if (!unlink($path)) {
             $_SESSION['error'] = ['It was an error deleting this file!'];
         }

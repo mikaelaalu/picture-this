@@ -4,6 +4,17 @@
   background: url("http://api.thumbr.it/whitenoise-361x370.png?background=ffffffff&noise=525052&density=15&opacity=23");
 }
 
+/* Post */
+.like-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.title-content-box {
+  color: hotpink;
+  width: 90%;
+}
+
 .avatar {
   width: 100px;
   height: 100px;
@@ -35,10 +46,34 @@
   height: 400px;
 }
 
-button {
-  border: 1px solid red;
+.edit-img {
+  width: 70%;
+  height: 200px;
+}
+.edit-post-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.edit-post-container h3,
+p {
+  width: 70%;
+  text-align: left;
+}
+
+/* buttons */
+
+.button {
+  border: 1px solid;
   border-radius: 4px;
   background-color: hotpink;
+  background: rgb(34, 195, 149);
+  background: linear-gradient(
+    0deg,
+    rgba(34, 195, 149, 0.6621621621621622) 48%,
+    rgba(27, 170, 231, 0.7459893048128342) 71%
+  );
 }
 
 .btn--box {
@@ -46,12 +81,16 @@ button {
   align-items: center;
 }
 
+.new-post {
+  width: 100px;
+}
+
 /* Navigation */
+
 nav ul {
   display: flex;
   width: 100%;
   justify-content: space-around;
-  align-items: flex-end;
 }
 
 nav ul li a {
@@ -77,6 +116,11 @@ nav ul li a {
   margin-left: 5px;
   width: 40px;
   height: 40px;
+}
+
+.nav-icon {
+  width: 30px;
+  height: 30px;
 }
 
 /* Forms  */
@@ -123,7 +167,25 @@ h1 {
 
 .author a {
   text-decoration: none;
-
   cursor: pointer;
   color: inherit;
+}
+
+/* Comments */
+.comments {
+  border-bottom: 1px solid black;
+}
+
+.comments p {
+  margin: 0;
+}
+
+.comment-by {
+  color: rgb(71, 71, 71);
+  font-size: 15px;
+}
+
+.comment {
+  color: rgb(136, 136, 136);
+  font-size: 12px;
 }

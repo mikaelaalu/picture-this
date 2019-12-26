@@ -1,29 +1,18 @@
 "use strict";
 
+// Update like button live
+
 const buttons = document.querySelectorAll(".like-btn");
 const forms = document.querySelectorAll(".like-form");
 const likeCounters = document.querySelectorAll(".like-counter");
+const likeIcon = document.querySelectorAll(".like-icon.src");
 
-// likeBtn.forEach(btn => {
-//   btn.addEventListener("click", sayhey);
-//   console.log(btn.dataset);
-// });
-// addEventListener(
-//   "click",
-//   likeBtn.forEach(btn => {
-//     console.log("hej");
-//   })
-// );
+console.log(likeIcon);
 
 forms.forEach(form => {
   form.addEventListener("submit", event => {
     event.preventDefault(); // Prevent page from reloading
-    //   });
-    // });
 
-    // buttons.forEach(btn => {
-    //   btn.addEventListener("click", event => {
-    // const form = event.target.parentElement;
     const formData = new FormData(form);
 
     fetch(`http://localhost:8000/app/posts/likes.php`, {
@@ -45,3 +34,5 @@ forms.forEach(form => {
       });
   });
 });
+
+// Update comments live

@@ -17,7 +17,7 @@ require __DIR__ . '/views/header.php';
         <?php $user = $_SESSION['user'];
         echo "Welcome " . $user['name']; ?>
 
-        <a href="new-post.php"> <button>New post</button> </a>
+        <button class="new-post"><a href="new-post.php">New post</a></button>
 
         <?php $allPosts = getAllPosts($pdo); ?>
 
@@ -47,25 +47,47 @@ require __DIR__ . '/views/header.php';
                         <p> <?php echo $post['content']; ?> </p>
 
                     </div>
-
+                    <!-- Like button -->
                     <form class="like-form" action="app/posts/likes.php" method="post">
 
                         <input type="hidden" name="id" value=" <?php echo $post['id'] ?> ">
 
-                        <button data-set="<?php echo $post['id'] ?> " class="like-btn">
+                        <button class="like-btn">
                             <?php if (isPostLiked($post['id'], $_SESSION['user']['id'], $pdo)) : ?>
 
+                                <img class="like-icon" src="/icons/liked.png" class="like-icon" alt="like">
+
                                 <?php echo 'unlike'; ?>
+
                             <?php else : echo 'like'; ?>
+
+                                <img class="like-icon" src="/icons/unliked.png" class="like-icon" alt="">
                             <?php endif; ?></button>
 
                         <p class="like-counter"> <?php echo $displayLikes ?> </p>
                     </form>
                 </div>
-
                 <small><?php echo $post['date']; ?></small>
 
+                <!-- Comments -->
+                <?php $comments = getAllComments((int) $post['id'], $pdo); ?>
+                <?php foreach ($comments as $comment) : ?>
+                    <div class="comments">
+                        <p class="comment-by"> <?php echo $comment['name']; ?> </p>
+                        <p class="comment"> <?php echo $comment['comment']; ?> </p>
+                    </div>
+                <?php endforeach; ?>
 
+
+                <form action="app/posts/comment-post.php" method="post">
+
+                    <div>
+                        <input type="hidden" name="post-id" value="<?php echo $post['id'] ?> ">
+                        <!-- <label for="comment"></label> -->
+                        <input type="text" name="comment" placeholder="Add comment..">
+                    </div>
+                    <button type="submit">Send</button>
+                </form>
 
             </div>
 

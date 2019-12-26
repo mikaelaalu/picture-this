@@ -19,6 +19,53 @@ if (!function_exists('redirect')) {
 
 
 /**
+ * Check if there is any error in $_SESSION. 
+ * If there is any, print them and then unset $_SESSION['error']
+ *
+ * @return array
+ */
+function checkForError()
+{
+    if (isset($_SESSION['error'])) {
+        foreach ($_SESSION['error'] as $error) {
+            echo $error;
+        }
+        unset($_SESSION['error']);
+    }
+}
+
+
+/**
+ * Check if there is any message in $_SESSION.
+ * If there is any, print them and unset $_SESSION['message']
+ * 
+ * @return array
+ */
+function checkForConfirm()
+{
+    if (isset($_SESSION['message'])) {
+        foreach ($_SESSION['message'] as $message) {
+            echo $message;
+        }
+        unset($_SESSION['message']);
+    }
+}
+
+
+/**
+ * Check if user is logged in, if not, redirect to home page.
+ *
+ * @return boolean
+ */
+function isLoggedIn()
+{
+    if (!isset($_SESSION['user'])) {
+        redirect('/login.php');
+    }
+}
+
+
+/**
  * Get a user from database to frontend
  *
  * @param integer $userId
@@ -173,6 +220,10 @@ function displayLikes(int $postId, PDO $pdo): string
 
     $statement = $pdo->prepare($query);
 
+    if (!$statement) {
+        die(var_dump($pdo->errorInfo()));
+    }
+
     $statement->execute([
         ':post_id' => $postId
     ]);
@@ -183,49 +234,29 @@ function displayLikes(int $postId, PDO $pdo): string
 }
 
 
-
 /**
- * Check if there is any error in $_SESSION. 
- * If there is any, print them and then unset $_SESSION['error']
+ * Get all comments from database
  *
+ * @param integer $postId
+ * @param pdo $pdo
  * @return array
  */
-function checkForError()
+function getAllComments(int $postId, pdo $pdo): array
 {
-    if (isset($_SESSION['error'])) {
-        foreach ($_SESSION['error'] as $error) {
-            echo $error;
-        }
-        unset($_SESSION['error']);
+    $query = 'SELECT comments.*, users.name FROM comments INNER JOIN users WHERE post_id = :post_id AND comment_by = users.id ';
+
+
+    $statement = $pdo->prepare($query);
+
+    if (!$statement) {
+        die(var_dump($pdo->errorInfo()));
     }
-}
 
+    $statement->execute([
+        'post_id' => $postId
+    ]);
 
-/**
- * Check if there is any message in $_SESSION.
- * If there is any, print them and unset $_SESSION['message']
- * 
- * @return array
- */
-function checkForConfirm()
-{
-    if (isset($_SESSION['message'])) {
-        foreach ($_SESSION['message'] as $message) {
-            echo $message;
-        }
-        unset($_SESSION['message']);
-    }
-}
+    $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-
-/**
- * Check if user is logged in, if not, redirect to home page.
- *
- * @return boolean
- */
-function isLoggedIn()
-{
-    if (!isset($_SESSION['user'])) {
-        redirect('/login.php');
-    }
+    return $comments;
 }

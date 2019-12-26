@@ -8,8 +8,8 @@ $posts = editPost($_GET['id'], $pdo);
 
 <article>
     <?php foreach ($posts as $post) : ?>
-        <div class="post-container">
-            <img class="post-img" src=" <?php echo 'uploads/' . $post['image_name'] ?> " alt="">
+        <div class="edit-post-container">
+            <img class="edit-img" src=" <?php echo 'uploads/' . $post['image_name'] ?> " alt="">
             <h3> <?php echo $post['title']; ?> </h3>
             <p> <?php echo $post['content']; ?> </p>
         </div>

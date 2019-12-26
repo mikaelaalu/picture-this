@@ -18,12 +18,12 @@ $visitId = $_SESSION['user']['id'];
 <p><?php checkForConfirm(); ?></p>
 
 <!-- <h1> <?php echo $name; ?> Profile</h1> -->
-<?php echo $name; ?>
 <div class="profile-info">
-
-    <p> <?php echo $biography  ?> </p>
-
     <img class="avatar" src="<?php echo "uploads/" . $avatar ?>" alt="hello">
+
+    <p> <?php echo $name; ?>
+        <?php echo $biography  ?> </p>
+
 
 </div>
 <?php if ($profileId === $visitId) : ?>
