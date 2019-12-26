@@ -21,7 +21,10 @@ if (isset($_POST['email'], $_POST['password'])) {
 
     $user = $statement->fetch(PDO::FETCH_ASSOC);
 
+
+
     if (!$user) {
+        $_SESSION['error'] = ['Wrong email!'];
         redirect('/login.php');
     }
 

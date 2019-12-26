@@ -89,7 +89,7 @@ require __DIR__ . '/views/header.php';
                 <?php endforeach; ?>
 
 
-                <form action="app/posts/comment-post.php" method="post">
+                <form class="comments-form" action="app/posts/comment-post.php" method="post">
 
                     <div>
                         <input type="hidden" name="post-id" value="<?php echo $post['id'] ?> ">

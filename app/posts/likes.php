@@ -61,27 +61,4 @@ if (isset($_POST['id'])) {
 
         echo json_encode($display);
     }
-
-    //count all likes for one post
-    // $query = 'SELECT COUNT(*) FROM likes WHERE post_id = :post_id';
-
-    // $statement = $pdo->prepare($query);
-
-    // $statement->execute([
-    //     ':post_id' => $postId
-    // ]);
-
-    // $likes = $statement->fetchAll();
-
-    // foreach ($likes as $like) {
-    //     $like;
-    // }
-
-
-
-
-    //     $hej = ['hej' => 'd'];
-    //     echo json_encode($likes);
 }
-
-// redirect('/');

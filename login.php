@@ -8,7 +8,7 @@
     <form action="app/users/login.php" method="post">
         <div>
             <label for="email">Email</label>
-            <input type="email" name="email" placeholder="francis@darjeeling.com" required>
+            <input type="email" name="email" placeholder="email@email.com" required>
             <small>Please provide the your email address.</small>
         </div><!-- /form-group -->
 
