@@ -17,23 +17,41 @@ $visitId = $_SESSION['user']['id'];
 <p><?php checkForError(); ?></p>
 <p><?php checkForConfirm(); ?></p>
 
-<!-- <h1> <?php echo $name; ?> Profile</h1> -->
+
 <div class="profile-info">
     <img class="avatar" src="<?php echo "uploads/" . $avatar ?>" alt="hello">
 
-    <p> <?php echo $name; ?>
-        <?php echo $biography  ?> </p>
-
+    <div class="profile-text">
+        <p class="user-name"> <?php echo $name; ?> </p>
+        <p class="user-bio"> <?php echo $biography  ?> </p>
+    </div>
 
 </div>
+
+
 <?php if ($profileId === $visitId) : ?>
 
-    <a href="new-post.php"> <button>New post</button></a>
+    <!-- <a href="/app/users/logout.php">
+        <img class="nav-icon" src="/icons/exit.png" alt="logout">
+    </a> -->
+    <a href="/app/users/logout.php"> <button>Log out</button> </a>
+
     <a href="edit-profile.php"> <button>Edit Profile</button> </a>
 <?php endif; ?>
 
+
+
+<?php if (empty($getPost)) : ?>
+    <p class="info-message"> You dont have any posts yet..</p>
+<?php endif; ?>
+
+
 <?php foreach ($getPost as $post) : ?>
     <div class="post-container">
+
+
+
+
 
         <div class="author">
             <a href=" <?php echo 'profile.php?id=' . $post['author_id'] ?> ">
@@ -54,7 +72,7 @@ $visitId = $_SESSION['user']['id'];
 
                 <input type="hidden" name="id" value=" <?php echo $post['id'] ?> ">
 
-                <button data-set="<?php echo $post['id'] ?> " class="like-btn">
+                <button class="like-btn">
                     <?php if (isPostLiked($post['id'], $_SESSION['user']['id'], $pdo)) : ?>
 
                         <?php echo 'unlike'; ?>

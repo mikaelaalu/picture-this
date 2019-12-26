@@ -10,14 +10,22 @@ require __DIR__ . '/views/header.php';
 <p><?php checkForConfirm(); ?></p>
 
 <article>
-    <!-- 
-    <h1><?php echo $config['title']; ?></h1> -->
+
+    <?php if (!isset($_SESSION['user']['id'])) : ?>
+
+        <?php redirect('/login.php'); ?>
+
+        <!-- <a <?php echo $_SERVER['SCRIPT_NAME'] === '/login.php' ? 'active' : ''; ?>" href="login.php">Login</a> -->
+
+    <?php endif; ?>
+
+
+
 
     <?php if (isset($_SESSION['user'])) : ?>
         <?php $user = $_SESSION['user'];
         echo "Welcome " . $user['name']; ?>
 
-        <button class="new-post"><a href="new-post.php">New post</a></button>
 
         <?php $allPosts = getAllPosts($pdo); ?>
 
@@ -47,6 +55,8 @@ require __DIR__ . '/views/header.php';
                         <p> <?php echo $post['content']; ?> </p>
 
                     </div>
+
+
                     <!-- Like button -->
                     <form class="like-form" action="app/posts/likes.php" method="post">
 
@@ -55,13 +65,13 @@ require __DIR__ . '/views/header.php';
                         <button class="like-btn">
                             <?php if (isPostLiked($post['id'], $_SESSION['user']['id'], $pdo)) : ?>
 
-                                <img class="like-icon" src="/icons/liked.png" class="like-icon" alt="like">
+                                <!-- <img class="like-icon" src="/icons/liked.png" class="like-icon" alt="like"> -->
 
                                 <?php echo 'unlike'; ?>
 
                             <?php else : echo 'like'; ?>
 
-                                <img class="like-icon" src="/icons/unliked.png" class="like-icon" alt="">
+                                <!-- <img class="like-icon" src="/icons/unliked.png" class="like-icon" alt="unlike"> -->
                             <?php endif; ?></button>
 
                         <p class="like-counter"> <?php echo $displayLikes ?> </p>

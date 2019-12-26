@@ -76,6 +76,11 @@ p {
   );
 }
 
+.like-btn {
+  width: 60px;
+  height: 30px;
+}
+
 .btn--box {
   display: flex;
   align-items: center;
@@ -86,6 +91,15 @@ p {
 }
 
 /* Navigation */
+
+nav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: lightsalmon;
+  z-index: 1;
+}
 
 nav ul {
   display: flex;
@@ -154,10 +168,30 @@ h1 {
 }
 
 /* Profile  */
+
+.info-message {
+  color: rgb(136, 136, 136);
+  font-size: 12px;
+}
+
 .profile-info {
   display: flex;
-
   justify-content: space-between;
+}
+.profile-text {
+  width: 70%;
+}
+
+.user-name {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.user-bio {
+  margin-top: 0;
+  font-size: 14px;
+  color: rgb(54, 54, 54);
 }
 
 .author {

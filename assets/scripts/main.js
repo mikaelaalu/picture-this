@@ -5,9 +5,6 @@
 const buttons = document.querySelectorAll(".like-btn");
 const forms = document.querySelectorAll(".like-form");
 const likeCounters = document.querySelectorAll(".like-counter");
-const likeIcon = document.querySelectorAll(".like-icon.src");
-
-console.log(likeIcon);
 
 forms.forEach(form => {
   form.addEventListener("submit", event => {
@@ -29,10 +26,14 @@ forms.forEach(form => {
         const number = event.target.querySelector(".like-counter");
 
         btn.textContent = json.text;
-
         number.textContent = json.number;
       });
   });
 });
 
+// const img = document.querySelectorAll(".like-icon.src");
+// const populateImg = res => {
+//   const img = document.querySelector("like-icon");
+//   img.setAttribute("src", json.icon);
+// };
 // Update comments live

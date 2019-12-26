@@ -4,6 +4,8 @@ isLoggedIn();
 
 $getUser = getUser($_SESSION['user']['id'], $pdo);
 $avatar = $getUser['avatar_name'];
+$biography = $getUser['biography'];
+$name = $getUser['name'];
 ?>
 
 
@@ -14,9 +16,17 @@ $avatar = $getUser['avatar_name'];
 <!-- Get the user from the database to frontend -->
 <?php $getUser = getUser($_SESSION['user']['id'], $pdo); ?>
 
-<?php echo $_SESSION['user']['name']; ?>
 
-<img class="avatar" src="<?php echo "uploads/" . $avatar  ?>" alt="avatar">
+<div class="profile-info">
+    <img class="avatar" src="<?php echo "uploads/" . $avatar ?>" alt="hello">
+
+    <div class="profile-text">
+        <p class="user-name"> <?php echo $name; ?> </p>
+        <p class="user-bio"> <?php echo $biography  ?> </p>
+    </div>
+</div>
+
+
 <article>
     <h2>Edit your profile</h2>
 
