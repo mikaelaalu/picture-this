@@ -65,13 +65,10 @@ require __DIR__ . '/views/header.php';
                         <button class="like-btn">
                             <?php if (isPostLiked($post['id'], $_SESSION['user']['id'], $pdo)) : ?>
 
-                                <!-- <img class="like-icon" src="/icons/liked.png" class="like-icon" alt="like"> -->
+                                <img class="like-icon" src="/icons/liked.png" alt="like">
 
-                                <?php echo 'unlike'; ?>
+                            <?php else : ?> <img class="like-icon" src="/icons/unliked.png" alt="unlike">
 
-                            <?php else : echo 'like'; ?>
-
-                                <!-- <img class="like-icon" src="/icons/unliked.png" class="like-icon" alt="unlike"> -->
                             <?php endif; ?></button>
 
                         <p class="like-counter"> <?php echo $displayLikes ?> </p>

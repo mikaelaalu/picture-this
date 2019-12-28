@@ -33,6 +33,7 @@ if (isset($_POST['id'])) {
         $display = ([
             'number' => $number,
             'text' => 'like',
+            'src' => 'http://localhost:8000/icons/unliked.png'
         ]);
 
         echo json_encode($display);
@@ -57,6 +58,7 @@ if (isset($_POST['id'])) {
         $display = ([
             'number' => $number,
             'text' => 'unlike',
+            'src' => 'http://localhost:8000/icons/liked.png'
         ]);
 
         echo json_encode($display);

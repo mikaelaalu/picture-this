@@ -73,9 +73,12 @@ $visitId = $_SESSION['user']['id'];
                 <button class="like-btn">
                     <?php if (isPostLiked($post['id'], $_SESSION['user']['id'], $pdo)) : ?>
 
-                        <?php echo 'unlike'; ?>
-                    <?php else : echo 'like'; ?>
+                        <img class="like-icon" src="/icons/liked.png" alt="like">
+
+                    <?php else : ?> <img class="like-icon" src="/icons/unliked.png" alt="unlike">
+
                     <?php endif; ?></button>
+
 
                 <p class="like-counter"> <?php echo $displayLikes ?> </p>
             </form>
