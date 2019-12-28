@@ -34,9 +34,9 @@ $visitId = $_SESSION['user']['id'];
     <!-- <a href="/app/users/logout.php">
         <img class="nav-icon" src="/icons/exit.png" alt="logout">
     </a> -->
-    <a href="/app/users/logout.php"> <button>Log out</button> </a>
+    <a class="logout" href="/app/users/logout.php"> Log out </a>
 
-    <a href="edit-profile.php"> <button>Edit Profile</button> </a>
+    <a href="edit-profile.php"> Edit Profile </a>
 <?php endif; ?>
 
 

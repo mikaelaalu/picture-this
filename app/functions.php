@@ -255,10 +255,37 @@ function getAllComments(int $postId, pdo $pdo): array
     }
 
     $statement->execute([
-        'post_id' => $postId
+        ':post_id' => $postId
     ]);
 
     $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
 
     return $comments;
+}
+
+/**
+ * Get the name of the person who comment on a post, to use when sending json
+ *
+ * @param integer $authorId
+ * @param pdo $pdo
+ * @return array
+ */
+function getUserFromComment(int $user, pdo $pdo): array
+{
+    $query = 'SELECT name FROM users INNER JOIN comments WHERE comments.comment_by = :comment_by AND id = :comment_by';
+
+
+    $statement = $pdo->prepare($query);
+
+    if (!$statement) {
+        die(var_dump($pdo->errorInfo()));
+    }
+
+    $statement->execute([
+
+        ':comment_by' => $user
+    ]);
+
+    $author = $statement->fetch();
+    return $author;
 }

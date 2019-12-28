@@ -2,8 +2,6 @@
 
 require __DIR__ . '/views/header.php';
 
-
-
 ?>
 
 <p><?php checkForError(); ?></p>
@@ -65,31 +63,39 @@ require __DIR__ . '/views/header.php';
                         <button class="like-btn">
                             <?php if (isPostLiked($post['id'], $_SESSION['user']['id'], $pdo)) : ?>
 
-                                <img class="like-icon" src="/icons/liked.png" alt="like">
+                                <img class="like-icon" src="/icons/liked.png" alt="liked">
 
-                            <?php else : ?> <img class="like-icon" src="/icons/unliked.png" alt="unlike">
+                            <?php else : ?> <img class="like-icon" src="/icons/unliked.png" alt="unliked">
 
-                            <?php endif; ?></button>
-
+                            <?php endif; ?>
+                        </button>
                         <p class="like-counter"> <?php echo $displayLikes ?> </p>
+
                     </form>
                 </div>
                 <small class="date"><?php echo $post['date']; ?></small>
 
                 <!-- Comments -->
-                <?php $comments = getAllComments((int) $post['id'], $pdo); ?>
-                <?php foreach ($comments as $comment) : ?>
-                    <div class="comments">
-                        <p class="comment-by"> <?php echo $comment['name']; ?> </p>
-                        <p class="comment"> <?php echo $comment['comment']; ?> </p>
-                    </div>
-                <?php endforeach; ?>
 
 
                 <form class="comments-form" action="app/posts/comment-post.php" method="post">
+                    <input type="hidden" name="post-id" value="<?php echo $post['id'] ?> ">
+
+                    <?php $comments = getAllComments((int) $post['id'], $pdo); ?>
+                    <?php foreach ($comments as $comment) : ?>
+                        <div class="comments">
+                            <p class="commentt-by"> <?php echo $comment['name']; ?> </p>
+                            <p class="commentt"> <?php echo $comment['comment']; ?> </p>
+                        </div>
+                    <?php endforeach; ?>
+
+                    <div class="comments">
+                        <p class="comment-by"> </p>
+                        <p class="comment"> </p>
+                    </div>
+
 
                     <div>
-                        <input type="hidden" name="post-id" value="<?php echo $post['id'] ?> ">
                         <!-- <label for="comment"></label> -->
                         <input type="text" name="comment" placeholder="Add comment..">
                     </div>

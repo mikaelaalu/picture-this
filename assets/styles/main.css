@@ -1,6 +1,9 @@
 /* In this file you can add your custom styles. */
 * {
   font-family: "Poppins", sans-serif;
+}
+
+body {
   background: url("http://api.thumbr.it/whitenoise-361x370.png?background=ffffffff&noise=525052&density=15&opacity=23");
 }
 
@@ -11,7 +14,6 @@
 }
 
 .title-content-box {
-  color: hotpink;
   width: 100%;
   padding-left: 10px;
 }
@@ -35,6 +37,9 @@
 
 .post-container {
   border: 1px solid black;
+  background-color: #f8f8f8;
+  margin: 20px;
+  box-shadow: 4px 3px 8px 1px #969696;
 }
 
 .about-post {
@@ -44,7 +49,7 @@
 
 .post-img {
   width: 100%;
-  height: 400px;
+  height: 350px;
 }
 
 .edit-img {
@@ -113,14 +118,17 @@ nav {
   bottom: 0;
   width: 100%;
   overflow: hidden;
-  background-color: lightsalmon;
+  background-color: #f8f8f8;
   z-index: 1;
+  border-top: 1px solid black;
+  height: 50px;
 }
 
 nav ul {
   display: flex;
   width: 100%;
   justify-content: space-around;
+  margin-top: 12px;
 }
 
 nav ul li a {
@@ -149,8 +157,8 @@ nav ul li a {
 }
 
 .nav-icon {
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
   transition: all 0.2s;
 }
 
@@ -170,6 +178,9 @@ form div {
 
 form input {
   width: 80%;
+  background-color: #f8f8f8;
+  height: 30px;
+  border-radius: 10px;
 }
 
 form label {
@@ -178,6 +189,9 @@ form label {
 }
 form textarea {
   width: 80%;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  border: none;
 }
 h2,
 h1 {

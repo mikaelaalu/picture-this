@@ -32,7 +32,7 @@ if (isset($_POST['id'])) {
         $number = displayLikes($postId, $pdo);
         $display = ([
             'number' => $number,
-            'text' => 'like',
+            // 'text' => 'like',
             'src' => 'http://localhost:8000/icons/unliked.png'
         ]);
 
@@ -57,7 +57,7 @@ if (isset($_POST['id'])) {
         $number = displayLikes($postId, $pdo);
         $display = ([
             'number' => $number,
-            'text' => 'unlike',
+            // 'text' => 'unlike',
             'src' => 'http://localhost:8000/icons/liked.png'
         ]);
 

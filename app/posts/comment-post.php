@@ -10,7 +10,8 @@ if (isset($_POST['comment'], $_POST['post-id'])) {
     $comment = filter_var($_POST['comment'], FILTER_SANITIZE_STRING);
     $postId = filter_var($_POST['post-id'], FILTER_SANITIZE_STRING);
     $date = date("Y-m-d H:i:s");
-    $user = $_SESSION['user']['id'];
+    $user = (int) $_SESSION['user']['id'];
+
 
 
     $statement = $pdo->prepare('INSERT INTO comments (post_id, comment_by, comment, date)
@@ -28,17 +29,15 @@ if (isset($_POST['comment'], $_POST['post-id'])) {
     ]);
 
     //json request
-    $comments = getAllComments((int) $postId, $pdo);
 
-    die(var_dump($comments));
-
+    $comment_by = getUserFromComment($user, $pdo);
 
     $comments = ([
-        'comment' => $comment['comment'],
-        'commeny_by' => $comment['name'],
+        'comment_by' => $comment_by['name'],
+        'comment' => $comment,
     ]);
 
     echo json_encode($comments);
 }
 
-//redirect('/');
+// redirect('/');
