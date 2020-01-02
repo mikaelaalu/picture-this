@@ -90,7 +90,38 @@ $visitId = $_SESSION['user']['id'];
         <?php if ($profileId === $visitId) : ?>
             <a href=" <?php echo "edit-post.php?id=" . $post['id'] ?> "> <button class="edit-post"> Edit post </button> </a>
         <?php endif; ?>
+
+        <!-- Comments -->
+
+
+        <form class="comments-form" action="app/posts/comment-post.php" method="post">
+            <input type="hidden" name="post-id" value="<?php echo $post['id'] ?> ">
+
+            <?php $comments = getAllComments((int) $post['id'], $pdo); ?>
+            <?php foreach ($comments as $comment) : ?>
+                <div class="comments">
+                    <p class="display-user"> <?php echo $comment['name']; ?> </p>
+                    <p class="display-comment"> <?php echo $comment['comment']; ?> </p>
+                </div>
+
+            <?php endforeach; ?>
+
+            <div class="comments">
+                <p class="comment-by"> </p>
+                <p class="comment"> </p>
+            </div>
+
+            <div>
+                <!-- <label for="comment"></label> -->
+                <input type="text" name="comment" placeholder="Add comment..">
+            </div>
+            <button type="submit">Send</button>
+        </form>
+
     </div>
+
+
+
 <?php endforeach; ?>
 
 

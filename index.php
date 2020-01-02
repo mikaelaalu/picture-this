@@ -84,22 +84,27 @@ require __DIR__ . '/views/header.php';
                     <?php $comments = getAllComments((int) $post['id'], $pdo); ?>
                     <?php foreach ($comments as $comment) : ?>
                         <div class="comments">
-                            <p class="commentt-by"> <?php echo $comment['name']; ?> </p>
-                            <p class="commentt"> <?php echo $comment['comment']; ?> </p>
+                            <p class="display-user"> <?php echo $comment['name']; ?> </p>
+                            <p class="display-comment"> <?php echo $comment['comment']; ?> </p>
+
+
+                            <?php if ($_SESSION['user']['id'] === $comment['comment_by']) : ?>
+                                <a href="<?php echo "app/posts/delete-comment.php?comment-id=" . $comment['comment_id'] . '&comment-by=' . $comment['comment_by'] ?> ">Delete comment</a>
+                            <?php endif; ?>
+
+                        <?php endforeach; ?>
+
+                        <div class="comments">
+                            <p class="comment-by"> </p>
+                            <p class="comment"> </p>
+
                         </div>
-                    <?php endforeach; ?>
 
-                    <div class="comments">
-                        <p class="comment-by"> </p>
-                        <p class="comment"> </p>
-                    </div>
-
-
-                    <div>
-                        <!-- <label for="comment"></label> -->
-                        <input type="text" name="comment" placeholder="Add comment..">
-                    </div>
-                    <button type="submit">Send</button>
+                        <div>
+                            <!-- <label for="comment"></label> -->
+                            <input type="text" name="comment" placeholder="Add comment..">
+                        </div>
+                        <button type="submit">Send</button>
                 </form>
 
             </div>
