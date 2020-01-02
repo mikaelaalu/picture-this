@@ -22,7 +22,7 @@
             <input type="password" name="password" required>
             <small>Please provide the your password (passphrase).</small>
         </div>
-        <div clsss="btn--box">
+        <div clsss="btn-box">
             <button type="submit">Create account</button>
         </div>
     </form>

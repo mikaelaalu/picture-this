@@ -35,7 +35,7 @@ $name = $getUser['name'];
             <label for="avatar">Choose avatar images to upload</label>
             <input type="file" name="avatar" id="avatar" accept=".jpg, .jpeg, .png" required>
         </div>
-        <div clsss="btn--box">
+        <div clsss="btn-box">
             <button type="submit">Upload image</button></div>
     </form>
 
@@ -50,7 +50,7 @@ $name = $getUser['name'];
             <input type="email" name="email" value="<?php echo $getUser['email'] ?>" required>
             <small>Please provide the your email.</small>
         </div>
-        <div clsss="btn--box">
+        <div clsss="btn-box">
             <button type="submit"> Change</button></div>
     </form>
 
@@ -70,7 +70,7 @@ $name = $getUser['name'];
             <input type="password" name="confirm-password" required>
             <small>Please provide the your pass.</small>
         </div>
-        <div clsss="btn--box">
+        <div clsss="btn-box">
             <button type="submit">Change password</button></div>
     </form>
 

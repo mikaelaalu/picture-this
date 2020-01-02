@@ -18,12 +18,12 @@
             <small>Please provide the your password (passphrase).</small>
         </div><!-- /form-group -->
 
-        <div clsss="btn--box">
+        <div clsss="btn-box">
             <button type="submit">Login</button>
         </div>
     </form>
 
-    <div clsss="btn--box">
+    <div clsss="btn-box">
         <a href='new-user.php'> <button> Create account</button> </a></div>
 </article>
 

@@ -18,6 +18,8 @@ if (($_SESSION['user']['id'] === $_GET['comment-by'])) {
     $statement->execute([
         ':comment_id' => $commentId,
     ]);
+
+    $_SESSION['message'] = ['Your comment was deleted!'];
 }
 
 redirect('/');
