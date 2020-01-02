@@ -78,33 +78,40 @@ require __DIR__ . '/views/header.php';
                 <!-- Comments -->
 
 
+                <?php $comments = getAllComments((int) $post['id'], $pdo); ?>
+                <?php foreach ($comments as $comment) : ?>
+                    <div class="comments">
+                        <p class="display-user"> <?php echo $comment['name']; ?> </p>
+                        <p class="display-comment"> <?php echo $comment['comment']; ?> </p>
+
+                        <?php if ($_SESSION['user']['id'] === $comment['comment_by']) : ?>
+
+                            <a href="<?php echo "app/posts/delete-comment.php?comment-id=" . $comment['comment_id'] . '&comment-by=' . $comment['comment_by'] ?> " class="delete-comment">Delete comment</a>
+                        <?php endif; ?>
+                    </div>
+
+                <?php endforeach; ?>
+
+
                 <form class="comments-form" action="app/posts/comment-post.php" method="post">
                     <input type="hidden" name="post-id" value="<?php echo $post['id'] ?> ">
 
-                    <?php $comments = getAllComments((int) $post['id'], $pdo); ?>
-                    <?php foreach ($comments as $comment) : ?>
-                        <div class="comments">
-                            <p class="display-user"> <?php echo $comment['name']; ?> </p>
-                            <p class="display-comment"> <?php echo $comment['comment']; ?> </p>
+                    <div class="comments">
+                        <p class="comment-by"> </p>
+                        <p class="comment"> </p>
 
+                    </div>
 
-                            <?php if ($_SESSION['user']['id'] === $comment['comment_by']) : ?>
-                                <a href="<?php echo "app/posts/delete-comment.php?comment-id=" . $comment['comment_id'] . '&comment-by=' . $comment['comment_by'] ?> ">Delete comment</a>
-                            <?php endif; ?>
-
-                        <?php endforeach; ?>
-
-                        <div class="comments">
-                            <p class="comment-by"> </p>
-                            <p class="comment"> </p>
-
-                        </div>
-
-                        <div>
+                    <div class="comment-input">
+                        <div class="add-comment">
                             <!-- <label for="comment"></label> -->
                             <input type="text" name="comment" placeholder="Add comment..">
                         </div>
-                        <button type="submit">Send</button>
+                        <div class="send-comment">
+                            <button type="submit">Send</button>
+                        </div>
+
+                    </div>
                 </form>
 
             </div>
