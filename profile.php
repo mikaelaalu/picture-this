@@ -35,6 +35,14 @@ $visitId = $_SESSION['user']['id'];
         <div class="profile-text">
             <p class="user-name"> <?php echo $name; ?> </p>
             <p class="user-bio"> <?php echo $biography  ?> </p>
+
+
+            <!-- Following -->
+            <form class="following" action="app/users/following.php" method="post">
+                <input type="hidden" name="profile" value="<?php echo $profileId ?> ">
+
+                <button type="submit">Follow</button>
+            </form>
         </div>
 
         <?php if ($profileId === $visitId) : ?>
