@@ -27,6 +27,23 @@ commentsForms.forEach(form => {
         // deleteComment.textContent = json.delete_comment;
         commentBy.textContent = json.comment_by;
         comment.textContent = json.comment;
+        clearInput();
       });
   });
 });
+
+// Clear textinput after adding comment
+
+function clearValue() {
+  const commentInput = document.querySelector(".comment-text");
+
+  console.log(commentInput);
+  commentInput.value = "";
+}
+
+function clearInput() {
+  const commentButton = document.querySelectorAll(".comment-submit");
+  commentButton.forEach(button => {
+    button.addEventListener("click", clearValue());
+  });
+}

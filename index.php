@@ -26,6 +26,12 @@ require __DIR__ . '/views/header.php';
 
         <?php $allPosts = getAllPosts($pdo); ?>
 
+
+
+        <?php if (empty($allPosts)) : ?>
+            <p class="info-message"> There are no posts yet.. Be the first to upload one!</p>
+        <?php endif; ?>
+
         <?php foreach ($allPosts as $post) : ?>
 
 
@@ -94,7 +100,7 @@ require __DIR__ . '/views/header.php';
                     </form>
                 </div>
 
-                <small class="date"><?php echo $post['date']; ?></small>
+                <small class="date"><?php echo 'Published: ' .  $post['date']; ?></small>
 
                 <!-- Comments -->
 
@@ -126,10 +132,10 @@ require __DIR__ . '/views/header.php';
                     <div class="comment-input">
                         <div class="add-comment">
                             <!-- <label for="comment"></label> -->
-                            <input type="text" name="comment" placeholder="Add comment..">
+                            <input class="comment-text" type="text" name="comment" placeholder="Add comment..">
                         </div>
                         <div class="send-comment">
-                            <button type="submit">Send</button>
+                            <button class="comment-submit" type="submit">Send</button>
                         </div>
 
                     </div>

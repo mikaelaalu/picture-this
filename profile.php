@@ -117,7 +117,7 @@ $visitId = $_SESSION['user']['id'];
             </div>
 
             <div class="edit-post-wrapper">
-                <small class="date"><?php echo $post['date']; ?></small>
+                <small class="date"><?php echo 'Published: ' . $post['date']; ?></small>
                 <?php if ($profileId === $visitId) : ?>
                     <a href=" <?php echo "edit-post.php?id=" . $post['id'] ?> "> <button class="edit-post"> Edit post </button> </a>
                 <?php endif; ?>

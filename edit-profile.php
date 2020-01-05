@@ -18,7 +18,15 @@ $name = $getUser['name'];
 
 
 <div class="profile-info">
-    <img class="avatar" src="<?php echo "uploads/" . $avatar ?>" alt="hello">
+    <?php if (!$avatar) : ?>
+
+        <img class="avatar" src="/icons/persona.png" alt="avatar">
+
+    <?php else : ?>
+
+        <img class="avatar" src="<?php echo "uploads/" . $avatar ?>" alt="avatar">
+
+    <?php endif; ?>
 
     <div class="profile-text">
         <p class="user-name"> <?php echo $name; ?> </p>
