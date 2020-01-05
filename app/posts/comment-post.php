@@ -35,6 +35,7 @@ if (isset($_POST['comment'], $_POST['post-id'])) {
     $comments = ([
         'comment_by' => $comment_by['name'],
         'comment' => $comment,
+        'delete_comment' => 'Delete comment',
     ]);
 
     echo json_encode($comments);

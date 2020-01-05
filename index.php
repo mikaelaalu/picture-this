@@ -4,10 +4,11 @@ require __DIR__ . '/views/header.php';
 
 ?>
 
+
 <p><?php checkForError(); ?></p>
 <p><?php checkForConfirm(); ?></p>
 
-<article>
+<article class="posts-wrapper">
 
     <?php if (!isset($_SESSION['user']['id'])) : ?>
 
@@ -21,8 +22,6 @@ require __DIR__ . '/views/header.php';
 
 
     <?php if (isset($_SESSION['user'])) : ?>
-        <?php $user = $_SESSION['user'];
-        echo "Welcome " . $user['name']; ?>
 
 
         <?php $allPosts = getAllPosts($pdo); ?>
@@ -40,7 +39,18 @@ require __DIR__ . '/views/header.php';
                     <a href=" <?php echo 'profile.php?id=' . $post['author_id'] ?> ">
                         <?php echo $post['name'] ?>
                     </a>
-                    <img class="avatar-small" src="<?php echo "uploads/" . $post['avatar_name'] ?>" alt="avatar">
+
+                    <?php $avatar = $post['avatar_name'] ?>
+
+                    <?php if (!$avatar) : ?>
+
+                        <img class="avatar-small" src="/icons/persona.png" alt="avatar">
+
+                    <?php else : ?>
+
+                        <img class="avatar-small" src="<?php echo "uploads/" . $avatar ?>" alt="avatar">
+
+                    <?php endif; ?>
                 </div>
 
                 <img class="post-img" src=" <?php echo "uploads/" . $post['image_name'] ?> " loading="lazy">
@@ -49,8 +59,8 @@ require __DIR__ . '/views/header.php';
                 <div class="about-post">
 
                     <div class="title-content-box">
-                        <h3> <?php echo $post['title']; ?> </h3>
-                        <p> <?php echo $post['content']; ?> </p>
+                        <h3 class="title-post"> <?php echo $post['title']; ?> </h3>
+                        <p class="content"> <?php echo $post['content']; ?> </p>
 
                     </div>
 
@@ -60,19 +70,30 @@ require __DIR__ . '/views/header.php';
 
                         <input type="hidden" name="id" value=" <?php echo $post['id'] ?> ">
 
+                        <p class="like-counter"> <?php
+
+                                                    if ($displayLikes === "0") {
+                                                        echo ' ';
+                                                    } else {
+                                                        echo $displayLikes;
+                                                    } ?> </p>
+
                         <button class="like-btn">
+
                             <?php if (isPostLiked($post['id'], $_SESSION['user']['id'], $pdo)) : ?>
 
                                 <img class="like-icon" src="/icons/liked.png" alt="liked">
 
-                            <?php else : ?> <img class="like-icon" src="/icons/unliked.png" alt="unliked">
+                            <?php else : ?>
+
+                                <img class="like-icon" src="/icons/unliked.png" alt="unliked">
 
                             <?php endif; ?>
                         </button>
-                        <p class="like-counter"> <?php echo $displayLikes ?> </p>
 
                     </form>
                 </div>
+
                 <small class="date"><?php echo $post['date']; ?></small>
 
                 <!-- Comments -->

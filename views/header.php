@@ -27,6 +27,6 @@ require __DIR__ . '/../app/autoload.php';
 <body>
     <div class="title">
         <a href="/index.php"><?php echo $config['title']; ?></a>
-        <img src="/icons/camera.png" alt="">
+        <img src="/icons/camera.png" alt="camera">
     </div>
     <?php require __DIR__ . '/navigation.php'; ?>

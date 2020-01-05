@@ -18,11 +18,13 @@ commentsForms.forEach(form => {
         return response.json();
       })
       .then(json => {
-        console.log(json.comment_by);
+        console.log(json);
 
         const commentBy = event.target.querySelector(".comment-by");
         const comment = event.target.querySelector(".comment");
+        // const deleteComment = event.target.querySelector(".delete-comment");
 
+        // deleteComment.textContent = json.delete_comment;
         commentBy.textContent = json.comment_by;
         comment.textContent = json.comment;
       });

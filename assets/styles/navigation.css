@@ -48,3 +48,6 @@ nav ul li a {
   height: 25px;
   transition: all 0.2s;
 }
+
+@media (min-width: 500px) {
+}

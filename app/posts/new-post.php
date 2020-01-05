@@ -59,15 +59,15 @@ if (isset($_FILES['image'], $_POST['title'], $_POST['content'])) {
                 $_SESSION['message'] = ['The post was uploaded!'];
             } else {
                 $_SESSION['error'] = ['The image is too big!'];
-                redirect('/new_post.php');
+                redirect('/new-post.php');
             }
         } else {
             $_SESSION['error'] = ['There was an error uploading this file. Try again!'];
-            redirect('/new_post.php');
+            redirect('/new-post.php');
         }
     } else {
         $_SESSION['error'] = ['Filetype is not allowed'];
-        redirect('/new_post.php');
+        redirect('/new-post.php');
     }
 }
 

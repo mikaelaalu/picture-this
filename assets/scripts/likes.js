@@ -19,17 +19,22 @@ forms.forEach(form => {
         return response.json();
       })
       .then(json => {
-        console.log(json.text);
+        console.log(json.number);
 
         // const btn = event.target.querySelector(".like-btn");
         const number = event.target.querySelector(".like-counter");
         const likeIcons = event.target.querySelector(".like-icon");
 
-        console.log(json.src);
+        // console.log(json.src);
+
+        if (json.number === "0") {
+          number.textContent = " ";
+        } else {
+          number.textContent = json.number;
+        }
 
         likeIcons.src = json.src;
         // btn.textContent = json.text;
-        number.textContent = json.number;
       });
   });
 });

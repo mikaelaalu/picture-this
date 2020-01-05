@@ -117,8 +117,6 @@ function getPost(int $userId, PDO $pdo): array
 
     $post = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-
-
     return $post;
 }
 
