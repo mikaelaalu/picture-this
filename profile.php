@@ -40,19 +40,21 @@ $visitId = $_SESSION['user']['id'];
 
             <div>
                 <?php $followers = followers($profileId, $pdo); ?>
-                <small>Followers: <?php echo $followers ?> </small>
+                <small class="followers">Followers: <?php echo $followers ?> </small>
 
                 <?php $following = following($userId, $pdo); ?>
-                <small>Following: <?php echo $following ?> </small>
+                <small class="following">Following: <?php echo $following ?> </small>
             </div>
+
             <!-- Follow -->
 
             <?php if ($profileId !== $visitId) : ?>
 
                 <form class="following" action="app/users/following.php" method="post">
+
                     <input type="hidden" name="profile" value="<?php echo $profileId ?> ">
 
-                    <button type="submit">
+                    <button class="followBtn" type="submit">
 
                         <?php if (isFollowing($visitId, $profileId, $pdo)) : ?>
 

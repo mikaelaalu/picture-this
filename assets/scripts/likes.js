@@ -2,7 +2,7 @@
 
 // Update like button live
 
-const buttons = document.querySelectorAll(".like-btn");
+// const buttons = document.querySelectorAll(".like-btn");
 const forms = document.querySelectorAll(".like-form");
 
 forms.forEach(form => {

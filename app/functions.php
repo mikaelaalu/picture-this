@@ -207,6 +207,7 @@ function isPostLiked(int $postId, int $userId,  PDO $pdo): bool
     }
 }
 
+
 /**
  * Display all likes on specific post, get all likes from database
  *
@@ -238,10 +239,10 @@ function displayLikes(int $postId, PDO $pdo): string
  * Get all comments from database
  *
  * @param integer $postId
- * @param pdo $pdo
+ * @param PDO $pdo
  * @return array
  */
-function getAllComments(int $postId, pdo $pdo): array
+function getAllComments(int $postId, PDO $pdo): array
 {
     $query = 'SELECT comments.*, users.name FROM comments INNER JOIN users WHERE post_id = :post_id AND comment_by = users.id ';
 
@@ -261,14 +262,15 @@ function getAllComments(int $postId, pdo $pdo): array
     return $comments;
 }
 
+
 /**
  * Get the name of the person who comment on a post, to use when sending json
  *
  * @param integer $authorId
- * @param pdo $pdo
+ * @param PDO $pdo
  * @return array
  */
-function getUserFromComment(int $user, pdo $pdo): array
+function getUserFromComment(int $user, PDO $pdo): array
 {
     $query = 'SELECT name FROM users INNER JOIN comments WHERE comments.comment_by = :comment_by AND id = :comment_by';
 
@@ -288,15 +290,16 @@ function getUserFromComment(int $user, pdo $pdo): array
     return $author;
 }
 
+
 /**
  * Check in databse if user following a profile, if user does return true, else return false.
  *
  * @param integer $userId
  * @param integer $profileId
- * @param pdo $pdo
+ * @param PDO $pdo
  * @return boolean
  */
-function isFollowing(int $userId, int $profileId, pdo $pdo): bool
+function isFollowing(int $userId, int $profileId, PDO $pdo): bool
 {
 
     $query = 'SELECT * FROM following WHERE user_id = :user_id AND profile_id = :profile_id';
@@ -321,14 +324,15 @@ function isFollowing(int $userId, int $profileId, pdo $pdo): bool
     }
 }
 
+
 /**
  * Check how many followers one profile have
  *
  * @param integer $profileId
- * @param pdo $pdo
+ * @param PDO $pdo
  * @return string
  */
-function followers(int $profileId, pdo $pdo): string
+function followers(int $profileId, PDO $pdo): string
 {
     $query = 'SELECT COUNT(*) FROM following WHERE profile_id = :profile_id';
 
@@ -347,7 +351,15 @@ function followers(int $profileId, pdo $pdo): string
     return $followers;
 }
 
-function following($userId, $pdo)
+
+/**
+ * Check how many users one user follow
+ *
+ * @param integer $userId
+ * @param PDO $pdo
+ * @return string
+ */
+function following(int $userId, PDO $pdo): string
 {
     $query = 'SELECT COUNT(*) FROM following WHERE user_id = :user_id';
 
