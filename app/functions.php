@@ -287,3 +287,36 @@ function getUserFromComment(int $user, pdo $pdo): array
     $author = $statement->fetch();
     return $author;
 }
+
+/**
+ * Check in databse if user following a profile, if user does return true, else return false.
+ *
+ * @param integer $userId
+ * @param integer $profileId
+ * @param pdo $pdo
+ * @return boolean
+ */
+function isFollowing(int $userId, int $profileId, pdo $pdo): bool
+{
+
+    $query = 'SELECT * FROM following WHERE user_id = :user_id AND profile_id = :profile_id';
+
+    $statement = $pdo->prepare($query);
+
+    if (!$statement) {
+        die(var_dump($pdo->errorInfo()));
+    }
+
+    $statement->execute([
+        ':user_id' => $userId,
+        ':profile_id' => $profileId
+    ]);
+
+    $following = $statement->fetch(PDO::FETCH_ASSOC);
+
+    if ($following) {
+        return true;
+    } else {
+        return false;
+    }
+}

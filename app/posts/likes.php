@@ -15,6 +15,7 @@ if (isset($_POST['id'])) {
 
 
     if (isPostLiked($postId, $userId, $pdo)) {
+
         // If post is liked delete from database
 
         $statement = $pdo->prepare('DELETE FROM likes WHERE post_id = :post_id AND user_id = :user_id');

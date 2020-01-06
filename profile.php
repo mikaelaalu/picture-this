@@ -41,7 +41,19 @@ $visitId = $_SESSION['user']['id'];
             <form class="following" action="app/users/following.php" method="post">
                 <input type="hidden" name="profile" value="<?php echo $profileId ?> ">
 
-                <button type="submit">Follow</button>
+                <button type="submit">
+
+                    <?php if (isFollowing($visitId, $profileId, $pdo)) : ?>
+
+                        Unfollow
+
+                    <?php else :   ?>
+                        Follow
+
+                    <?php endif; ?>
+
+                </button>
+
             </form>
         </div>
 
