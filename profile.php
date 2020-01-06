@@ -4,9 +4,11 @@ isLoggedIn();
 
 $getUser = getUser($_GET['id'], $pdo);
 $name = $getUser['name'];
+$userId = $getUser['id'];
 $avatar = $getUser['avatar_name'];
 $biography = $getUser['biography'];
 $getPost = getPost($_GET['id'], $pdo);
+
 
 
 $profileId = $_GET['id'];
@@ -36,8 +38,14 @@ $visitId = $_SESSION['user']['id'];
             <p class="user-name"> <?php echo $name; ?> </p>
             <p class="user-bio"> <?php echo $biography  ?> </p>
 
+            <div>
+                <?php $followers = followers($profileId, $pdo); ?>
+                <small>Followers: <?php echo $followers ?> </small>
 
-            <!-- Following -->
+                <?php $following = following($userId, $pdo); ?>
+                <small>Following: <?php echo $following ?> </small>
+            </div>
+            <!-- Follow -->
 
             <?php if ($profileId !== $visitId) : ?>
 

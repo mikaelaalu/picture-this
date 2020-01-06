@@ -320,3 +320,48 @@ function isFollowing(int $userId, int $profileId, pdo $pdo): bool
         return false;
     }
 }
+
+/**
+ * Check how many followers one profile have
+ *
+ * @param integer $profileId
+ * @param pdo $pdo
+ * @return string
+ */
+function followers(int $profileId, pdo $pdo): string
+{
+    $query = 'SELECT COUNT(*) FROM following WHERE profile_id = :profile_id';
+
+    $statement = $pdo->prepare($query);
+
+    if (!$statement) {
+        die(var_dump($pdo->errorInfo()));
+    }
+
+    $statement->execute([
+        ':profile_id' => $profileId
+    ]);
+
+    $followers = $statement->fetch()[0];
+
+    return $followers;
+}
+
+function following($userId, $pdo)
+{
+    $query = 'SELECT COUNT(*) FROM following WHERE user_id = :user_id';
+
+    $statement = $pdo->prepare($query);
+
+    if (!$statement) {
+        die(var_dump($pdo->errorInfo()));
+    }
+
+    $statement->execute([
+        ':user_id' => $userId
+    ]);
+
+    $following = $statement->fetch()[0];
+
+    return $following;
+}
