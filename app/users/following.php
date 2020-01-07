@@ -8,7 +8,7 @@ header('Content-Type: application/json');
 
 if (isset($_POST['profile'])) {
 
-    $profileId = (int) $_POST['profile'];
+    $profileId = (int) filter_var($_POST['profile'], FILTER_SANITIZE_NUMBER_INT);
     $userId = (int) $_SESSION['user']['id'];
 
     if (isFollowing($userId,  $profileId, $pdo)) {

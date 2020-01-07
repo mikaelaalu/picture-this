@@ -9,8 +9,8 @@ header('Content-Type: application/json');
 if (isset($_POST['comment-by'], $_POST['comment-id'])) {
 
 
-    $commentId = $_POST['comment-id'];
-    $commentBy =  $_POST['comment-by'];
+    $commentId = filter_var($_POST['comment-id'], FILTER_SANITIZE_NUMBER_INT);
+    $commentBy =  filter_var($_POST['comment-by'], FILTER_SANITIZE_NUMBER_INT);
     $user =  $_SESSION['user']['id'];
 
     // die(var_dump($commentBy));

@@ -10,7 +10,7 @@ header('Content-Type: application/json');
 
 if (isset($_POST['id'])) {
 
-    $postId = (int) $_POST['id'];
+    $postId = (int) filter_var($_POST['id'], FILTER_SANITIZE_NUMBER_INT);
     $userId = (int) $_SESSION['user']['id'];
 
 

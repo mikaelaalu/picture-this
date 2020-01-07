@@ -6,10 +6,10 @@ require __DIR__ . '/../autoload.php';
 
 if (isset($_SESSION['user']['id'], $_GET['author_id'], $_GET['id'], $_GET['image'])) {
 
-    $authorId = $_GET['author_id'];
+    $authorId = filter_var($_GET['author_id'], FILTER_SANITIZE_NUMBER_INT);
     $loggedIn = $_SESSION['user']['id'];
-    $postId = $_GET['id'];
-    $image = $_GET['image'];
+    $postId = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
+    $image = filter_var($_GET['image'], FILTER_SANITIZE_SPECIAL_CHARS);
 
     $path = __DIR__ . '/../../uploads/' . $image;
 
