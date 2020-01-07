@@ -6,29 +6,37 @@ require __DIR__ . '/../autoload.php';
 
 header('Content-Type: application/json');
 
-if (($_SESSION['user']['id'] === $_GET['comment-by'])) {
-    $commentId = $_GET['comment-id'];
-    $author = $_SESSION['user']['id'];
+if (isset($_POST['comment-by'], $_POST['comment-id'])) {
 
 
-    $statement = $pdo->prepare('DELETE FROM comments WHERE comment_id = :comment_id');
+    $commentId = $_POST['comment-id'];
+    $commentBy =  $_POST['comment-by'];
+    $user =  $_SESSION['user']['id'];
 
-    if (!$statement) {
-        die(var_dump($pdo->errorInfo()));
+    // die(var_dump($commentBy));
+
+    if ($commentBy === $user) {
+
+        $statement = $pdo->prepare('DELETE FROM comments WHERE comment_id = :comment_id');
+
+        if (!$statement) {
+            die(var_dump($pdo->errorInfo()));
+        }
+
+        $statement->execute([
+            ':comment_id' => $commentId,
+        ]);
+
+        // $_SESSION['message'] = ['Your comment was deleted!'];
+
+
+        // json rquest
+
+
+        echo json_encode('Your comment was deleted');
     }
-
-    $statement->execute([
-        ':comment_id' => $commentId,
-    ]);
-
-    // $_SESSION['message'] = ['Your comment was deleted!'];
-
-
-    // json rquest
-
-    $message = ('Your comment was deleted');
-
-    echo json_encode('Your comment was deleted');
 }
+
+
 
 // redirect('/');

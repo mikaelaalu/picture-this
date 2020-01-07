@@ -19,12 +19,24 @@ deleteCommentForm.forEach(form => {
         return response.json();
       })
       .then(json => {
+        const commentBox = event.target.querySelector(".comments");
+
+        // function removeComment() {
+        //   const commentBox = event.target.querySelector(".comments");
+
+        //   commentBox.parentNode.removeChild(commentBox);
+        //   return false;
+        // }
+
+        // removeComment();
+
+        console.log(commentBox);
         console.log("hi");
         console.log(json);
-      })
-      .catch(err => {
-        // Do something for an error here
-        console.log("Error Reading data " + err);
       });
+    //   .catch(err => {
+    //     // Do something for an error here
+    //     console.log("Error Reading data " + err);
+    //   });
   });
 });

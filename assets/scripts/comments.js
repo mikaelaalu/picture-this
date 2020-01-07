@@ -33,7 +33,7 @@ commentsForms.forEach(form => {
         return response.json();
       })
       .then(json => {
-        console.log(json);
+        // console.log(json);
 
         const commentBy = event.target.querySelector(".comment-by");
         const comment = event.target.querySelector(".comment");
