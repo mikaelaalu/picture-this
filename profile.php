@@ -184,10 +184,10 @@ $visitId = $_SESSION['user']['id'];
                 <div class="comment-input">
                     <div class="add-comment">
                         <!-- <label for="comment"></label> -->
-                        <input type="text" name="comment" placeholder="Add comment..">
+                        <input class="comment-text" type="text" name="comment" placeholder="Add comment..">
                     </div>
                     <div class="send-comment">
-                        <button type="submit">Send</button>
+                        <button class="comment-submit" type="submit">Send</button>
                     </div>
 
                 </div>

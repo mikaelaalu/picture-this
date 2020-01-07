@@ -19,11 +19,11 @@ followingForms.forEach(form => {
       })
       .then(json => {
         const followBtn = event.target.querySelector(".followBtn");
-        const following = document.querySelector(".following");
+        // const following = document.querySelector(".following");
         const followers = document.querySelector(".followers");
 
         followBtn.textContent = json.button;
-        following.textContent = json.following;
+        // following.textContent = json.following;
         followers.textContent = json.followers;
         console.log(json);
       });

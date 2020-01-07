@@ -1,7 +1,6 @@
 /* Forms  */
 
 article {
-  height: 100vh;
   display: flex;
   flex-direction: column;
 }
@@ -32,4 +31,7 @@ form textarea {
 h2,
 h1 {
   text-align: center;
+}
+
+@media (min-width: 650px) {
 }

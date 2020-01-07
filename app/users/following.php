@@ -14,7 +14,6 @@ if (isset($_POST['profile'])) {
     if (isFollowing($userId,  $profileId, $pdo)) {
 
         // Delete from database if user already following
-
         $statement = $pdo->prepare('DELETE FROM following WHERE user_id = :user_id AND profile_id = :profile_id');
 
         if (!$statement) {
@@ -33,7 +32,7 @@ if (isset($_POST['profile'])) {
 
         $json = ([
             'followers' => 'Followers: ' . $followers,
-            'following' => 'Following: ' . $following,
+            // 'following' => 'Following: ' . $following,
             'button' => 'Follow'
         ]);
 
@@ -59,7 +58,7 @@ if (isset($_POST['profile'])) {
 
         $json = ([
             'followers' => 'Followers: ' . $followers,
-            'following' => 'Following: ' . $following,
+            // 'following' => 'Following: ' . $following,
             'button' => 'Unfollow'
         ]);
 

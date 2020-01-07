@@ -113,7 +113,9 @@ require __DIR__ . '/views/header.php';
 
                         <?php if ($_SESSION['user']['id'] === $comment['comment_by']) : ?>
 
-                            <a href="<?php echo "app/posts/delete-comment.php?comment-id=" . $comment['comment_id'] . '&comment-by=' . $comment['comment_by'] ?> " class="delete-comment">Delete comment</a>
+                            <form class="delete-comment-form" action=" <?php echo "app/posts/delete-comment.php?comment-id=" . $comment['comment_id'] . '&comment-by=' . $comment['comment_by'] ?> " method="post">
+                                <button class="delete-comment" type="submit">Delete comment</button>
+                            </form>
                         <?php endif; ?>
                     </div>
 
