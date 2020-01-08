@@ -16,26 +16,27 @@ $name = $getUser['name'];
 <!-- Get the user from the database to frontend -->
 <?php $getUser = getUser($_SESSION['user']['id'], $pdo); ?>
 
+<article class="form-box">
 
-<div class="profile-info">
-    <?php if (!$avatar) : ?>
+    <div class="profile-info">
+        <?php if (!$avatar) : ?>
 
-        <img class="avatar" src="/icons/persona.png" alt="avatar">
+            <img class="avatar" src="/icons/persona.png" alt="avatar">
 
-    <?php else : ?>
+        <?php else : ?>
 
-        <img class="avatar" src="<?php echo "uploads/" . $avatar ?>" alt="avatar">
+            <img class="avatar" src="<?php echo "uploads/" . $avatar ?>" alt="avatar">
 
-    <?php endif; ?>
+        <?php endif; ?>
 
-    <div class="profile-text">
-        <p class="user-name"> <?php echo $name; ?> </p>
-        <p class="user-bio"> <?php echo $biography  ?> </p>
+        <div class="profile-text">
+            <p class="user-name"> <?php echo $name; ?> </p>
+            <p class="user-bio"> <?php echo $biography  ?> </p>
+        </div>
+
     </div>
-</div>
 
 
-<article>
     <h2>Edit your profile</h2>
 
     <form action="app/users/upload-avatar.php" method="post" enctype="multipart/form-data">

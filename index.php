@@ -2,6 +2,8 @@
 
 require __DIR__ . '/views/header.php';
 
+
+
 ?>
 
 
@@ -99,8 +101,12 @@ require __DIR__ . '/views/header.php';
 
                     </form>
                 </div>
+                <?php $dateWithTime = $post['date'];
 
-                <small class="date"><?php echo 'Published: ' .  $post['date']; ?></small>
+                $dateArray = explode(' ', $dateWithTime);
+                $dateWithoutTime = $dateArray[0]; ?>
+
+                <small class="date"><?php echo 'Published: ' .  $dateWithoutTime ?></small>
 
                 <!-- Comments -->
 
@@ -132,7 +138,6 @@ require __DIR__ . '/views/header.php';
                     <div class="comments">
                         <p class="comment-by"> </p>
                         <p class="comment"> </p>
-
                     </div>
 
                     <div class="comment-input">

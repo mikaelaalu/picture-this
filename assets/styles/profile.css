@@ -58,6 +58,12 @@
 
 @media (min-width: 650px) {
   .profile-info {
-    width: 600px;
+    width: 100vw;
+    align-items: center;
+    justify-content: center;
   }
+  /* .avatar {
+    margin-right: 40px;
+    margin-left: 150px;
+  } */
 }

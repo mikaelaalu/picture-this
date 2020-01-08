@@ -27,26 +27,13 @@ deleteCommentForm.forEach(form => {
 
           parent.parentNode.removeChild(parent);
           console.log(parent);
-
-          //   commentBox.parentNode.removeChild(commentBox);
-          //   return false;
         }
 
         removeComment();
-
-        // const btn = document.createElement("BUTTON");
-
-        // btn.textContent = json.btn;
-
-        // document.comment.appendChild(btn);
 
         console.log(commentBox);
         console.log("hi");
         console.log(json);
       });
-    //   .catch(err => {
-    //     // Do something for an error here
-    //     console.log("Error Reading data " + err);
-    //   });
   });
 });

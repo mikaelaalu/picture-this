@@ -1,7 +1,7 @@
 <?php require __DIR__ . '/views/header.php';
 
 ?>
-<p><?php checkForError(); ?></p>
+<p><?php checkForConfirm(); ?></p>
 <article>
     <h1>Login</h1>
 
@@ -24,7 +24,7 @@
     </form>
 
     <div clsss="btn-box">
-        <a href='new-user.php'> <button> Create account</button> </a></div>
+        <a href='new-user.php'> Not a member yet? Create account here..</a></div>
 </article>
 
 <?php require __DIR__ . '/views/footer.php'; ?>

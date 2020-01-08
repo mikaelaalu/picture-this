@@ -73,8 +73,6 @@ $visitId = $_SESSION['user']['id'];
         </div>
 
         <?php if ($profileId === $visitId) : ?>
-
-
             <div class='edit-profile'>
                 <a href="/app/users/logout.php">
                     <img class="nav-icon" src="/icons/exit.png" alt="logout">
@@ -89,9 +87,6 @@ $visitId = $_SESSION['user']['id'];
     </div>
 
 
-
-
-
     <?php if (empty($getPost)) : ?>
         <p class="info-message"> You dont have any posts yet..</p>
     <?php endif; ?>
@@ -99,8 +94,6 @@ $visitId = $_SESSION['user']['id'];
 
     <?php foreach ($getPost as $post) : ?>
         <div class="post-container">
-
-
 
             <div class="author">
                 <a href=" <?php echo 'profile.php?id=' . $post['author_id'] ?> ">
@@ -143,12 +136,7 @@ $visitId = $_SESSION['user']['id'];
                         <?php else : ?> <img class="like-icon" src="/icons/unliked.png" alt="unlike">
 
                         <?php endif; ?></button>
-
-
-
                 </form>
-
-
             </div>
 
             <div class="edit-post-wrapper">
@@ -157,6 +145,7 @@ $visitId = $_SESSION['user']['id'];
                     <a href=" <?php echo "edit-post.php?id=" . $post['id'] ?> "> <button class="edit-post"> Edit post </button> </a>
                 <?php endif; ?>
             </div>
+
             <!-- Comments -->
 
             <?php $comments = getAllComments((int) $post['id'], $pdo); ?>
@@ -166,7 +155,14 @@ $visitId = $_SESSION['user']['id'];
                     <p class="display-comment"> <?php echo $comment['comment']; ?> </p>
 
                     <?php if ($_SESSION['user']['id'] === $comment['comment_by']) : ?>
-                        <a href="<?php echo "app/posts/delete-comment.php?comment-id=" . $comment['comment_id'] . '&comment-by=' . $comment['comment_by'] ?>" class="delete-comment">Delete comment</a>
+
+                        <form class="delete-comment-form" action="app/posts/delete-comment.php" method="post">
+                            <input type="hidden" name="comment-id" value="<?php echo $comment['comment_id'] ?>">
+
+                            <input type="hidden" name="comment-by" value="<?php echo $comment['comment_by'] ?>">
+
+                            <button class="delete-comment" type="submit">Delete comment</button>
+                        </form>
                     <?php endif; ?>
                 </div>
 

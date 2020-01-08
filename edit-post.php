@@ -6,7 +6,7 @@ $posts = editPost($_GET['id'], $pdo);
 
 ?>
 
-<article>
+<article class="form-box">
     <?php foreach ($posts as $post) : ?>
         <div class="edit-post-container">
             <img class="edit-img" src=" <?php echo 'uploads/' . $post['image_name'] ?> " alt="">

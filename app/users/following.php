@@ -28,7 +28,7 @@ if (isset($_POST['profile'])) {
 
         //json request
         $followers = followers($profileId, $pdo);
-        $following = following($userId, $pdo);
+        // $following = following($userId, $pdo);
 
         $json = ([
             'followers' => 'Followers: ' . $followers,
@@ -54,7 +54,7 @@ if (isset($_POST['profile'])) {
 
 
         $followers = followers($profileId, $pdo);
-        $following = following($userId, $pdo);
+        // $following = following($userId, $pdo);
 
         $json = ([
             'followers' => 'Followers: ' . $followers,

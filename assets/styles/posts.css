@@ -42,8 +42,9 @@
 .post-container {
   border: 1px solid black;
   background-color: #f8f8f8;
-  margin: 20px;
   box-shadow: 4px 3px 8px 1px #969696;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .about-post {
@@ -53,7 +54,7 @@
 
 .post-img {
   width: 100%;
-  height: 350px;
+  height: 400px;
 }
 
 .edit-post-wrapper {
@@ -119,5 +120,17 @@
   }
   .post-img {
     height: 500px;
+  }
+  .edit-img {
+    width: 400px;
+    height: 300px;
+  }
+  .edit-post-container {
+    width: 100%;
+    align-items: center;
+  }
+  .edit-post-title,
+  .edit-post-para {
+    width: 400px;
   }
 }

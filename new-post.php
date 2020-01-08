@@ -6,7 +6,7 @@ isLoggedIn();
 
 <p><?php checkForError(); ?></p>
 
-<article>
+<article class="form-box">
 
     <h2>Upload a new post</h2>
     <form action="app/posts/new-post.php" method="post" enctype="multipart/form-data">

@@ -22,6 +22,13 @@
             <input type="password" name="password" required>
             <small>Please provide the your password (passphrase).</small>
         </div>
+
+        <div>
+            <label for="password-confirm">Confirm password</label>
+            <input type="password" name="password-confirm" required>
+            <small>Please provide the your password again (passphrase).</small>
+        </div>
+
         <div clsss="btn-box">
             <button type="submit">Create account</button>
         </div>
