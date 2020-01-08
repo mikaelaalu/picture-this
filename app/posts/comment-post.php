@@ -35,7 +35,8 @@ if (isset($_POST['comment'], $_POST['post-id'])) {
 
     $comments = ([
         'comment_by' => $comment_by['name'],
-        'comment' => $comment
+        'comment' => $comment,
+        'btn' => 'Delete comment'
         // 'delete_comment' => 'Delete comment',
     ]);
 

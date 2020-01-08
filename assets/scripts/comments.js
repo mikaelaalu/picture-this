@@ -34,6 +34,8 @@ commentsForms.forEach(form => {
       })
       .then(json => {
         // console.log(json);
+        // const btn = event.target.querySelector(".delete-comment");
+        // console.log(btn);
 
         const commentBy = event.target.querySelector(".comment-by");
         const comment = event.target.querySelector(".comment");
@@ -41,6 +43,7 @@ commentsForms.forEach(form => {
         clearInput();
 
         // deleteComment.textContent = json.delete_comment;
+
         commentBy.textContent = json.comment_by;
         comment.textContent = json.comment;
       });

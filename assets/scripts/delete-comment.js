@@ -21,14 +21,24 @@ deleteCommentForm.forEach(form => {
       .then(json => {
         const commentBox = event.target.querySelector(".comments");
 
-        // function removeComment() {
-        //   const commentBox = event.target.querySelector(".comments");
+        function removeComment() {
+          const target = event.target;
+          const parent = target.parentElement;
 
-        //   commentBox.parentNode.removeChild(commentBox);
-        //   return false;
-        // }
+          parent.parentNode.removeChild(parent);
+          console.log(parent);
 
-        // removeComment();
+          //   commentBox.parentNode.removeChild(commentBox);
+          //   return false;
+        }
+
+        removeComment();
+
+        // const btn = document.createElement("BUTTON");
+
+        // btn.textContent = json.btn;
+
+        // document.comment.appendChild(btn);
 
         console.log(commentBox);
         console.log("hi");
