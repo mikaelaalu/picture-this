@@ -2,7 +2,10 @@
 
 require __DIR__ . '/views/header.php';
 
+
+
 isLoggedIn();
+
 
 
 ?>
@@ -36,7 +39,6 @@ isLoggedIn();
         <?php endif; ?>
 
         <?php foreach ($allPosts as $post) : ?>
-
 
 
             <div class="post-container">

@@ -1,10 +1,12 @@
 <nav>
-
     <ul>
         <?php if (isset($_SESSION['user']['id'])) : ?>
             <li>
                 <a href="/index.php">
+
                     <img class="nav-icon" src="/icons/home.png" alt="home-page">
+
+
                 </a>
             </li>
         <?php endif; ?>
