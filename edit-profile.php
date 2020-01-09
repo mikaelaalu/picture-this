@@ -45,7 +45,7 @@ $name = $getUser['name'];
             <input type="file" name="avatar" id="avatar" accept=".jpg, .jpeg, .png" required>
         </div>
         <div clsss="btn-box">
-            <button type="submit">Upload image</button></div>
+            <button class="styled-btn" type="submit">Upload image</button></div>
     </form>
 
     <form action="app/users/edit-profile.php" method="post">
@@ -60,7 +60,7 @@ $name = $getUser['name'];
             <small>Please provide the your email.</small>
         </div>
         <div clsss="btn-box">
-            <button type="submit"> Change</button></div>
+            <button class="styled-btn" type="submit"> Change</button></div>
     </form>
 
     <form action="app/users/edit-password.php" method="post">
@@ -80,7 +80,7 @@ $name = $getUser['name'];
             <small>Please provide the your pass.</small>
         </div>
         <div clsss="btn-box">
-            <button type="submit">Change password</button></div>
+            <button class="styled-btn" type="submit">Change password</button></div>
     </form>
 
 </article>

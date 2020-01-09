@@ -2,6 +2,7 @@
 
 require __DIR__ . '/views/header.php';
 
+isLoggedIn();
 
 
 ?>
@@ -41,7 +42,6 @@ require __DIR__ . '/views/header.php';
             <div class="post-container">
 
 
-                <?php $displayLikes = displayLikes((int) $post['id'], $pdo); ?>
 
                 <div class="author">
                     <a href=" <?php echo 'profile.php?id=' . $post['author_id'] ?> ">
@@ -74,6 +74,7 @@ require __DIR__ . '/views/header.php';
 
 
                     <!-- Like button -->
+                    <?php $displayLikes = displayLikes((int) $post['id'], $pdo); ?>
                     <form class="like-form" action="app/posts/likes.php" method="post">
 
                         <input type="hidden" name="id" value=" <?php echo $post['id'] ?> ">

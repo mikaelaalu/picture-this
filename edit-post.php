@@ -25,7 +25,7 @@ $posts = editPost($_GET['id'], $pdo);
             <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png" required>
         </div>
         <div clsss="btn-box">
-            <button type="submit">Edit picture</button></div>
+            <button class="edit-btn" type="submit">Edit picture</button></div>
     </form>
 
     <form action="<?php echo 'app/posts/edit-post.php?id=' . $post['id'] ?>" method="post">
@@ -41,12 +41,12 @@ $posts = editPost($_GET['id'], $pdo);
             <small>Edit your content</small>
         </div>
         <div clsss="btn-box">
-            <button type="submit">Edit post</button></div>
+            <button class="edit-btn" type="submit">Edit post</button></div>
     </form>
 
     <form action="<?php echo 'app/posts/delete-post.php?author_id=' . $post['author_id'] . '&id=' . $post['id'] . '&image=' . $post['image_name'] ?>" method="post">
         <div clsss="btn-box">
-            <button type="submit">Delete post</button></div>
+            <button class="delete-btn" type="submit">Delete post</button></div>
     </form>
 </article>
 

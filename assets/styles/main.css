@@ -1,29 +1,13 @@
 /* In this file you can add your custom styles. */
 * {
-  font-family: "Poppins", sans-serif;
-}
-.title {
-  color: #a382f9;
+  font-family: "Open Sans", sans-serif;
 }
 
 body {
-  background: url("http://api.thumbr.it/whitenoise-361x370.png?background=ffffffff&noise=525052&density=15&opacity=23");
+  background-color: #f8f8f8;
+  /* backgrounsd: url("http://api.thumbr.it/whitenoise-361x370.png?background=ffffffff&noise=525052&density=15&opacity=23"); */
   /* background-image: linear-gradient(135deg, #fff6b7 10%, #f6416c 100%); */
 }
-
-/* buttons */
-
-/* button {
-  border: 1px solid;
-  border-radius: 4px;
-  background-color: hotpink;
-  background: rgb(34, 195, 149);
-  background: linear-gradient(
-    0deg,
-    rgba(143, 151, 149, 0.662) 48%,
-    rgba(27, 170, 231, 0.7459893048128342) 71%
-  );
-} */
 
 .like-btn {
   border: none;

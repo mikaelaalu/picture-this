@@ -9,6 +9,13 @@
             </li>
         <?php endif; ?>
 
+        <?php if (isset($_SESSION['user']['id'])) : ?>
+            <li>
+                <a href="/following.php">
+                    <img class="nav-icon" src="/icons/unliked.png" alt="home-page">
+                </a>
+            </li>
+        <?php endif; ?>
 
 
         <?php if (isset($_SESSION['user']['id'])) : ?>

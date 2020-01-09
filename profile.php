@@ -10,7 +10,6 @@ $biography = $getUser['biography'];
 $getPost = getPost($_GET['id'], $pdo);
 
 
-
 $profileId = $_GET['id'];
 $visitId = $_SESSION['user']['id'];
 
@@ -54,7 +53,7 @@ $visitId = $_SESSION['user']['id'];
 
                     <input type="hidden" name="profile" value="<?php echo $profileId ?> ">
 
-                    <button class="followBtn" type="submit">
+                    <button class="followBtn styled-btn" type="submit">
 
                         <?php if (isFollowing($visitId, $profileId, $pdo)) : ?>
 
@@ -96,7 +95,7 @@ $visitId = $_SESSION['user']['id'];
         <div class="post-container">
 
             <div class="author">
-                <a href=" <?php echo 'profile.php?id=' . $post['author_id'] ?> ">
+                <a class="user-name" href=" <?php echo 'profile.php?id=' . $post['author_id'] ?> ">
                     <?php echo $name ?>
                 </a>
 

@@ -27,10 +27,12 @@ nav ul li a {
 .title {
   display: flex;
   justify-content: center;
+  font-weight: 400;
+  letter-spacing: 3px;
 }
 
 .title a {
-  font-family: "Courier Prime", monospace;
+  /* font-family: "Courier Prime", monospace; */
   text-decoration: none;
   cursor: pointer;
   color: inherit;
@@ -53,7 +55,7 @@ nav ul li a {
   .title {
     position: sticky;
     margin-bottom: 50px;
-    background: url("http://api.thumbr.it/whitenoise-361x370.png?background=ffffffff&noise=525052&density=15&opacity=23");
+    /* background: url("http://api.thumbr.it/whitenoise-361x370.png?background=ffffffff&noise=525052&density=15&opacity=23"); */
   }
   nav {
     position: fixed;

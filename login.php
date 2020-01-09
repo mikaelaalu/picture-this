@@ -2,29 +2,30 @@
 
 ?>
 <p><?php checkForConfirm(); ?></p>
-<article>
+<article class="login">
     <h1>Login</h1>
 
-    <form action="app/users/login.php" method="post">
+    <form class="login-form" action="app/users/login.php" method="post">
         <div>
             <label for="email">Email</label>
-            <input type="email" name="email" placeholder="email@email.com" required>
+            <input type="email" name="email" placeholder="email@yrgo.com" required>
             <small>Please provide the your email address.</small>
         </div><!-- /form-group -->
 
         <div>
             <label for="password">Password</label>
-            <input type="password" name="password" required>
+            <input type="password" name="password" placeholder="password" required>
             <small>Please provide the your password (passphrase).</small>
         </div><!-- /form-group -->
 
         <div clsss="btn-box">
-            <button type="submit">Login</button>
+            <button class="login-btn" type="submit">Login</button>
         </div>
     </form>
 
-    <div clsss="btn-box">
-        <a href='new-user.php'> Not a member yet? Create account here..</a></div>
+    <div class='new-user-box'>
+        <a clsss="new-user" href='new-user.php'> Not a member yet? Create account here..</a>
+    </div>
 </article>
 
 <?php require __DIR__ . '/views/footer.php'; ?>

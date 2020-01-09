@@ -106,6 +106,60 @@
 
 .like-form {
   display: flex;
+  align-items: center;
+  height: 50px;
+}
+
+.edit-btn {
+  box-shadow: inset 0px 1px 0px 0px #dcecfb;
+  background: linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
+  background-color: #bddbfa;
+  border-radius: 6px;
+  border: 1px solid #84bbf3;
+  /* display: inline-block; */
+  cursor: pointer;
+  color: #ffffff;
+  /* font-family: Arial; */
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 20px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #528ecc;
+  outline: none;
+}
+.edit-btn:hover {
+  background: linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
+  background-color: #80b5ea;
+}
+.edit-btn:active {
+  position: relative;
+  top: 1px;
+}
+
+.delete-btn {
+  margin-top: 10px;
+  box-shadow: inset 0px 1px 0px 0px #e3e3e3;
+  background: linear-gradient(to bottom, #e3e6e8 5%, #82898f 100%);
+  background-color: #e3e6e8;
+  border-radius: 6px;
+  border: 1px solid #c1c4c7;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 12px;
+  /* font-weight: bold; */
+  padding: 4px 20px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #38597a;
+}
+.delete-btn:hover {
+  background: linear-gradient(to bottom, #82898f 5%, #e3e6e8 100%);
+  background-color: #82898f;
+}
+.delete-btn:active {
+  position: relative;
+  top: 1px;
 }
 
 @media (min-width: 650px) {

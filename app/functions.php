@@ -377,3 +377,23 @@ function following(int $userId, PDO $pdo): string
 
     return $following;
 }
+
+function displayFollowing($user, $pdo)
+{
+    $query = 'SELECT * FROM following INNER JOIN posts on profile_id = posts.author_id WHERE user_id = :user_id';
+
+
+    $statement = $pdo->prepare($query);
+
+    if (!$statement) {
+        die(var_dump($pdo->errorInfo()));
+    }
+
+    $statement->execute([
+        ':user_id' => $user
+    ]);
+
+    $comments = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    return $comments;
+}
