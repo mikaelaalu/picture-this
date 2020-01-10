@@ -73,12 +73,14 @@ $visitId = $_SESSION['user']['id'];
 
         <?php if ($profileId === $visitId) : ?>
             <div class='edit-profile'>
-                <a href="/app/users/logout.php">
+                <!-- <a href="/app/users/logout.php">
                     <img class="nav-icon" src="/icons/exit.png" alt="logout">
+                </a> -->
+                <a class="edit" href="edit-profile.php">
+                    <img class="nav-icon" src="/icons/settings.png" alt="logout">
                 </a>
-                <a class="edit" href="edit-profile.php"> Edit Profile </a>
 
-                <a class="logout" href="/app/users/logout.php"> Log out </a>
+                <!-- <a class="logout" href="/app/users/logout.php"> Log out </a> -->
             </div>
         <?php endif; ?>
 

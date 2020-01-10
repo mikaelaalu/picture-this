@@ -4,6 +4,14 @@
   height: 20px;
 }
 
+.like-btn {
+  border: none;
+  outline: none;
+  width: 60px;
+  height: 30px;
+  background-color: #f8f8f8;
+}
+
 .title-content-box {
   width: 100%;
   padding-left: 10px;
@@ -40,7 +48,7 @@
 }
 
 .post-container {
-  border: 1px solid black;
+  border: 1px solid rgba(116, 114, 114, 0.534);
   background-color: #f8f8f8;
   box-shadow: 4px 3px 8px 1px #969696;
   margin-top: 15px;
@@ -116,10 +124,8 @@
   background-color: #bddbfa;
   border-radius: 6px;
   border: 1px solid #84bbf3;
-  /* display: inline-block; */
   cursor: pointer;
   color: #ffffff;
-  /* font-family: Arial; */
   font-size: 12px;
   font-weight: bold;
   padding: 4px 20px;
@@ -136,7 +142,7 @@
   top: 1px;
 }
 
-.delete-btn {
+.warning-btn {
   margin-top: 10px;
   box-shadow: inset 0px 1px 0px 0px #e3e3e3;
   background: linear-gradient(to bottom, #e3e6e8 5%, #82898f 100%);
@@ -148,16 +154,15 @@
   color: #ffffff;
   font-family: Arial;
   font-size: 12px;
-  /* font-weight: bold; */
   padding: 4px 20px;
   text-decoration: none;
   text-shadow: 0px 1px 0px #38597a;
 }
-.delete-btn:hover {
+.warning-btn:hover {
   background: linear-gradient(to bottom, #82898f 5%, #e3e6e8 100%);
   background-color: #82898f;
 }
-.delete-btn:active {
+.warning-btn:active {
   position: relative;
   top: 1px;
 }

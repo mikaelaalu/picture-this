@@ -16,11 +16,10 @@ form input {
   width: 80%;
   background-color: #f8f8f8;
   height: 30px;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid rgba(116, 114, 114, 0.534);
   border-top: none;
   border-right: none;
   border-left: none;
-  /* border-radius: 10px; */
 }
 
 form label {
@@ -28,8 +27,9 @@ form label {
   text-align: left;
 }
 form textarea {
+  border-bottom: 2px solid black;
   width: 80%;
-  background-color: #8b8b8b;
+  background-color: #f8f8f8;
   border-radius: 10px;
   border: none;
 }

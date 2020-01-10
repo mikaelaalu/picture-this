@@ -6,10 +6,8 @@
   background-color: #bddbfa;
   border-radius: 6px;
   border: 1px solid #84bbf3;
-  /* display: inline-block; */
   cursor: pointer;
   color: #ffffff;
-  /* font-family: Arial; */
   font-size: 12px;
   font-weight: bold;
   padding: 4px 20px;
@@ -72,14 +70,26 @@
   margin-right: 10px;
 }
 
-.logout,
-.edit {
-  font-size: 12px;
-  text-decoration: none;
-}
-
 .avatar {
   margin-left: 10px;
+}
+
+.logout-box {
+  margin-top: 20px;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.biography {
+  background-color: rgba(195, 195, 195, 0.287);
+  border-radius: 10px black solid;
+}
+
+.upload-avatar {
+  border: none;
+  color: rgb(158, 158, 158);
+  /* display: none; */
 }
 
 @media (min-width: 650px) {
@@ -89,8 +99,4 @@
     align-items: center;
     justify-content: center;
   }
-  /* .avatar {
-    margin-right: 40px;
-    margin-left: 150px;
-  } */
 }

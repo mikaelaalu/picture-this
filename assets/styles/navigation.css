@@ -32,7 +32,6 @@ nav ul li a {
 }
 
 .title a {
-  /* font-family: "Courier Prime", monospace; */
   text-decoration: none;
   cursor: pointer;
   color: inherit;
@@ -55,7 +54,6 @@ nav ul li a {
   .title {
     position: sticky;
     margin-bottom: 50px;
-    /* background: url("http://api.thumbr.it/whitenoise-361x370.png?background=ffffffff&noise=525052&density=15&opacity=23"); */
   }
   nav {
     position: fixed;
@@ -65,20 +63,16 @@ nav ul li a {
     align-items: center;
     justify-content: center;
     top: 50px;
-    /* right: 30px; */
     width: 100vw;
-    /* height: 100vh; */
     background: none;
     border: none;
     z-index: 1;
-    /* height: 50px; */
   }
 
   nav ul {
     display: flex;
     flex-direction: row;
     width: 800px;
-    /* align-items: center; */
     justify-content: space-evenly;
     margin-top: 12px;
   }

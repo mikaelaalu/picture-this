@@ -5,8 +5,6 @@
 
 body {
   background-color: #f8f8f8;
-  /* backgrounsd: url("http://api.thumbr.it/whitenoise-361x370.png?background=ffffffff&noise=525052&density=15&opacity=23"); */
-  /* background-image: linear-gradient(135deg, #fff6b7 10%, #f6416c 100%); */
 }
 
 .like-btn {
@@ -16,8 +14,3 @@ body {
   height: 30px;
   background-color: #f8f8f8;
 }
-
-/* .btn-box {
-  display: flex;
-  align-items: center;
-} */

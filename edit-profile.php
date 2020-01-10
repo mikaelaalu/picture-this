@@ -42,7 +42,7 @@ $name = $getUser['name'];
     <form action="app/users/upload-avatar.php" method="post" enctype="multipart/form-data">
         <div>
             <label for="avatar">Choose avatar images to upload</label>
-            <input type="file" name="avatar" id="avatar" accept=".jpg, .jpeg, .png" required>
+            <input class="upload-avatar" type="file" name="avatar" id="avatar" accept=".jpg, .jpeg, .png" required>
         </div>
         <div clsss="btn-box">
             <button class="styled-btn" type="submit">Upload image</button></div>
@@ -51,7 +51,7 @@ $name = $getUser['name'];
     <form action="app/users/edit-profile.php" method="post">
         <div>
             <label for="biography">Biography</label>
-            <textarea type="text" name="biography" required><?php echo $getUser['biography']; ?></textarea>
+            <textarea class="biography" type="text" name="biography" required><?php echo $getUser['biography']; ?></textarea>
             <small>Please provide the your biography.</small>
         </div>
         <div>
@@ -67,21 +67,30 @@ $name = $getUser['name'];
         <div>
             <label for="old-password"> Old Password</label>
             <input type="password" name="old-password" required>
-            <small>Please provide the your pass.</small>
+            <small>Please provide your old password.</small>
         </div>
         <div>
             <label for="new-password">New Password</label>
             <input type="password" name="new-password" required>
-            <small>Please provide the your pass.</small>
+            <small>Please provide your new password.</small>
         </div>
         <div>
             <label for="confirm-password">Confirm Password</label>
             <input type="password" name="confirm-password" required>
-            <small>Please provide the your pass.</small>
+            <small>Please provide your new password.</small>
         </div>
         <div clsss="btn-box">
             <button class="styled-btn" type="submit">Change password</button></div>
+
     </form>
+
+    <div class="logout-box">
+        <a href="/app/users/logout.php">
+            <button class="warning-btn logout">Log out</button>
+        </a>
+    </div>
+
+
 
 </article>
 
