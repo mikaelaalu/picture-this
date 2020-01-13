@@ -55,6 +55,6 @@ Oskar Joss
 ## Code review
 
 ## License
-
+- This project is licensed under MIT License, see the [LICENSE](LICENSE) file for details.
 
 YRGO 2019
