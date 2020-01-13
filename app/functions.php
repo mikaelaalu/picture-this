@@ -26,14 +26,17 @@ if (!function_exists('redirect')) {
  */
 function checkForError()
 {
-    if (isset($_SESSION['error'])) {
-        foreach ($_SESSION['error'] as $error) {
-            echo $error;
-        }
-        unset($_SESSION['error']);
-    }
-}
+    if (isset($_SESSION['error'])) : ?>
 
+        <?php foreach ($_SESSION['error'] as $error) : ?>
+
+            <p> <?php echo $error; ?> </p>
+
+        <?php endforeach;
+        unset($_SESSION['error']);  ?>
+
+    <?php endif;
+}
 
 /**
  * Check if there is any message in $_SESSION.
@@ -43,12 +46,16 @@ function checkForError()
  */
 function checkForConfirm()
 {
-    if (isset($_SESSION['message'])) {
-        foreach ($_SESSION['message'] as $message) {
-            echo $message;
-        }
-        unset($_SESSION['message']);
-    }
+    if (isset($_SESSION['message'])) : ?>
+
+        <?php foreach ($_SESSION['message'] as $message) : ?>
+
+            <p> <?php echo $message; ?> </p>
+
+        <?php endforeach;
+        unset($_SESSION['message']);  ?>
+
+<?php endif;
 }
 
 
@@ -74,7 +81,6 @@ function isLoggedIn()
  */
 function getUser(int $userId, PDO $pdo): array
 {
-
     $query = 'SELECT * FROM users WHERE id = :id';
 
     $statement = $pdo->prepare($query);
@@ -102,7 +108,6 @@ function getUser(int $userId, PDO $pdo): array
  */
 function getPost(int $userId, PDO $pdo): array
 {
-
     $query = 'SELECT * FROM posts WHERE author_id = :id ORDER BY date DESC';
 
     $statement = $pdo->prepare($query);
@@ -130,7 +135,6 @@ function getPost(int $userId, PDO $pdo): array
  */
 function editPost(int $postId, PDO $pdo): array
 {
-
     $query = 'SELECT * FROM posts WHERE id = :id';
 
     $statement = $pdo->prepare($query);
@@ -157,7 +161,6 @@ function editPost(int $postId, PDO $pdo): array
  */
 function getAllPosts(PDO $pdo): array
 {
-
     $query = 'SELECT posts.*, users.name, users.avatar_name  FROM posts INNER JOIN users WHERE author_id = users.id ORDER BY date DESC;';
 
     $statement = $pdo->prepare($query);
@@ -184,7 +187,6 @@ function getAllPosts(PDO $pdo): array
  */
 function isPostLiked(int $postId, int $userId,  PDO $pdo): bool
 {
-
     $query = 'SELECT * FROM likes WHERE post_id = :post_id AND user_id = :user_id';
 
     $statement = $pdo->prepare($query);
@@ -301,7 +303,6 @@ function getUserFromComment(int $user, PDO $pdo): array
  */
 function isFollowing(int $userId, int $profileId, PDO $pdo): bool
 {
-
     $query = 'SELECT * FROM following WHERE user_id = :user_id AND profile_id = :profile_id';
 
     $statement = $pdo->prepare($query);

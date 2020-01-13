@@ -1,6 +1,8 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 
-<p><?php checkForError(); ?></p>
+
+<?php checkForError(); ?>
+
 
 <article class="new-user">
     <h1>Create new account</h1>
@@ -34,7 +36,5 @@
         </div>
     </form>
 </article>
-
-
 
 <?php require __DIR__ . '/views/footer.php'; ?>

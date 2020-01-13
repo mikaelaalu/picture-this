@@ -12,10 +12,16 @@ h1 {
 }
 
 .footer {
+  font-size: 12px;
   display: flex;
   align-items: center;
   flex-direction: column;
   color: rgba(116, 114, 114, 0.534);
   margin-bottom: 50px;
   margin-top: -50px;
+}
+
+.new-user {
+  text-decoration: none;
+  color: inherit;
 }

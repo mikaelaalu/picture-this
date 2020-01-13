@@ -1,7 +1,9 @@
 <?php require __DIR__ . '/views/header.php';
 
 ?>
-<p><?php checkForConfirm(); ?></p>
+
+<?php checkForConfirm(); ?>
+
 <article class="login">
     <h1>Login</h1>
 
@@ -10,13 +12,13 @@
             <label for="email">Email</label>
             <input type="email" name="email" placeholder="email@yrgo.com" required>
             <small>Please provide the your email address.</small>
-        </div><!-- /form-group -->
+        </div>
 
         <div>
             <label for="password">Password</label>
             <input type="password" name="password" placeholder="password" required>
             <small>Please provide the your password (passphrase).</small>
-        </div><!-- /form-group -->
+        </div>
 
         <div clsss="btn-box">
             <button class="login-btn" type="submit">Login</button>

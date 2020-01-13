@@ -8,15 +8,15 @@ $userId = $getUser['id'];
 $avatar = $getUser['avatar_name'];
 $biography = $getUser['biography'];
 $getPost = getPost($_GET['id'], $pdo);
-
-
 $profileId = $_GET['id'];
 $visitId = $_SESSION['user']['id'];
 
 ?>
 
-<p><?php checkForError(); ?></p>
-<p><?php checkForConfirm(); ?></p>
+
+<?php checkForError();
+checkForConfirm(); ?>
+
 
 <article class="posts-wrapper">
 
@@ -50,7 +50,6 @@ $visitId = $_SESSION['user']['id'];
             </div>
 
             <!-- Follow -->
-
             <?php if ($profileId !== $visitId) : ?>
 
                 <form class="following" action="app/users/following.php" method="post">
@@ -82,12 +81,13 @@ $visitId = $_SESSION['user']['id'];
         <?php endif; ?>
     </div>
 
-
+    <!-- If user has no posts.. -->
     <?php if (empty($getPost)) : ?>
         <p class="info-message"> You dont have any posts yet..</p>
     <?php endif; ?>
 
 
+    <!-- Print all posts to page from database  -->
     <?php foreach ($getPost as $post) : ?>
         <div class="post-container">
 
@@ -136,9 +136,7 @@ $visitId = $_SESSION['user']['id'];
             </div>
 
             <div class="edit-post-wrapper">
-
                 <?php $dateWithTime = $post['date'];
-
                 $dateArray = explode(' ', $dateWithTime);
                 $dateWithoutTime = $dateArray[0]; ?>
                 <small class="date"><?php echo 'Published: ' . $dateWithoutTime; ?></small>
@@ -164,7 +162,6 @@ $visitId = $_SESSION['user']['id'];
                         </form>
                     <?php endif; ?>
                 </div>
-
             <?php endforeach; ?>
 
             <form class="comments-form" action="app/posts/comment-post.php" method="post">
@@ -178,21 +175,16 @@ $visitId = $_SESSION['user']['id'];
 
                 <div class="comment-input">
                     <div class="add-comment">
-                        <!-- <label for="comment"></label> -->
                         <input class="comment-text" type="text" name="comment" placeholder="Add comment..">
                     </div>
                     <div class="send-comment">
                         <button class="comment-submit" type="submit">Send</button>
                     </div>
-
                 </div>
             </form>
-
         </div>
-
 
     <?php endforeach; ?>
 
 </article>
-
 <?php require __DIR__ . '/views/footer.php'; ?>

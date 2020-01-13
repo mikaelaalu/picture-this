@@ -3,7 +3,9 @@
 isLoggedIn();
 ?>
 
-<p><?php checkForError(); ?></p>
+
+<?php checkForError(); ?>
+
 
 <article class="form-box">
 

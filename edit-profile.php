@@ -8,8 +8,10 @@ $biography = $getUser['biography'];
 $name = $getUser['name'];
 ?>
 
-<p><?php echo checkForError(); ?></p>
-<p><?php echo checkForConfirm(); ?></p>
+
+<?php checkForError();
+checkForConfirm(); ?>
+
 
 <!-- Get the user from the database to frontend -->
 <?php $getUser = getUser($_SESSION['user']['id'], $pdo); ?>
