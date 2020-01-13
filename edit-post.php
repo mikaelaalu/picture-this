@@ -3,7 +3,6 @@
 isLoggedIn();
 
 $posts = editPost($_GET['id'], $pdo);
-
 ?>
 
 <article class="form-box">
