@@ -50,6 +50,7 @@ Mikaela Lundsgård
 
 
 ## Testers
+Oskar Joss
 
 ## Code review
 
