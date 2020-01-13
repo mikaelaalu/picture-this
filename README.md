@@ -7,35 +7,35 @@ Creating an instagram clone
 Scool assignment, creating your own instagram clone.
 
 ## Features
-* As a user I should be able to create an account.
+- [x] As a user I should be able to create an account.
 
-* As a user I should be able to login.
+- [x] As a user I should be able to login.
 
-* As a user I should be able to logout.
+- [x] As a user I should be able to logout.
 
-* As a user I should be able to edit my account email, password and biography.
+- [x] As a user I should be able to edit my account email, password and biography.
 
-* As a user I should be able to upload a profile avatar image.
+- [x] As a user I should be able to upload a profile avatar image.
 
-* As a user I should be able to create new posts with image and description.
+- [x] As a user I should be able to create new posts with image and description.
 
-* As a user I should be able to edit my posts.
+- [x] As a user I should be able to edit my posts.
 
-* As a user I should be able to delete my posts.
+- [x] As a user I should be able to delete my posts.
 
-* As a user I should be able to like posts.
+- [x] As a user I should be able to like posts.
 
-* As a user I should be able to remove likes from posts.
+- [x] As a user I should be able to remove likes from posts.
 
 ## Extra
 
-* As a user I should be able to follow and unfollow other users.
+- [x] As a user I should be able to follow and unfollow other users.
 
-* As a user I should be able to view a list of posts by users I follow.
+- [x] As a user I should be able to view a list of posts by users I follow.
 
-* As a user I'm able to comment on a post.
+- [x] As a user I'm able to comment on a post.
 
-* As a user I'm able to delete my comments.
+- [x] As a user I'm able to delete my comments.
 
 ## Built With
 * JavaScript Vanilla
@@ -50,7 +50,7 @@ Mikaela Lundsgård
 
 
 ## Testers
-<a href ="https://github.com/OskarJoss" >OskarJoss </a>
+<a href ="https://github.com/OskarJoss" >Oskar Joss </a>
 
 ## Code review
 
