@@ -7,7 +7,7 @@ isLoggedIn();
 
 <article class="form-box">
 
-    <h2>Upload a new post</h2>
+    <h1>Upload new post</h1>
     <form action="app/posts/new-post.php" method="post" enctype="multipart/form-data">
         <div>
             <label for="image">Choose images to upload</label>
@@ -22,11 +22,11 @@ isLoggedIn();
 
         <div>
             <label for="content">Content</label>
-            <textarea type="text" name="content" required></textarea>
+            <textarea class="content-box" type="text" name="content" required></textarea>
             <small>Please provide the your content.</small>
         </div>
         <div clsss="btn-box">
-            <button type="submit">Upload post</button></div>
+            <button class="styled-btn" type="submit">Upload post</button></div>
     </form>
 
 </article>

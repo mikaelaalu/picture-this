@@ -1,12 +1,10 @@
 "use strict";
 
-// Update following live
-
 const followingForms = document.querySelectorAll(".following");
 
 followingForms.forEach(form => {
   form.addEventListener("submit", event => {
-    event.preventDefault(); // Prevent page from reloading
+    event.preventDefault();
 
     const formData = new FormData(form);
 
@@ -19,13 +17,10 @@ followingForms.forEach(form => {
       })
       .then(json => {
         const followBtn = event.target.querySelector(".followBtn");
-        // const following = document.querySelector(".following");
         const followers = document.querySelector(".followers");
 
         followBtn.textContent = json.button;
-        // following.textContent = json.following;
         followers.textContent = json.followers;
-        console.log(json);
       });
   });
 });

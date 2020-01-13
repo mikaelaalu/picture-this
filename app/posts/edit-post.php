@@ -36,7 +36,6 @@ if (isset($_FILES['image'])) {
                 $authorId = $_SESSION['user']['id'];
                 $date = date("Y-m-d H:i:s");
 
-                // Insert into database!!!!
                 $statement = $pdo->prepare('UPDATE posts SET image_name = :image_name WHERE id = :id');
 
                 if (!$statement) {
@@ -70,8 +69,6 @@ if (isset($_POST['title'], $_POST['content'])) {
     $title = filter_var($_POST['title'], FILTER_SANITIZE_STRING);
     $content = filter_var($_POST['content'], FILTER_SANITIZE_STRING);
     $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
-
-    // Insert into database!!!!
 
     $statement = $pdo->prepare('UPDATE posts SET title = :title, content = :content WHERE id = :id');
 

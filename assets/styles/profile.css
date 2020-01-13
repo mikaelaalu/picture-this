@@ -23,6 +23,13 @@
   position: relative;
   top: 1px;
 }
+.follow-box {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+  color: rgb(136, 136, 136);
+}
 
 .info-message {
   color: rgb(136, 136, 136);
@@ -33,7 +40,10 @@
   display: flex;
   justify-content: space-around;
 }
-
+.profile-info-box {
+  display: flex;
+  justify-content: space-around;
+}
 .profile-text {
   width: 50%;
 }
@@ -83,7 +93,6 @@
 
 .biography {
   background-color: rgba(195, 195, 195, 0.287);
-  border-radius: 10px black solid;
 }
 
 .upload-avatar {
@@ -93,10 +102,21 @@
 }
 
 @media (min-width: 650px) {
+  .edit-post {
+    color: rgb(136, 136, 136);
+    border: none;
+    background-color: #f8f8f8;
+  }
   .profile-info {
-    width: 100vw;
-    width: 800px;
-    align-items: center;
+    display: flex;
     justify-content: center;
+    padding-left: 100px;
+  }
+  .profile-text {
+    padding-left: 40px;
+  }
+
+  .profile-info-box {
+    width: 650px;
   }
 }

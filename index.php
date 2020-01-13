@@ -21,11 +21,6 @@ isLoggedIn();
 <?php endif; ?> -->
 
 
-
-<!-- 
-    <?php if (isset($_SESSION['user'])) : ?> -->
-
-
 <?php $allPosts = getAllPosts($pdo); ?>
 
 
@@ -43,29 +38,20 @@ isLoggedIn();
             <a href=" <?php echo 'profile.php?id=' . $post['author_id'] ?> ">
                 <?php echo $post['name'] ?>
             </a>
-
             <?php $avatar = $post['avatar_name'] ?>
-
             <?php if (!$avatar) : ?>
-
                 <img class="avatar-small" src="/icons/persona.png" alt="avatar">
-
             <?php else : ?>
-
                 <img class="avatar-small" src="<?php echo "uploads/" . $avatar ?>" alt="avatar">
-
             <?php endif; ?>
         </div>
 
         <img class="post-img" src=" <?php echo "uploads/" . $post['image_name'] ?> " loading="lazy">
 
-
         <div class="about-post">
-
             <div class="title-content-box">
                 <h3 class="title-post"> <?php echo $post['title']; ?> </h3>
                 <p class="content"> <?php echo $post['content']; ?> </p>
-
             </div>
 
 
@@ -100,14 +86,12 @@ isLoggedIn();
         </div>
         <?php $dateWithTime = $post['date'];
 
-            $dateArray = explode(' ', $dateWithTime);
-            $dateWithoutTime = $dateArray[0]; ?>
+        $dateArray = explode(' ', $dateWithTime);
+        $dateWithoutTime = $dateArray[0]; ?>
 
         <small class="date"><?php echo 'Published: ' .  $dateWithoutTime ?></small>
 
         <!-- Comments -->
-
-
         <?php $comments = getAllComments((int) $post['id'], $pdo); ?>
         <?php foreach ($comments as $comment) : ?>
             <div class="comments">
@@ -139,7 +123,6 @@ isLoggedIn();
 
             <div class="comment-input">
                 <div class="add-comment">
-                    <!-- <label for="comment"></label> -->
                     <input class="comment-text" type="text" name="comment" placeholder="Add comment..">
                 </div>
                 <div class="send-comment">
@@ -153,9 +136,6 @@ isLoggedIn();
 
 <?php endforeach; ?>
 
-<!-- <?php endif; ?> -->
-
 </article>
-
 
 <?php require __DIR__ . '/views/footer.php'; ?>

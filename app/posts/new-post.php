@@ -5,9 +5,6 @@ declare(strict_types=1);
 require __DIR__ . '/../autoload.php';
 
 
-//PUT ALL LOGIC IN HERE FOR UPLOAD
-
-
 if (isset($_FILES['image'], $_POST['title'], $_POST['content'])) {
 
     $image = $_FILES['image'];
@@ -37,8 +34,6 @@ if (isset($_FILES['image'], $_POST['title'], $_POST['content'])) {
                 $content = filter_var($_POST['content'], FILTER_SANITIZE_STRING);
                 $authorId = $_SESSION['user']['id'];
                 $date = date("Y-m-d H:i:s");
-
-                // Insert into database!!!!
 
                 $statement = $pdo->prepare('INSERT INTO posts (title, content, author_id, image_name, date)
                  VALUES (:title, :content, :author_id, :image_name, :date)');

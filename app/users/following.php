@@ -28,11 +28,9 @@ if (isset($_POST['profile'])) {
 
         //json request
         $followers = followers($profileId, $pdo);
-        // $following = following($userId, $pdo);
 
         $json = ([
             'followers' => 'Followers: ' . $followers,
-            // 'following' => 'Following: ' . $following,
             'button' => 'Follow'
         ]);
 
@@ -40,7 +38,6 @@ if (isset($_POST['profile'])) {
     } else {
 
         // Insert into database if user not following
-
         $statement = $pdo->prepare('INSERT INTO following (user_id, profile_id) VALUES (:user_id, :profile_id)');
 
         if (!$statement) {
@@ -52,19 +49,13 @@ if (isset($_POST['profile'])) {
             ':profile_id' => $profileId,
         ]);
 
-
         $followers = followers($profileId, $pdo);
-        // $following = following($userId, $pdo);
 
         $json = ([
             'followers' => 'Followers: ' . $followers,
-            // 'following' => 'Following: ' . $following,
             'button' => 'Unfollow'
         ]);
 
         echo json_encode($json);
     }
 }
-
-
-// redirect('/profile.php?id=' . $profileId);

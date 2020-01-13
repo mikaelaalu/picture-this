@@ -11,8 +11,7 @@ if (isset($_POST['email'], $_POST['biography'])) {
     $id = $_SESSION['user']['id'];
 
 
-    $statement = $pdo->prepare('UPDATE users
-    SET email = :email, biography = :biography WHERE id = :id');
+    $statement = $pdo->prepare('UPDATE users SET email = :email, biography = :biography WHERE id = :id');
 
     if (!$statement) {
         die(var_dump($pdo->errorInfo()));

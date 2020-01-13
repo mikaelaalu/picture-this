@@ -30,17 +30,13 @@ if (isset($_POST['comment'], $_POST['post-id'])) {
     ]);
 
     //json request
-
     $comment_by = getUserFromComment($user, $pdo);
 
     $comments = ([
         'comment_by' => $comment_by['name'],
         'comment' => $comment,
         'btn' => 'Delete comment'
-        // 'delete_comment' => 'Delete comment',
     ]);
 
     echo json_encode($comments);
 }
-
-// redirect('/');

@@ -75,6 +75,9 @@
   padding-bottom: 50px;
 }
 
+.content-box {
+  background-color: rgba(195, 195, 195, 0.287);
+}
 /* Edit post */
 .edit-img {
   width: 70%;
@@ -169,6 +172,7 @@
 
 @media (min-width: 650px) {
   .posts-wrapper {
+    padding-top: -20px;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -1,7 +1,6 @@
 "use strict";
 
 // Clear textinput after adding comment
-
 function clearValue() {
   const commentInput = document.querySelector(".comment-text");
 
@@ -21,7 +20,7 @@ const commentsForms = document.querySelectorAll(".comments-form");
 
 commentsForms.forEach(form => {
   form.addEventListener("submit", event => {
-    event.preventDefault(); // Prevent page from reloading
+    event.preventDefault();
 
     const formData = new FormData(form);
 
@@ -33,16 +32,9 @@ commentsForms.forEach(form => {
         return response.json();
       })
       .then(json => {
-        // console.log(json);
-        // const btn = event.target.querySelector(".delete-comment");
-        // console.log(btn);
-
         const commentBy = event.target.querySelector(".comment-by");
         const comment = event.target.querySelector(".comment");
-        // const deleteComment = event.target.querySelector(".delete-comment");
         clearInput();
-
-        // deleteComment.textContent = json.delete_comment;
 
         commentBy.textContent = json.comment_by;
         comment.textContent = json.comment;

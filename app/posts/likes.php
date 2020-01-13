@@ -33,14 +33,13 @@ if (isset($_POST['id'])) {
         $number = displayLikes($postId, $pdo);
         $display = ([
             'number' => $number,
-            // 'text' => 'like',
             'src' => 'http://localhost:8000/icons/unliked.png'
         ]);
 
         echo json_encode($display);
     } else {
 
-        // If not liked, insert into database
+        // If post is not liked, insert into database
 
         $statement = $pdo->prepare('INSERT INTO likes (post_id, user_id) VALUES (:post_id, :user_id)');
 
@@ -58,7 +57,6 @@ if (isset($_POST['id'])) {
         $number = displayLikes($postId, $pdo);
         $display = ([
             'number' => $number,
-            // 'text' => 'unlike',
             'src' => 'http://localhost:8000/icons/liked.png'
         ]);
 

@@ -1,21 +1,20 @@
 <?php require __DIR__ . '/views/header.php';
 isLoggedIn(); ?>
 
-<article>
-    <h2>Following</h2>
+<article class="posts-wrapper">
+
+    <h1>Following</h1>
 
     <?php $follwing = displayFollowing($_SESSION['user']['id'], $pdo);  ?>
 
     <?php foreach ($follwing as $follow) : ?>
 
-
         <div class="post-container">
 
             <?php $user = getUser((int) $follow['profile_id'], $pdo); ?>
 
-
             <div class="author">
-                <a href=" <?php echo 'profile.php?id=' . $post['author_id'] ?> ">
+                <a href=" <?php echo 'profile.php?id=' . $follow['author_id'] ?> ">
                     <?php echo $user['name'] ?>
                 </a>
 
@@ -32,9 +31,7 @@ isLoggedIn(); ?>
                 <?php endif; ?>
             </div>
 
-
             <img class="post-img" src=" <?php echo "uploads/" . $follow['image_name'] ?> " loading="lazy">
-
 
             <div class="about-post">
                 <div class="title-content-box">
@@ -79,9 +76,8 @@ isLoggedIn(); ?>
 
             <small class="date"><?php echo 'Published: ' .  $dateWithoutTime ?></small>
 
+
             <!-- Comments -->
-
-
             <?php $comments = getAllComments((int) $follow['id'], $pdo); ?>
             <?php foreach ($comments as $comment) : ?>
                 <div class="comments">
@@ -99,9 +95,7 @@ isLoggedIn(); ?>
                         </form>
                     <?php endif; ?>
                 </div>
-
             <?php endforeach; ?>
-
 
             <form class="comments-form" action="app/posts/comment-post.php" method="post">
                 <input type="hidden" name="post-id" value="<?php echo $follow['id'] ?> ">
@@ -113,18 +107,14 @@ isLoggedIn(); ?>
 
                 <div class="comment-input">
                     <div class="add-comment">
-                        <!-- <label for="comment"></label> -->
                         <input class="comment-text" type="text" name="comment" placeholder="Add comment..">
                     </div>
                     <div class="send-comment">
                         <button class="comment-submit" type="submit">Send</button>
                     </div>
-
                 </div>
             </form>
-
         </div>
     <?php endforeach; ?>
 </article>
-
 <?php require __DIR__ . '/views/footer.php'; ?>

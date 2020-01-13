@@ -1,5 +1,8 @@
 .login {
   height: 500px;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
 }
 .login-btn {
   box-shadow: inset 0px 1px 0px 0px #dcecfb;
@@ -52,4 +55,24 @@
   width: 100vw;
   display: flex;
   justify-content: center;
+}
+
+@media (min-width: 650px) {
+  .login label {
+    width: 600px;
+  }
+
+  .login input {
+    width: 600px;
+  }
+
+  /* New user  */
+
+  .new-user label {
+    width: 600px;
+  }
+
+  .new-user input {
+    width: 600px;
+  }
 }

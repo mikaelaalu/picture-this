@@ -14,7 +14,6 @@ if (isset($_POST['name'], $_POST['email'], $_POST['password'], $_POST['password-
 
 
         // Checks if email exists in database
-
         $emailStatement = $pdo->prepare('SELECT * FROM users WHERE email = :email');
 
         $emailStatement->execute([
@@ -35,8 +34,6 @@ if (isset($_POST['name'], $_POST['email'], $_POST['password'], $_POST['password-
             redirect('/new-user.php');
         }
 
-
-        // Insert into database
         $statement = $pdo->prepare('INSERT INTO users (name, email, password) VALUES (:name, :email, :password)');
 
         $statement->execute([

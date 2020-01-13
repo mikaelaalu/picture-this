@@ -8,10 +8,8 @@ $biography = $getUser['biography'];
 $name = $getUser['name'];
 ?>
 
-
 <p><?php echo checkForError(); ?></p>
 <p><?php echo checkForConfirm(); ?></p>
-
 
 <!-- Get the user from the database to frontend -->
 <?php $getUser = getUser($_SESSION['user']['id'], $pdo); ?>
@@ -33,9 +31,7 @@ $name = $getUser['name'];
             <p class="user-name"> <?php echo $name; ?> </p>
             <p class="user-bio"> <?php echo $biography  ?> </p>
         </div>
-
     </div>
-
 
     <h2>Edit your profile</h2>
 
@@ -57,7 +53,7 @@ $name = $getUser['name'];
         <div>
             <label for="email">Email</label>
             <input type="email" name="email" value="<?php echo $getUser['email'] ?>" required>
-            <small>Please provide the your email.</small>
+            <small>Please provide your email.</small>
         </div>
         <div clsss="btn-box">
             <button class="styled-btn" type="submit"> Change</button></div>
@@ -90,9 +86,6 @@ $name = $getUser['name'];
         </a>
     </div>
 
-
-
 </article>
-
 
 <?php require __DIR__ . '/views/footer.php'; ?>

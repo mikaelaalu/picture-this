@@ -8,12 +8,9 @@ header('Content-Type: application/json');
 
 if (isset($_POST['comment-by'], $_POST['comment-id'])) {
 
-
     $commentId = filter_var($_POST['comment-id'], FILTER_SANITIZE_NUMBER_INT);
     $commentBy =  filter_var($_POST['comment-by'], FILTER_SANITIZE_NUMBER_INT);
     $user =  $_SESSION['user']['id'];
-
-    // die(var_dump($commentBy));
 
     if ($commentBy === $user) {
 
@@ -27,16 +24,7 @@ if (isset($_POST['comment-by'], $_POST['comment-id'])) {
             ':comment_id' => $commentId,
         ]);
 
-        // $_SESSION['message'] = ['Your comment was deleted!'];
-
-
         // json rquest
-
-
         echo json_encode('Your comment was deleted');
     }
 }
-
-
-
-// redirect('/');

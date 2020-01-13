@@ -20,7 +20,7 @@ $visitId = $_SESSION['user']['id'];
 
 <article class="posts-wrapper">
 
-    <div class="profile-info">
+    <div class="profile-info-box">
 
 
         <?php if (!$avatar) : ?>
@@ -37,12 +37,16 @@ $visitId = $_SESSION['user']['id'];
             <p class="user-name"> <?php echo $name; ?> </p>
             <p class="user-bio"> <?php echo $biography  ?> </p>
 
-            <div>
-                <?php $followers = followers($profileId, $pdo); ?>
-                <small class="followers">Followers: <?php echo $followers ?> </small>
+            <div class="follow-box">
+                <div class="follow-info">
+                    <?php $followers = followers($profileId, $pdo); ?>
+                    <small class="followers">Followers: <?php echo $followers ?> </small>
+                </div>
 
-                <?php $following = following($userId, $pdo); ?>
-                <small class="following">Following: <?php echo $following ?> </small>
+                <div class="follow-info">
+                    <?php $following = following($userId, $pdo); ?>
+                    <small class="following">Following: <?php echo $following ?> </small>
+                </div>
             </div>
 
             <!-- Follow -->
@@ -65,26 +69,17 @@ $visitId = $_SESSION['user']['id'];
                         <?php endif; ?>
 
                     </button>
-
                 </form>
-
             <?php endif; ?>
         </div>
 
         <?php if ($profileId === $visitId) : ?>
             <div class='edit-profile'>
-                <!-- <a href="/app/users/logout.php">
-                    <img class="nav-icon" src="/icons/exit.png" alt="logout">
-                </a> -->
                 <a class="edit" href="edit-profile.php">
                     <img class="nav-icon" src="/icons/settings.png" alt="logout">
                 </a>
-
-                <!-- <a class="logout" href="/app/users/logout.php"> Log out </a> -->
             </div>
         <?php endif; ?>
-
-
     </div>
 
 
@@ -141,14 +136,18 @@ $visitId = $_SESSION['user']['id'];
             </div>
 
             <div class="edit-post-wrapper">
-                <small class="date"><?php echo 'Published: ' . $post['date']; ?></small>
+
+                <?php $dateWithTime = $post['date'];
+
+                $dateArray = explode(' ', $dateWithTime);
+                $dateWithoutTime = $dateArray[0]; ?>
+                <small class="date"><?php echo 'Published: ' . $dateWithoutTime; ?></small>
                 <?php if ($profileId === $visitId) : ?>
                     <a href=" <?php echo "edit-post.php?id=" . $post['id'] ?> "> <button class="edit-post"> Edit post </button> </a>
                 <?php endif; ?>
             </div>
 
             <!-- Comments -->
-
             <?php $comments = getAllComments((int) $post['id'], $pdo); ?>
             <?php foreach ($comments as $comment) : ?>
                 <div class="comments">
@@ -159,7 +158,6 @@ $visitId = $_SESSION['user']['id'];
 
                         <form class="delete-comment-form" action="app/posts/delete-comment.php" method="post">
                             <input type="hidden" name="comment-id" value="<?php echo $comment['comment_id'] ?>">
-
                             <input type="hidden" name="comment-by" value="<?php echo $comment['comment_by'] ?>">
 
                             <button class="delete-comment" type="submit">Delete comment</button>

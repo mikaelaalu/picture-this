@@ -15,9 +15,7 @@ $posts = editPost($_GET['id'], $pdo);
         </div>
     <?php endforeach; ?>
 
-
     <h2>Edit your post</h2>
-
 
     <form action="<?php echo 'app/posts/edit-post.php?id=' . $post['id'] ?> " method="post" enctype="multipart/form-data">
         <div>
@@ -49,8 +47,5 @@ $posts = editPost($_GET['id'], $pdo);
             <button class="warning-btn" type="submit">Delete post</button></div>
     </form>
 </article>
-
-
-
 
 <?php require __DIR__ . '/views/footer.php'; ?>

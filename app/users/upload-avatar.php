@@ -28,7 +28,8 @@ if (isset($_FILES['avatar'])) {
 
 
                 $_SESSION['message'] = ['The image was uploaded!'];
-                // Insert into database
+
+
                 $statement = $pdo->prepare('UPDATE users set avatar_name = :avatar_name WHERE id = :id');
 
                 $statement->execute([

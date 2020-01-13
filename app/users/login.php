@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 require __DIR__ . '/../autoload.php';
 
-// In this file we login users.
-
 
 if (isset($_POST['email'], $_POST['password'])) {
 
@@ -20,7 +18,6 @@ if (isset($_POST['email'], $_POST['password'])) {
     ]);
 
     $user = $statement->fetch(PDO::FETCH_ASSOC);
-
 
 
     if (!$user) {

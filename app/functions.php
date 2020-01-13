@@ -378,7 +378,14 @@ function following(int $userId, PDO $pdo): string
     return $following;
 }
 
-function displayFollowing($user, $pdo)
+/**
+ * Get all followers posts.
+ *
+ * @param string $user
+ * @param pdo $pdo
+ * @return array
+ */
+function displayFollowing(string $user, pdo $pdo): array
 {
     $query = 'SELECT * FROM following INNER JOIN posts on profile_id = posts.author_id WHERE user_id = :user_id';
 
