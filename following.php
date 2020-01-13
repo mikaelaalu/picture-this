@@ -26,7 +26,7 @@ isLoggedIn(); ?>
 
                 <?php else : ?>
 
-                    <img class="avatar-small" src="<?php echo "uploads/" . $user ?>" alt="avatar">
+                    <img class="avatar-small" src="<?php echo "uploads/" . $user['avatar-name'] ?>" alt="avatar">
 
                 <?php endif; ?>
             </div>

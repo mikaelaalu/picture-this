@@ -2,7 +2,8 @@
 
 ?>
 
-<?php checkForConfirm(); ?>
+<?php checkForConfirm();
+checkForError(); ?>
 
 <article class="login">
     <h1>Login</h1>

@@ -50,7 +50,7 @@ checkForConfirm(); ?>
         <div>
             <label for="biography">Biography</label>
             <textarea class="biography" type="text" name="biography" required><?php echo $getUser['biography']; ?></textarea>
-            <small>Please provide the your biography.</small>
+            <small>Please provide your biography.</small>
         </div>
         <div>
             <label for="email">Email</label>
