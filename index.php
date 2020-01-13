@@ -6,7 +6,6 @@ isLoggedIn();
 
 ?>
 
-
 <?php checkForError();
 checkForConfirm(); ?>
 
