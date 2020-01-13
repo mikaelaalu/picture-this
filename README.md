@@ -44,6 +44,20 @@ Scool assignment, creating your own instagram clone.
 * HTML
 * CSS
 
+## Installation
+1. To be able to try this Instagram clone, clone this repository to your directory through the terminal.
+```
+$ git clone https://github.com/mikaelaalu/picture-this.git
+```
+2. Change current directory to the cloned repo.
+```
+$ cd picture-this
+```
+
+3. Start your web server.
+```
+$ php -S localhost:8000
+```
 
 ## Autor
 Mikaela Lundsgård
@@ -51,6 +65,7 @@ Mikaela Lundsgård
 
 ## Testers
 <a href ="https://github.com/OskarJoss" >Oskar Joss </a>
+<a href ="https://github.com/milliebase" >Betsy Alva Soplin </a>
 
 ## Code review
 
