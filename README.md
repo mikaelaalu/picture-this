@@ -50,7 +50,7 @@ Mikaela Lundsgård
 
 
 ## Testers
-Oskar Joss
+<a href ="https://github.com/OskarJoss" >OskarJoss </a>
 
 ## Code review
 
