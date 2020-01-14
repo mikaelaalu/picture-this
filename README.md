@@ -66,6 +66,7 @@ Mikaela Lundsgård
 ## Testers
 * <a href ="https://github.com/OskarJoss" >Oskar Joss </a>
 * <a href ="https://github.com/milliebase" >Betsy Alva Soplin </a>
+* <a href ="https://github.com/jesperlndqvst" > Jesper Lundqvist </a>
 
 ## Code review
 
