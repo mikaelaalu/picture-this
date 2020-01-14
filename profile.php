@@ -11,10 +11,7 @@ $getPost = getPost($_GET['id'], $pdo);
 $profileId = $_GET['id'];
 $visitId = $_SESSION['user']['id'];
 
-?>
-
-
-<?php checkForError();
+checkForError();
 checkForConfirm(); ?>
 
 

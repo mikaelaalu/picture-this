@@ -33,9 +33,9 @@ $posts = editPost($_GET['id'], $pdo);
         </div>
 
         <div>
-            <label for="content">Content</label>
-            <textarea type="text" name="content" required> <?php echo $post['content'] ?> </textarea>
-            <small>Edit your content</small>
+            <label for="content">Description</label>
+            <textarea class="content-box" type="text" name="content" required> <?php echo $post['content'] ?> </textarea>
+            <small>Edit your description</small>
         </div>
         <div clsss="btn-box">
             <button class="edit-btn" type="submit">Edit post</button></div>

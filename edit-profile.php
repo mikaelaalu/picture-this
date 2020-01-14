@@ -6,10 +6,7 @@ $getUser = getUser($_SESSION['user']['id'], $pdo);
 $avatar = $getUser['avatar_name'];
 $biography = $getUser['biography'];
 $name = $getUser['name'];
-?>
-
-
-<?php checkForError();
+checkForError();
 checkForConfirm(); ?>
 
 

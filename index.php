@@ -4,9 +4,7 @@ require __DIR__ . '/views/header.php';
 
 isLoggedIn();
 
-?>
-
-<?php checkForError();
+checkForError();
 checkForConfirm(); ?>
 
 

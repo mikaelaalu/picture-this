@@ -1,7 +1,5 @@
-<?php require __DIR__ . '/views/header.php'; ?>
-
-
-<?php checkForError(); ?>
+<?php require __DIR__ . '/views/header.php';
+checkForError(); ?>
 
 
 <article class="new-user">
