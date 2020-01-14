@@ -60,9 +60,8 @@ $ cd picture-this
 $ php -S localhost:8000
 ```
 
-## Autor
-Mikaela Lundsgård
-
+## Author
+<a href="https://github.com/mikaelaalu"> Mikaela Lundsgård </a>
 
 ## Testers
 * <a href ="https://github.com/OskarJoss" >Oskar Joss </a>
