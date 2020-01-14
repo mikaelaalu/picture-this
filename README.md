@@ -70,6 +70,27 @@ Mikaela Lundsgård
 * <a href ="https://github.com/jesperlndqvst" > Jesper Lundqvist </a>
 
 ## Code review
+By <a href="https://github.com/alexandergustafssonflink"> Alexander Gustafsson Flink </a>
+
+- Not logged in on signup. This could be fixed by fetching the registered user from the database and declaring it as SESSION[‘user’].
+
+- In comment section you need to reload the page to see delete-button. If you make more than one comment you need to refresh page to see them.
+
+- The class .post-img has a 100% width and 400px making the postimage squeeze into these measures. You could instead put the image in a div, set the measures to the div and then give the image a “object-fit : cover”-attribute, making it fit these measures without squeezing.
+
+- Same as above goes for img.avatar.
+
+- You could put function isLoggedin in your header to minimize the use of it.
+
+- Section like-button and \$dateWithTime on following-php could use a few rows between them to get a clearer view on what’s what.
+
+- You could shorten down $_SESSION[‘user’] to $user using a if isset in your header to dry your code.
+
+- In the fetch-functions you declare adress localhost:8000, which will mean a problem if the application is launched from another port.
+
+- In the following-table of the database you have two columns - user_id and profile_id. It’s not very clear which column is following which. Consider calling the tables user_id and follows_id, maybe.
+
+- In the comments-table of the database you have column namned comment_id. You could just call it id, like you have done with the id in the posts-table.
 
 ## License
 - This project is licensed under MIT License, see the [LICENSE](LICENSE) file for details.
