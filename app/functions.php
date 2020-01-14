@@ -30,8 +30,9 @@ function checkForError()
 
         <?php foreach ($_SESSION['error'] as $error) : ?>
 
-            <p> <?php echo $error; ?> </p>
-
+            <div class="message-box">
+                <p class="message"> <?php echo $error; ?> </p>
+            </div>
         <?php endforeach;
         unset($_SESSION['error']);  ?>
 
@@ -49,9 +50,9 @@ function checkForConfirm()
     if (isset($_SESSION['message'])) : ?>
 
         <?php foreach ($_SESSION['message'] as $message) : ?>
-
-            <p> <?php echo $message; ?> </p>
-
+            <div class="message-box">
+                <p class="message"> <?php echo $message; ?> </p>
+            </div>
         <?php endforeach;
         unset($_SESSION['message']);  ?>
 

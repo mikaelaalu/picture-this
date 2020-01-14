@@ -21,7 +21,13 @@ h1 {
   margin-top: -50px;
 }
 
-.new-user {
-  text-decoration: none;
-  color: inherit;
+.new-user-box a {
+  color: rgba(39, 39, 39, 0.897);
+}
+
+.message-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  color: rgb(97, 96, 96);
 }
