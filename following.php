@@ -7,6 +7,10 @@ isLoggedIn(); ?>
 
     <?php $follwing = displayFollowing($_SESSION['user']['id'], $pdo);  ?>
 
+    <?php if (empty($follwing)) : ?>
+        <p class="info-message">You don't follow anyone yet..</p>
+    <?php endif; ?>
+
     <?php foreach ($follwing as $follow) : ?>
 
         <div class="post-container">
