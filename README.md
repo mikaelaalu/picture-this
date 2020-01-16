@@ -38,6 +38,14 @@ Scool assignment at Yrgo Web development program, creating your own instagram cl
 
 - [x] As a user I'm able to delete my comments.
 
+### Extra features added by <a href="https://github.com/mikaelaalu"> Emelie Petersson </a>
+
+-
+
+-
+
+
+
 ## Built With
 * PHP
 * JavaScript Vanilla
