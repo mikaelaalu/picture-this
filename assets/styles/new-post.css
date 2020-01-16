@@ -1,0 +1,11 @@
+.preview-image-wrapper {
+  margin: 0 auto;
+  width: 20em;
+  height: 20em;
+  overflow: hidden;
+}
+.preview-image {
+  object-fit: cover;
+  width: 80vw;
+  height: 80vw;
+}
