@@ -4,13 +4,15 @@ const chooseFile = document.querySelector(".choose-file");
 
 //When a file is choosen show it in the preview element
 function previewImage() {
-  const preview = document.querySelector("#output-image");
+  const previews = document.querySelectorAll("#output-image");
   const file = document.querySelector("input[type=file]").files[0];
   const reader = new FileReader();
   reader.addEventListener(
     "load",
     function() {
-      preview.src = reader.result;
+      previews.forEach(preview => {
+        preview.src = reader.result;
+      });
     },
     false
   );

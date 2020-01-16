@@ -16,6 +16,7 @@
   height: 7em;
   overflow: hidden;
   display: block;
+  /* position: relative; */
 }
 .select-filter .preview-image {
   object-fit: cover;
@@ -36,20 +37,19 @@
   width: 7em;
   text-align: left;
 }
-/* HIDE RADIO */
+
+/* hide radio */
 [type="radio"] {
   position: absolute;
   opacity: 0;
-  width: 0;
-  height: 0;
+  width: 100%;
+  height: 100%;
 }
 
-/* IMAGE STYLES */
 [type="radio"] + img {
   cursor: pointer;
 }
 
-/* CHECKED STYLES */
 [type="radio"]:checked + img {
-  border-bottom: 2px solid #f00;
+  border-bottom: 5px solid rgb(245, 135, 122);
 }
