@@ -1,7 +1,11 @@
 <?php require __DIR__ . '/views/header.php';
 
 isLoggedIn();
-checkForError(); ?>
+checkForError();
+
+$filters = getFilters($pdo);
+
+?>
 
 <article class="form-box">
 
@@ -15,6 +19,18 @@ checkForError(); ?>
     <!--Preview image -->
     <div class="preview-image-wrapper">
       <img class="preview-image" src="/icons/placeholder.png" id="output-image" alt="image preview" loading="lazy" />
+    </div>
+
+    <div class="filters-wrapper">
+      <?php foreach ($filters as $filter) : ?>
+        <div class="select-filter <?php echo $filter['filter_class'] ?>">
+          <label class="select-filter" for="filter">
+            <input type="radio" name="filter" id="filter" value="<?php echo $filter['filter_class'] ?>">
+            <img class="preview-image" src="/icons/placeholder.png" id="output-image" alt="image preview" loading="lazy" />
+          </label>
+        </div>
+        <small><?php echo $filter['name'] ?></small>
+      <?php endforeach; ?>
     </div>
 
     <div>
