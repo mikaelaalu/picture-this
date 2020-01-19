@@ -21,7 +21,19 @@ $filters = getFilters($pdo);
       <img class="preview-image" src="/icons/placeholder.png" id="output-image" alt="image preview" loading="lazy" />
     </div>
 
+
+
     <div class="filters-wrapper">
+
+      <!-- No filter -->
+      <div class="select-filter">
+        <label class="select-filter" for="filter">
+          <input type="radio" name="filter" id="filter" value="no-filter">
+          <img class="preview-image" src="/icons/placeholder.png" id="output-image" alt="image preview" loading="lazy" />
+        </label>
+      </div>
+      <small>Normal</small>
+
       <?php foreach ($filters as $filter) : ?>
         <div class="select-filter <?php echo $filter['filter_class'] ?>">
           <label class="select-filter" for="filter">
