@@ -9,6 +9,7 @@
 <script src="/assets/scripts/following.js"></script>
 <script src="/assets/scripts/logout.js"></script>
 <script src="/assets/scripts/preview-image.js"></script>
+<script src="/assets/scripts/search.js"></script>
 <script src="/assets/scripts/select-filter.js"></script>
 
 </body>
