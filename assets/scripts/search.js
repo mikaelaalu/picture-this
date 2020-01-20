@@ -1,23 +1,34 @@
 "use strict";
-const searchForm = document.querySelectorAll(".search-form");
+const searchForm = document.querySelector(".search-form");
+const searchInput = document.querySelector(".search-input");
+const list = document.querySelector(".search-output");
 
-searchForm.addEventListener("submit", sendSearchInput);
-
-function sendSearchInput(event) {
+// Send search input to search.php and output search result in list items
+searchInput.addEventListener("keyup", event => {
   event.preventDefault();
 
-  const list = document.querySelector(".search-output");
+  if (event.keyCode == 13) {
+    console.log(event.keyCode);
+  }
 
   const formData = new FormData(searchForm);
+  list.innerHTML = "";
 
-  fetch("/app/posts/search.php", {
+  fetch("/app/users/search.php", {
     method: "POST",
     body: formData
   })
     .then(response => response.json())
-    .then(output => {
-      const listItem = document.createElement("li");
-      listItem.innerText = output;
-      list.appendChild(listItem);
+    .then(outputs => {
+      outputs.forEach(output => {
+        const listItem = document.createElement("li");
+        listItem.innerText = output.name;
+        list.appendChild(listItem);
+      });
     });
-}
+});
+
+//Prevent user from resetting output by hitting enter
+searchForm.addEventListener("submit", event => {
+  event.preventDefault();
+});

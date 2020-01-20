@@ -1,8 +1,8 @@
 <?php require __DIR__ . '/views/header.php'; ?>
 
 <div class="search-container">
-  <form class="search-form" action="app/users/search.php" method="post">
-    <input class="search-input" name="search-input" type="text" placeholder="Search">
+  <form class="search-form" method="post">
+    <input class="search-input" name="search-input" type="text" placeholder="Search" autocomplete="off">
   </form>
 </div>
 
