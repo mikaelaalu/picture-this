@@ -23,6 +23,7 @@
   height: 100%;
 }
 .filters-wrapper {
+  background-color: #ffffff;
   margin: 0 auto 1em;
   height: 10em;
   width: 90vw;
@@ -51,4 +52,24 @@
 
 [type="radio"]:checked + img {
   border-bottom: 5px solid rgb(245, 135, 122);
+}
+
+@media (min-width: 650px) {
+  .preview-image-wrapper {
+    width: 35vw;
+    height: 30em;
+    margin: 0 auto;
+  }
+  .preview-image {
+    width: 500px;
+    height: 500px;
+  }
+  .filters-wrapper {
+    margin: 2em auto;
+    width: 35vw;
+  }
+  .select-filter .preview-image {
+    width: 110px;
+    height: 110px;
+  }
 }

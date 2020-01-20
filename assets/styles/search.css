@@ -75,3 +75,18 @@
 .search-output li {
   margin-top: 15px;
 }
+
+@media (min-width: 650px) {
+  .search-container {
+    width: 40vw;
+    margin: 40px auto 0;
+  }
+  .search-output-container {
+    width: 35vw;
+    margin: 40px auto;
+  }
+  .search-input {
+    background-size: 28px 28px;
+    background-position: 98% center;
+  }
+}

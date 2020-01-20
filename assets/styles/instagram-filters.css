@@ -5,11 +5,11 @@
 
 [class*="filter"]::before {
   display: block;
-  height: 100%;
+  height: 80%;
   left: 0;
   position: absolute;
   top: 0;
-  width: 100%;
+  width: 80%;
   z-index: 1;
 }
 
