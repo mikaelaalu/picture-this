@@ -7,10 +7,6 @@ const list = document.querySelector(".search-output");
 searchInput.addEventListener("keyup", event => {
   event.preventDefault();
 
-  if (event.keyCode == 13) {
-    console.log(event.keyCode);
-  }
-
   const formData = new FormData(searchForm);
   list.innerHTML = "";
 
@@ -21,8 +17,21 @@ searchInput.addEventListener("keyup", event => {
     .then(response => response.json())
     .then(outputs => {
       outputs.forEach(output => {
+        const link = document.createElement("a");
         const listItem = document.createElement("li");
-        listItem.innerText = output.name;
+        const avatar = document.createElement("img");
+
+        link.href = "profile.php?id=" + output.id;
+
+        if (output.avatar_name) {
+          avatar.src = "/uploads/" + output.avatar_name;
+        } else {
+          avatar.src = "/icons/persona.png";
+        }
+        const text = document.createTextNode(output.name);
+        listItem.appendChild(link);
+        link.appendChild(avatar);
+        link.appendChild(text);
         list.appendChild(listItem);
       });
     });

@@ -43,7 +43,35 @@
 }
 
 .search-output-container {
-  width: 90vw;
+  width: 85vw;
   min-height: 50vh;
   margin: 20px auto;
+}
+
+.search-output {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.search-output a {
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.search-output a:hover {
+  color: #80b5ea;
+}
+
+.search-output img {
+  display: inline-block;
+  margin-right: 5px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.search-output li {
+  margin-top: 15px;
 }
