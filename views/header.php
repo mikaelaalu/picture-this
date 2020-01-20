@@ -21,6 +21,7 @@ require __DIR__ . '/../app/autoload.php';
   <link rel="stylesheet" href="/assets/styles/profile.css">
   <link rel="stylesheet" href="/assets/styles/posts.css">
   <link rel="stylesheet" href="/assets/styles/new-post.css">
+  <link rel="stylesheet" href="/assets/styles/search.css">
   <link rel="stylesheet" href="/assets/styles/instagram-filters.css">
 
 
