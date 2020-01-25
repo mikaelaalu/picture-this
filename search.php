@@ -2,7 +2,7 @@
 
 <div class="search-container">
   <form class="search-form" method="post">
-    <input class="search-input" name="search-input" type="text" placeholder="Search" autocomplete="off">
+    <input class="search-input" name="search-input" type="text" placeholder="Search" autocomplete="off" require>
   </form>
 </div>
 

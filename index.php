@@ -86,7 +86,7 @@ checkForConfirm(); ?>
           <p class="display-user"> <?php echo $comment['name']; ?> </p>
           <p class="display-comment"> <?php echo $comment['comment']; ?> </p>
 
-          <?php if ($_SESSION['user']['id'] === $comment['comment_by']) : ?>
+          <?php if ($_SESSION['user']['id'] === (string) $comment['comment_by']) : ?>
 
             <form class="delete-comment-form" action="app/posts/delete-comment.php" method="post">
               <input type="hidden" name="comment-id" value="<?php echo $comment['comment_id'] ?>">
