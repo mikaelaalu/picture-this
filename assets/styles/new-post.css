@@ -25,7 +25,7 @@
 .filters-wrapper {
   background-color: #ffffff;
   margin: 0 auto 1em;
-  height: 10em;
+  height: 9em;
   width: 90vw;
   flex-wrap: wrap;
   flex-direction: column;
@@ -38,7 +38,7 @@
   text-align: left;
 }
 
-/* hide radio */
+/* hide radio button */
 [type="radio"] {
   position: absolute;
   opacity: 0;

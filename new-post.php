@@ -21,10 +21,8 @@ $filters = getFilters($pdo);
       <img class="preview-image" src="/icons/placeholder.png" id="output-image" alt="image preview" loading="lazy" />
     </div>
 
-
-
+    <!-- Add filter  -->
     <div class="filters-wrapper">
-
       <!-- No filter -->
       <div class="select-filter">
         <label class="select-filter" for="filter">
@@ -34,6 +32,7 @@ $filters = getFilters($pdo);
       </div>
       <small>Normal</small>
 
+      <!-- Filters -->
       <?php foreach ($filters as $filter) : ?>
         <div class="select-filter <?php echo $filter['filter_class'] ?>">
           <label class="select-filter" for="filter">
