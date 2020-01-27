@@ -38,12 +38,11 @@ Scool assignment at Yrgo Web development program, creating your own instagram cl
 
 - [x] As a user I'm able to delete my comments.
 
-### Extra features added by <a href="https://github.com/mikaelaalu"> Emelie Petersson </a>
+### Extra features added by <a href="https://github.com/emeliepetersson"> Emelie Petersson </a>
 
--
+- [x] As a use I'm able to search and see a list of users by query.
 
--
-
+- [x] As a user I'm able to add filters to my images.
 
 
 ## Built With
