@@ -5,7 +5,6 @@ declare(strict_types=1);
 require __DIR__ . '/../autoload.php';
 
 if (isset($_SESSION['user']['id'], $_GET['author_id'], $_GET['id'], $_GET['image'])) {
-
     $authorId = filter_var($_GET['author_id'], FILTER_SANITIZE_NUMBER_INT);
     $loggedIn = $_SESSION['user']['id'];
     $postId = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
@@ -14,7 +13,6 @@ if (isset($_SESSION['user']['id'], $_GET['author_id'], $_GET['id'], $_GET['image
     $path = __DIR__ . '/../../uploads/' . $image;
 
     if ($authorId === $loggedIn) {
-
         $statement = $pdo->prepare('DELETE FROM posts WHERE id = :id');
 
         if (!$statement) {

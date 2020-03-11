@@ -7,11 +7,10 @@ require __DIR__ . '/../autoload.php';
 header('Content-Type: application/json');
 
 if (isset($_POST['profile'])) {
-
     $profileId = (int) filter_var($_POST['profile'], FILTER_SANITIZE_NUMBER_INT);
     $userId = (int) $_SESSION['user']['id'];
 
-    if (isFollowing($userId,  $profileId, $pdo)) {
+    if (isFollowing($userId, $profileId, $pdo)) {
 
         // Delete from database if user already following
         $statement = $pdo->prepare('DELETE FROM following WHERE user_id = :user_id AND profile_id = :profile_id');

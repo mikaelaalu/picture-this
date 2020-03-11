@@ -6,7 +6,6 @@ require __DIR__ . '/../autoload.php';
 
 
 if (isset($_FILES['image'])) {
-
     $image = $_FILES['image'];
     $fileName = $image['name'];
     $tmpName = $image['tmp_name'];
@@ -23,11 +22,8 @@ if (isset($_FILES['image'])) {
     $allowed = array('jpg', 'jpeg', 'png');
 
     if (in_array($fileActualExt, $allowed)) {
-
         if ($error === 0) {
-
             if ($size <= 2097152) {
-
                 $newFileName = date('Y-m-d H:i:s') . '.' . $fileActualExt;
                 $fileDestination = '../../uploads/' . $newFileName;
 

@@ -5,9 +5,7 @@ declare(strict_types=1);
 require __DIR__ . '/../autoload.php';
 
 if (isset($_POST['name'], $_POST['email'], $_POST['password'], $_POST['password-confirm'])) {
-
     if ($_POST['password'] === $_POST['password-confirm']) {
-
         $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
         $name = filter_var($_POST['name'], FILTER_SANITIZE_STRING);
         $hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -28,7 +26,6 @@ if (isset($_POST['name'], $_POST['email'], $_POST['password'], $_POST['password-
 
         //If email exist
         if ($emailExist) {
-
             $_SESSION['error'] = ["Email is already taken"];
 
             redirect('/new-user.php');
@@ -50,7 +47,6 @@ if (isset($_POST['name'], $_POST['email'], $_POST['password'], $_POST['password-
         $_SESSION['message'] = ['Your account was created!'];
         redirect('/login.php');
     } else {
-
         $_SESSION['error'] = ['Passwords do not match, try again!'];
         redirect('/new-user.php');
     }

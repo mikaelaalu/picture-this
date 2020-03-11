@@ -6,7 +6,6 @@ require __DIR__ . '/../autoload.php';
 
 
 if (isset($_POST['old-password'], $_POST['new-password'], $_POST['confirm-password'])) {
-
     $password = $_POST['old-password'];
     $id = $_SESSION['user']['id'];
 

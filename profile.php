@@ -123,9 +123,9 @@ checkForConfirm();
           <p class="like-counter"> <?php
 
                                     if ($displayLikes === "0") {
-                                      echo ' ';
+                                        echo ' ';
                                     } else {
-                                      echo $displayLikes;
+                                        echo $displayLikes;
                                     } ?> </p>
           <button class="like-btn">
             <?php if (isPostLiked($post['id'], $_SESSION['user']['id'], $pdo)) : ?>
