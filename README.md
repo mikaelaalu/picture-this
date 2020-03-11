@@ -1,3 +1,4 @@
+[![StyleCI](https://github.styleci.io/repos/226835284/shield?branch=master)](https://github.styleci.io/repos/226835284)
 # picture-this
 Creating an instagram clone
 
